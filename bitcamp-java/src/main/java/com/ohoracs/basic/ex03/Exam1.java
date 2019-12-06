@@ -6,7 +6,7 @@ package com.ohoracs.basic.ex03;
     public static void main(String[] args) {
       // 정수 리터럴
       System.out.println(78); // 10진수 표기법 println은 무조건 10진수로 출력
-      // 78이 정수 리터럴이다.
+                              // 78이 정수 리터럴이다.
       
       System.out.println(+78);  // 10진수 표기법 
       System.out.println(-78);  // 10진수 표기법
@@ -21,10 +21,22 @@ package com.ohoracs.basic.ex03;
       
 
       // 부동소수점 리터럴
+      System.out.println(3.14); //고정소수점
+      System.out.println(0.314e1); // 부동소수점 e1=10의 1승 곱하라
+      System.out.println(31.4e-1); // 부동소수점 e-1=-10의 1승 곱하라
+
 
       //논리 리터럴
+      System.out.println(true);
+      System.out.println(false);
 
-      // 문자 리터럴
+ 
+      // 한 문자 리터럴
+      System.out.println('A');
+      System.out.println('가');
+      
+      // 문자열 리터럴
+      System.out.println("안녕하세요. 비트캠프!");
 
     }
   }
