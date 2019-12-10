@@ -58,7 +58,8 @@ package com.eomcs.basic.ex03;
 //
   public class Exam42 {
     public static void main(String[] args) {
-   
+      //## 문자 'A'의 문자 코드를 직접 사용하여 문자를 출력하기
+      //유니코드 문자집합에서 문자 'A'의 문자 코드는 65 이다.
       // 코드 값을 안다면 직접 코드 값을 사용하여 문자를 지정할 수 있다.
       //
       System.out.println(0x0041); // 앞에 00 생략 가능, 65출력
