@@ -1,0 +1,31 @@
+package com.eomcs.basic.ex04;
+
+//# 한 문장에서 여러 개의 변수를 선언하기
+//- 한 문장으로 같은 유형의 변수를 여러 개 선언할 수 있다.
+//- 문법
+//  데이터타입 변수1, 변수2, 변수3;
+//
+
+public class Exam111 {
+  public static void main(String[] args) {
+    //여러 개의 정수 4바이트메모리 준비 시키기
+    
+    int i1;
+    int i2;
+    int i3;
+
+    int a1;
+    int a2;
+    int a3;
+
+    int x, y, z;
+    
+    // 한 번에 한 개씩 변수를 선언할 수 있고, 
+    // 콤마(,)를 사용하여 여러 개의 변수를 한 번에 선언할 수 있다.
+
+
+
+
+
+  }
+}
