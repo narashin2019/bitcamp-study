@@ -25,24 +25,21 @@ public class Test01 {
     
     scanner.close();
     
-    System.out.print("=> ");
-
-    
     switch(s) {
       case "+" :
-        System.out.print(i1+" + "+i2+" = "+(i1 + i2));
+        System.out.print("=> " + i1+" + "+i2+" = "+(i1 + i2));
         break;
 
       case "-" :
-        System.out.println(i1+" - "+i2+" = "+(i1 - i2));
+        System.out.println("=> " + i1+" - "+i2+" = "+(i1 - i2));
         break;
 
       case "*" :
-        System.out.println(i1+" * "+i2+" = "+(i1 * i2));
+        System.out.println("=> " + i1+" * "+i2+" = "+(i1 * i2));
         break;
 
       case "/" :
-        System.out.println(i1+" / "+i2+" = "+(i1 / i2));
+        System.out.println("=> " + i1+" / "+i2+" = "+(i1 / i2));
         break;
         
       default :
