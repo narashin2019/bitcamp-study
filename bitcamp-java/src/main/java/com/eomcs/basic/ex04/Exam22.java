@@ -6,22 +6,22 @@ public class Exam22 {
   public static void main(String[] args) {
     // 변수의 크기와 리터럴의 크기
     
-    // 자바의 정수 리터럴은 4바이트와 8바이트만 있다.
-    // 그런데 변수에 값을 저장할 수 있다면 허락한다.
+    // 자바의 정수 리터럴은 4바이트와 8바이트만 있다. 기본이 4바이트
+    // 그런데 변수에 값을 저장할 수 있다면 허락한다.**
     byte b; 
     b = 127;
     // 127는 4바이트의 정수 리터럴이다.
-    // 그러나 b 변수에 넣을 수 있는 값이기 때문에 허락한다.
+    // 그러나 b 변수에 넣을 수 있는 값이기 때문에 허락한다. *4바이트지만 눈 감아줌
 
     b = 128; 
     // 128은 4바이트 정수 리터럴이다.
-    // 그러나 int ==> byte 하려고 해서 오류다
+    // 그러나 int ==> byte 하려고 해서 오류다.
     // error: incompatible types: possible lossy conversion from int to byte
 
     b = 10L;
     // error: incompatible types: possible lossy conversion from long to byte
-    // long ==> byte
-    // long 리터럴은 변수에 값을 저장할 수 있더라도 허락하지 않는다.
+    // long ==> byte 
+    // long 리터럴은 변수에 값을 저장할 수 있더라도 허락하지 않는다.!!!
 
   }
 }

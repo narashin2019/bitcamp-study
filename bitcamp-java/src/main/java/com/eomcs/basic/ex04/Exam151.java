@@ -21,7 +21,7 @@ public class Exam151 {
     // - 문법: 
     //   l-value = r-value
     //   l-value : 변수가 와야 한다. 값이 올 수 없다.
-    //   r-value : 값, 변수, 표현식(expression)이 올 수 있다.
+    //   r-value : 값, 변수(값이 들어있는), 표현식(expression)이 올 수 있다.
     i = 100;
     //200 = 300 ; 오류
     //200 = i; 오류
@@ -32,7 +32,7 @@ public class Exam151 {
     j = Math.abs(-200); // 표현식 (절대값으로 만들어 리턴하라는 메소드 표현식)
                         // int java.lang.Math.abs(int a) (int 값이 리턴되며 java.lang에 속하는 함수고 java.lang은 생략가능하며~)
     j = (i > 100) ? 1 : -1; // 표현식
-  //j = System.out.println(100); // 표현식이 아니다. 그냥 문장이다. 컴파일오류 incompatible types: void cannot be converted to int
+    //j = System.out.println(100); // 표현식이 아니다. 그냥 문장이다. 컴파일오류 incompatible types: void cannot be converted to int
                                  // void java.io.PrintStream.println(int x) (void = 리턴 값이 없다)
     //문장(statement)
     // - 자바 언어로 작성한 명령어

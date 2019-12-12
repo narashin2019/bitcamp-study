@@ -1,5 +1,6 @@
 package com.eomcs.lms;
 
+import java.sql.Date;
 import java.util.Scanner;
 //컴파일러에게 지금부터 아래에 스캐너라는 말이 나오면 java.util.Scanner라는 뜻이다라는 의미
 
@@ -19,7 +20,7 @@ public class App {
     
     // 콘솔에서 입력 받은 값을 변수에 저장한다.
     System.out.print("번호? ");
-    String no = keyboard.nextLine(); //문자열을 담을 메모리, 메모리이름은 넘버 = 사용자가 한줄을 입력할때까지 기다림 엔터치는 순간 그 앞 내룔을 이 자리에 놓고 우항이 리턴할 결과를 좌항에 넣는다. 할당연산자 = 
+    int no = keyboard.nextInt(); //문자열을 담을 메모리, 메모리이름은 넘버 = 사용자가 한줄을 입력할때까지 기다림 엔터치는 순간 그 앞 내룔을 이 자리에 놓고 우항이 리턴할 결과를 좌항에 넣는다. 할당연산자 = 
     
     
     
@@ -31,6 +32,7 @@ public class App {
     //자바 객체지향프로그래밍언어. 실제 생활에서 기계를 사용하는 것과 유사. 거시기=오브젝트. 한 객체에 여러가지 기능이 있고 그 기능을 쓰는 것. 실생활과 똑같아서 프로그래밍시 마음이 편하다.
     //System.out.println(); = 시스템이라는 상자안에 아웃이라는 기능이 있는데 호출+한줄을출력하라(출력할내용1개값)
       
+    keyboard.nextLine(); // nextInt()후에 남아 있는 줄바꿈 기호를 제거하는 용이다.
     
     System.out.print("수업명? ");
     String title = keyboard.nextLine();
@@ -39,29 +41,35 @@ public class App {
     String desctiption = keyboard.nextLine();
             
     System.out.print("시작일? ");
-    String startDate = keyboard.nextLine(); // 변수이름이 여러단어 조합되어 있을때 2번째 단어부터는 첫글자 대문자
+    //"yyyy-MM-dd"형태로 입력된 문자열을 날짜 정보로 바꾼다. 데잇이라는 도구함에 들어있는 밸류오브의 기능 (사용자의 입력값)
+    //위 형태와 다르면 프로그램이 멈춰버림 > 예외처리문법으로 해결!
+    Date startDate = Date.valueOf(keyboard.next());
+    // 주서기 당근을 집어넣으면 당근주스가 리턴
+    // 변수이름이 여러단어 조합되어 있을때 2번째 단어부터는 첫글자 대문자
     
     System.out.print("종료일? ");
-    String endDate = keyboard.nextLine();
+    Date endDate = Date.valueOf(keyboard.next());
     
     System.out.print("총수업시간? ");
-    String totalHours = keyboard.nextLine();
+    int totalHours = keyboard.nextInt();
     
     System.out.print("일수업시간? ");
-    String dayHours = keyboard.nextLine();
+    int dayHours = keyboard.nextInt();
+    
+    //키보드 = 프로그램 종료하기 전에 다른 프로그램을 위해 돌려줘야 함. 어차피 프로그램 종료되면 자동으로 돌려주나 프로그래머는 돌려줍시다. 
+    keyboard.close();
     
     
     System.out.println();
     
-    System.out.printf("번호: %s\n", no);  // = System.out.println("번호: " + no);
+    System.out.printf("번호: %d\n", no);  // = System.out.println("번호: " + no);
     System.out.printf("수업명: %s\n", title);
     System.out.printf("설명: %s\n", desctiption);
     System.out.printf("기간: %s ~ %s\n", startDate, endDate); //
-    System.out.printf("총수업시간: %s 시간\n", totalHours);
-    System.out.printf("일수업시간: %s 시간\n", dayHours);
+    System.out.printf("총수업시간: %d 시간\n", totalHours);
+    System.out.printf("일수업시간: %d 시간\n", dayHours);
 
-    //키보드 = 프로그램 종료하기 전에 다른 프로그램을 위해 돌려줘야 함. 어차피 프로그램 종료되면 자동으로 돌려주나 프로그래머는 돌려줍시다. 
-    keyboard.close();
+  
     
   }
 }
