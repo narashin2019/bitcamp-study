@@ -8,6 +8,12 @@ public class App2 {
     
     Scanner keyboard = new Scanner(System.in);
     
+    final int size = 10000; 
+    int count = 0;
+
+    int
+    
+    
     System.out.print("번호? ");
     int no = keyboard.nextInt();
     keyboard.nextLine();
@@ -27,21 +33,16 @@ public class App2 {
     System.out.print("전화? ");
     String tel = keyboard.nextLine();
     
-    System.out.print("가입일? ");
     Date registeredDate = new Date(System.currentTimeMillis()); 
     keyboard.nextLine();
     
     keyboard.close();
     
     System.out.println();
-    System.out.printf("번호: %d\n", no);
-    System.out.printf("이름: %s\n", name);
-    System.out.printf("이메일: %s\n", email);
-    System.out.printf("암호: %s\n", password);
-    System.out.printf("사진: %s\n", photo);
-    System.out.printf("전화: %s\n", tel);
-    System.out.printf("가입일: %s\n", registeredDate);
     
+    for (int i = 0; i < count; i++) {
+    System.out.printf("%d, %s, %-30d, %-16d, %s\n", no[i], name[i], email[i], tel[i], registeredDate[i]);
+    }
 
   
     

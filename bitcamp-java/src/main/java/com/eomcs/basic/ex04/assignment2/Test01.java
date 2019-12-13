@@ -21,25 +21,25 @@ public class Test01 {
     int i2 = scanner.nextInt();
     
     System.out.println("연산자(+,-,*,/)? ");
-    String s = scanner.next(); // nextLine은 왜 안되는지 궁금함
+    String s = scanner.next(); // nextLine은 위에 엔터가 있어서 안됨
     
     scanner.close();
     
     switch(s) {
       case "+" :
-        System.out.print("=> " + i1+" + "+i2+" = "+(i1 + i2));
+        System.out.printf("=> %d %s %d = %d", i1, s, i2, (i1+i2));
         break;
 
       case "-" :
-        System.out.println("=> " + i1+" - "+i2+" = "+(i1 - i2));
+        System.out.printf("=> %d %s %d = %d", i1, s, i2, (i1-i2));
         break;
 
       case "*" :
-        System.out.println("=> " + i1+" * "+i2+" = "+(i1 * i2));
+        System.out.printf("=> %d %s %d = %d", i1, s, i2, (i1*i2));
         break;
 
       case "/" :
-        System.out.println("=> " + i1+" / "+i2+" = "+(i1 / i2));
+        System.out.printf("=> %d %s %d = %d", i1, s, i2, (i1/i2));
         break;
         
       default :

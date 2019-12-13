@@ -7,61 +7,81 @@ public class App {
   public static void main(String[] args) {
 
     Scanner keyboard = new Scanner(System.in);
-    
-    System.out.print("번호? ");
-    int no = keyboard.nextInt();
-    keyboard.nextLine();
-    //int no = Integer.parseInt(keyboard.nextLine());
-    
-    System.out.print("국가? ");
-    String country = keyboard.nextLine();
-    
-    System.out.print("장르? ");
-    String genres = keyboard.nextLine();
-    
-    System.out.print("제목한글? ");
-    String titleKor = keyboard.nextLine();
-    
-    System.out.print("제목영문? ");
-    String titleEng = keyboard.nextLine();
-    
-    System.out.print("별점? ");
-    int ratedStar = keyboard.nextInt();
-    keyboard.nextLine();
-    
-    System.out.print("코멘트? ");
-    String comment = keyboard.nextLine();
-    
-    System.out.print("키워드? ");
-    String keywords = keyboard.nextLine();
-    
-    System.out.print("시작일? ");
-    Date startDate = Date.valueOf(keyboard.nextLine()); 
-    //"yyyy-MM-dd"형태로 입력된 문자열을 날짜 정보로 바꾼다. 
-    //Date라는 도구의 valueof기능(사용자의 입력값)
-    //위 형태와 다르면 프로그램이 멈춰버림 > 예외처리문법으로 해결!
-    
-    System.out.print("종료일? ");
-    Date endDate = Date.valueOf(keyboard.next()); 
-    keyboard.nextLine();
-    
-    System.out.print("어디까지봤니? ");
-    String watchedEpisode = keyboard.nextLine();
-    
+
+    final int size = 1000;
+    String response;
+    int count = 0;
+
+    int[] no = new int[size];
+    String[] country = new String[size];
+    String[] genres = new String[size];
+    String[] titleKor = new String[size];
+    String[] titleEng = new String[size];
+    int[] ratedStar = new int[size];
+    String[] comments = new String[size];
+    String[] keywords = new String[size];
+    Date[] startDate = new Date[size];
+    Date[] endDate = new Date[size];
+    int[] watchedEpisode = new int[size];
+
+
+    for (int i = 0; i < size; i++ ) {
+      System.out.print("번호? ");
+      no[i] = keyboard.nextInt();
+      keyboard.nextLine();
+
+      System.out.print("국가? ");
+      country[i] = keyboard.nextLine();
+
+      System.out.print("장르? ");
+      genres[i] = keyboard.nextLine();
+
+      System.out.print("제목한글? ");
+      titleKor[i] = keyboard.nextLine();
+
+      System.out.print("제목영문? ");
+      titleEng[i] = keyboard.nextLine();
+
+      System.out.print("별점? ");
+      ratedStar[i] = keyboard.nextInt();
+      keyboard.nextLine();
+
+      System.out.print("코멘트? ");
+      comments[i] = keyboard.nextLine();
+
+      System.out.print("키워드? ");
+      keywords[i] = keyboard.nextLine();
+
+      System.out.print("시작일? ");
+      startDate[i] = Date.valueOf(keyboard.nextLine()); 
+
+      System.out.print("종료일? ");
+      endDate[i] = Date.valueOf(keyboard.next()); 
+      keyboard.nextLine();
+
+      System.out.print("어디까지봤니? ");
+      watchedEpisode[i] = keyboard.nextInt();
+      keyboard.nextLine();
+
+      count++;
+
+      System.out.println();
+      System.out.println("계속 입력하시겠습니까?(Y/n)");
+      response = keyboard.next();
+
+      if(!response.equalsIgnoreCase("y")) {
+        break;
+      }
+    }
+
     keyboard.close();
     
     System.out.println();
-    System.out.printf("번호: %d\n", no);
-    System.out.printf("국가: %s\n", country);
-    System.out.printf("장르: %s\n", genres);
-    System.out.printf("제목한글: %s\n", titleKor);
-    System.out.printf("제목영문: %s\n", titleEng);
-    System.out.printf("별점: %d\n", ratedStar);
-    System.out.printf("코멘트: %s\n", comment);
-    System.out.printf("키워드: #%s\n", keywords);
-    System.out.printf("기간: %s ~ %s\n", startDate, endDate); 
-    System.out.printf("어디까지봤니: %s\n", watchedEpisode); 
-
+    
+    for (int i = 0; i < count; i++) {
+      System.out.printf("%d, %-10s, %s ~ %s, %d\n", no[i], titleKor[i], startDate[i], endDate[i], 
+          watchedEpisode[i]);
+    }
     
   }
 }

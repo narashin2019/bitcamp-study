@@ -8,14 +8,12 @@ public class App3 {
     Scanner keyboard = new Scanner(System.in);
 
 
-    final int size = 10000;
-    
-    int[] no = new int[size] ; // 0~99번방 생김
-    String[] title = new String[size];  
-    Date[] date = new Date[size];
-    int[] viewCount = new int[size];
-    
+    int[] no = new int[100] ; // 0~99번방 생김
+    String[] title = new String[100];
+    Date[] date = new Date[100];
+    int[] viewCount = new int[100];
     String response;
+
     int count = 0;
     
     
@@ -34,10 +32,10 @@ public class App3 {
       count++; // => count = count + 1;
           
       System.out.println();
+
       System.out.print("계속 입력하시겠습니까?(Y/n) ");
       System.out.println();
-      response = keyboard.next();
-      System.out.println();
+      response = keyboard.nextLine();
       if (!response.equalsIgnoreCase("y")) {
         break;
       }
