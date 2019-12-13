@@ -10,8 +10,9 @@ public class App3 {
 
     final int size = 10000;
     
-    int[] no = new int[size] ; // 0~99번방 생김
+    int[] no = new int[size] ; 
     String[] title = new String[size];  
+    String[] contents = new String[size];
     Date[] date = new Date[size];
     int[] viewCount = new int[size];
     
@@ -24,8 +25,11 @@ public class App3 {
       no[i] = keyboard.nextInt();
       keyboard.nextLine(); 
 
-      System.out.print("내용? ");
+      System.out.print("제목? ");
       title[i] = keyboard.nextLine();
+      
+      System.out.print("내용? ");
+      contents[i] = keyboard.nextLine();
 
       date[i] = new Date(System.currentTimeMillis());
 

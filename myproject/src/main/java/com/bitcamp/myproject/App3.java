@@ -1,40 +1,59 @@
 package com.bitcamp.myproject;
 
-import java.util.Scanner;
 import java.sql.Date;
+import java.util.Scanner;
 
 public class App3 {
   public static void main(String[] args) {
-
     Scanner keyboard = new Scanner(System.in);
 
-    System.out.print("번호? ");
-    int no = keyboard.nextInt();
-    keyboard.nextLine();
-    
-    System.out.print("제목? ");
-    String title = keyboard.nextLine();
 
-    System.out.print("내용? ");
-    String contents = keyboard.nextLine();
+    final int size = 10000;
     
-    System.out.print("작성일? ");
-    Date createdDate = new Date(System.currentTimeMillis());
-    keyboard.nextLine();
+    int[] no = new int[size] ; 
+    String[] title = new String[size];  
+    String[] contents = new String[size];
+    Date[] date = new Date[size];
+    int[] viewCount = new int[size];
     
-    System.out.print("조회수? ");
-    int viewCount = 0;
-    keyboard.nextLine();
+    String response;
+    int count = 0;
+    
+    
+    for (int i = 0; 1 < 5; i++) {
+      System.out.print("번호? ");
+      no[i] = keyboard.nextInt();
+      keyboard.nextLine(); 
+
+      System.out.print("제목? ");
+      title[i] = keyboard.nextLine();
+      
+      System.out.print("내용? ");
+      contents[i] = keyboard.nextLine();
+
+      date[i] = new Date(System.currentTimeMillis());
+
+      viewCount[i] = 0;
+
+      count++; // => count = count + 1;
+          
+      System.out.println();
+      System.out.print("계속 입력하시겠습니까?(Y/n) ");
+      System.out.println();
+      response = keyboard.next();
+      System.out.println();
+      if (!response.equalsIgnoreCase("y")) {
+        break;
+      }
+    }
 
     keyboard.close();
-    
-    
+
     System.out.println();
-    System.out.printf("번호: %d\n", no);
-    System.out.printf("제목: %s\n", title);
-    System.out.printf("내용: %s\n", contents);
-    System.out.printf("작성일: %s\n", createdDate);
-    System.out.printf("조회수: %d\n", viewCount);
+
+    for (int i = 0; i < count; i++) {
+      System.out.printf("%d, %-11s, %s, %d\n", no[i], title[i], date[i], viewCount[i]);
+    }
+
   }
 }
-
