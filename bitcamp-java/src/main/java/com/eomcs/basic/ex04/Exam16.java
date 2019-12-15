@@ -3,6 +3,12 @@ package com.eomcs.basic.ex04;
 //# 변수 사용
 //- 다른 도구(메서드; 함수라고도 부른다)에 값을 전달 할 수 있다.
 //
+//- 자바 원시 타입의 값을 저장하는 변수와 메모리 주소를 저장하는 변수가 있다.
+//- 자바 원시 타입 변수(primitive variable)
+//  정수, 부동소수점, 논리, 문자코드의 값을
+//- 레퍼런스 변수(reference variable)
+//  자바 원시 타입의 값을 제외한 모든 값
+//
 
 public class Exam16 {
   public static void main(String[] args) {
@@ -21,7 +27,7 @@ public class Exam16 {
     char c;  // 2바이트 크기의 메모리 0~65335 유니코드 unsigned memory
 
 
-    // => reference(레퍼런스) : 다른 메모리의 주소를 저장하는 변수, 위에 뺴고 전부 다 주소저장하는 변수
+    // => reference(레퍼런스)변수 : 다른 메모리의 주소를 저장하는 변수, 위에 뺴고 전부 다 주소저장하는 변수
     // ex.                         
     // 아파트 a;
     // 공장 b;
