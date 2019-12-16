@@ -7,10 +7,10 @@ public class Test0100 {
 
     Scanner keyScan = new Scanner(System.in);
 
-    System.out.print("값1?");
+    System.out.print("값1? ");
     int a = keyScan.nextInt();
 
-    System.out.print("값2?");
+    System.out.print("값2? ");
     int b = keyScan.nextInt();
 
     System.out.print("연산자(+,-,*,/)? ");

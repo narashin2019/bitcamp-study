@@ -2,6 +2,7 @@ package com.eomcs.basic.ex03;
 
 // 리터럴(literal)
 // - 자바언어에서 값을 표기하는 문법
+
   public class Exam1 {
     public static void main(String[] args) {
       // 정수 리터럴

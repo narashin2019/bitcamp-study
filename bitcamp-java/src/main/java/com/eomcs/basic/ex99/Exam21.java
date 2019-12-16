@@ -6,7 +6,8 @@ public class Exam21 {
     // 키보드 정보를 가져온다.
     java.io.InputStream keyboard = System.in; 
       // 타입 + 키보드는 키보드를 저장할 변수(레퍼런스) = 시스템상자안에 in 표준입력장치
-      //java.io.PrintStream console = System.out; // 데이터타입 + 콘솔을 담을 변수 이름 콘솔 =표준 출력장치(콘솔)    
+      //java.io.PrintStream console = System.out; 
+      // 데이터타입 + 콘솔을 담을 변수 이름 콘솔 =표준 출력장치(콘솔)    
     
 
     // 키보드 객체에 정수, 부동소수점, 논리값, 문자열을 끊어서 읽어 주는 도우미 객체를 붙인다.
