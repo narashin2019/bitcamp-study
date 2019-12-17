@@ -1,5 +1,6 @@
-// 증감 연산자 : 전위(pre-fix) 증감 연산자 응용 II
 package com.eomcs.basic.ex05;
+
+//# 증감 연산자 : 전위(pre-fix) 증감 연산자 응용 II
 
 public class Exam06_8 {
     public static void main(String[] args) {
@@ -21,5 +22,6 @@ public class Exam06_8 {
         //++y++; // 컴파일 오류!
         //(++y)++; // 컴파일 오류!
         //++(y++); // 컴파일 오류!
+        //++(y); // y에 값이 넣어지고 ++은 불가. 변수만 ++ 가능
     }
 }

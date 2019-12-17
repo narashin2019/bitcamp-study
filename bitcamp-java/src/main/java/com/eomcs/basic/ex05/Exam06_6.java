@@ -1,5 +1,6 @@
-// 증감 연산자 : 전위(pre-fix) 감소 연산자
 package com.eomcs.basic.ex05;
+
+//# 증감 연산자 : 전위(pre-fix) 감소 연산자
 
 public class Exam06_6 {
     public static void main(String[] args) {

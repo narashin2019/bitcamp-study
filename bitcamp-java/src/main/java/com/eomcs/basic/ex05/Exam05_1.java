@@ -5,9 +5,11 @@ package com.eomcs.basic.ex05;
 public class Exam05_1 {
     public static void main(String[] args) {
         // 조건연산자
-        // 조건 ? 표현식1 : 표현식2
+        // => 조건 ? 표현식1 : 표현식2
         // => 조건이 참이면 표현식1을 실행하고,
         //    조건이 거짓이면 표현식2를 실행한다.
+        // ex. 변수=조건 ? 표현식1: 표현식 2
+        
         int age = 20;
         /*
         (age > 18) ? System.out.println("성인이다.") : 
@@ -24,7 +26,7 @@ public class Exam05_1 {
 }
 
 // 표현식(expression)?
-// - 작업을 수행한 후 결과를 리턴하는 명령이다.
+// - 작업을 수행한 후 결과를 리턴하는 명령이다. 값을 리턴하는 문장
 //
 // 문장(statement)?
 // - 작업을 수행시키는 명령어이다.

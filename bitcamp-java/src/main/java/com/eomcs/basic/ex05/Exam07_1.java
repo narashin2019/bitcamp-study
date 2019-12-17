@@ -1,5 +1,6 @@
-// 할당 연산자  : +=  -=  *=  /=  %=  &=  |=  ^=  <<=  >>=  >>>=
 package com.eomcs.basic.ex05;
+
+//# 할당 연산자  : +=  -=  *=  /=  %=  &=  |=  ^=  <<=  >>=  >>>=
 
 public class Exam07_1 {
     public static void main(String[] args) {
@@ -10,7 +11,11 @@ public class Exam07_1 {
         System.out.println(i);
 
         i = 2;
-        i *= 5;
+        i *= 5; // 기존값2에다 5를 곱하고 그걸 다시 i로
         System.out.println(i);
+        
+        //헷갈리지마 
+        // == : 비교연산자
+        // != : 
     }
 }

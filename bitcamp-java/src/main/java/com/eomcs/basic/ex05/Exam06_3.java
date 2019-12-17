@@ -1,5 +1,6 @@
-// 증감 연산자 : 후위(post-fix) 증감 연산자 응용 I
 package com.eomcs.basic.ex05;
+
+//# 증감 연산자 : 후위(post-fix) 증감 연산자 응용 I
 
 public class Exam06_3 {
     public static void main(String[] args) {
@@ -12,9 +13,14 @@ public class Exam06_3 {
         // 2) ++ 연산 실행 
         //    => 즉 i = i + 1 실행
         //    => i = 8 이 되었다.
-        // 3) 할당 연산자 실행
+        // 3) 할당 연산자 실행 (우선순위가장낮음제일마지막)
         //    => i = 7 실행
         //    => 다시 i는 8에서 7로 바뀌었다.
+        
+        // 위 문장은 다음과 같이 실행 된다. (기계어로는 실제 이렇게 바뀜)
+        int temp = i;
+        i = i + 1;
+        i = temp;
 
         System.out.println(i);
 
