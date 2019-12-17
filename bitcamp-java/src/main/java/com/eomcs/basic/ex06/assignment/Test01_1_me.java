@@ -2,14 +2,14 @@ package com.eomcs.basic.ex06.assignment;
 
 import java.util.Scanner;
 
-public class Test01 {
+public class Test01_1_me {
 
   public static void main(String[] args) {
 
     System.out.println("밑변 길이? ");
 
-    Scanner scanner = new Scanner(System.in);
-    int user = scanner.nextInt();
+    Scanner keyScan = new Scanner(System.in);
+    int user = keyScan.nextInt();
 
     int i = 1;
     
@@ -25,7 +25,7 @@ public class Test01 {
       i++;
     }
 
-    scanner.close();
+    keyScan.close();
 
 
 //    for (int i=1; i<=user; i++) {
