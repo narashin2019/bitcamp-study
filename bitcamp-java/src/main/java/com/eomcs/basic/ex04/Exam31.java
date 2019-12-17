@@ -25,7 +25,17 @@ public class Exam31 {
     f = 314159200000.0f; // 3.14159202E11출력 소수점 이상은 경우 뒤의 0을 포함해서 유효자리수 계산.  
     System.out.println(f);
 
-
+    // 주의!
+    //- 유효자릿수가 7자리를 넘어가면 정상적으로 값을 저장되지 않을 수 있다.
+    f = 9.8765456f; // 맨 뒤의 값이 반올림 된다.
+    System.out.println(f);
+    
+    f = 9876545.6f; // 맨 뒤의 값이 반올림 된다.
+    System.out.println(f);
+    
+    
+    
+    
     double d;
 
     d = 9.87654321234567;
@@ -74,7 +84,7 @@ public class Exam31 {
     double d2 = 11.11111;
     System.out.println(d1);
     System.out.println(d2);
-    double d3 = d1 + d2 
+    double d3 = d1 + d2 ;
     System.out.println(d3);
     
     f1 = 3.141592f;
