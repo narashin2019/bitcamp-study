@@ -2,7 +2,7 @@ package com.eomcs.basic.ex06.assignment;
 
 import java.util.Scanner;
 
-public class Test02_3_teacher {
+public class Test02_t99 {
 
   public static void main(String[] args) {
 

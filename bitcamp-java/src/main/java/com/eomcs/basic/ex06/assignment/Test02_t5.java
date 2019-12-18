@@ -1,30 +1,27 @@
 package com.eomcs.basic.ex06.assignment;
-// 만들었던 메소드(코드블럭)을 복사해서 가져왔다.(주의! 메소드 안에 메소드넣으면 안된당)
+// 이전 버전에서 만들었던 메소드(코드블럭)을 복사해서 가져왔다.(주의! 메소드 안에 메소드넣으면 안된당)
+// 이제 Graphic에 있는 drawLine(line);이라고 소속 클래스명 명시해주고
+// main 밖에 있던 drawLine은 지운다.
 import java.util.Scanner;
 
 public class Test02_t5 {
 
   public static void main(String[] args) {
 
-    //1. 밑 변 길이 내놔라 (인풋인트 메소드) 블록을 꼽기 실행할 메소드의 이름(필요값없음 ); 리턴값받는 메소드라 앞에 타입및 변수선언함. 메인에 위드와 인풋인트의 위드를 서로다른 위드
     int width = inputInt();
 
-
     int line = 0;
-    while (line < width) { 
-      line++;
+    while (line++ < width) { 
       Graphic.drawLine(line); // 이름 바꿈 그래픽에 소속된 드로우 라인 실행해줘. 
       System.out.println();
     }
+    
     line--; 
 
     while (--line > 0) { 
       Graphic.drawLine(line); // 이름 바꿈 그래픽에 소속된 드로우 라인 실행해줘. 
       System.out.println();
     }
-
-
-
   } //main 메소드
 
 
@@ -36,8 +33,6 @@ public class Test02_t5 {
     return width;
   } //인풋인트 메소드
 
-
-//드로우 라인 메소드 지움
-
+ //드로우 라인 메소드 지움
 
 }//class

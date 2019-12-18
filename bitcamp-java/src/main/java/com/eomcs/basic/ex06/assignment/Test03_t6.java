@@ -1,15 +1,13 @@
 package com.eomcs.basic.ex06.assignment;
-
-import java.util.Scanner;
+//Console, Graphic 클래스에서 메서드 불러오기, main밖에거 지우기
+//삭제import java.util.Scanner;
 
 public class Test03_t6 {
 
   public static void main(String[] args) {
 
+    int width = Console.inputInt(); // 소속클래스 명시
 
-
-    int width = inputInt(); // 메소드 실행하고 리턴된 값을 넣을 변수를 좌측 선언
-    
     if (width % 2 == 0)
       width--;
 
@@ -20,35 +18,13 @@ public class Test03_t6 {
         continue;
       }
 
-      drawLine(spaceSize, ' '); //spaceSize만큼 공백을 찍는다.
+      Graphic.drawLine(spaceSize, ' '); //소속클래스 명시.
       spaceSize--;
 
-      drawLine(line, '*'); // (line만큼 *을 찍는다
-      
+      Graphic.drawLine(line, '*'); //소속클래스 명시.
       System.out.println();
     }
-
-
-
   }//main
-
-
-  static int inputInt() {  
-    Scanner keyScan = new Scanner(System.in);
-    System.out.print("밑변의 길이? "); 
-    int width = keyScan.nextInt(); 
-    keyScan.close();
-    return width;
-  }//인풋인트 메서드
-
-
-
-  static void drawLine (int length, char ch) { //받은 길이 만큼 문자를 출력하라 
-    int x = 0;             
-    while ( x++ < length) {
-      System.out.print(ch); 
-    }
-  }//드로우라인메소드를 별을 출력하는게 아니라 문자1개 출력하는 걸로 바꿈
-
-
+  
+  //inputInt, drawLine메서드 삭제 main내부에서 클래스로 호출
 }//class

@@ -14,8 +14,9 @@ public class App3 {
     
     int no1 = 0, no2 = 0, no3 = 0, no4 = 0, no5 = 0;
     String title1 = "", title2 = "", title3 = "", title4 = "", title5 = "";
-    Date date1 = null, date2 = null, date3 = null, date4 = null, date5 = null;
-    int count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0; // 초기화 해야하는 이유는???
+    Date date1 = null, date2 = null, date3 = null,
+        date4 = null, date5 = null;
+    int count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0;
     String response;
     
     System.out.print("번호? ");
@@ -31,7 +32,6 @@ public class App3 {
     System.out.println();
     
     System.out.print("계속 입력하시겠습니까?(Y/n) ");
-    System.out.println();
     response = keyboard.nextLine();
     
     if (response.equalsIgnoreCase("y")) {
@@ -48,7 +48,6 @@ public class App3 {
       System.out.println();
       
       System.out.print("계속 입력하시겠습니까?(Y/n) ");
-      System.out.println();
       response = keyboard.nextLine();
       
       if (response.equalsIgnoreCase("y")) {
@@ -65,7 +64,6 @@ public class App3 {
         System.out.println();
         
         System.out.print("계속 입력하시겠습니까?(Y/n) ");
-        System.out.println();
         response = keyboard.nextLine();
         
         if (response.equalsIgnoreCase("y")) {
@@ -82,7 +80,6 @@ public class App3 {
           System.out.println();
           
           System.out.print("계속 입력하시겠습니까?(Y/n) ");
-          System.out.println();
           response = keyboard.nextLine();
           
           if (response.equalsIgnoreCase("y")) {

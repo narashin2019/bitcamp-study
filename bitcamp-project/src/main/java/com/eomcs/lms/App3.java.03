@@ -1,5 +1,6 @@
 package com.eomcs.lms;
-//배열에 조건문 사용
+//배열에 반복문 사용
+
 import java.sql.Date;
 import java.util.Scanner;
 
@@ -7,29 +8,26 @@ public class App3 {
   public static void main(String[] args) {
     Scanner keyboard = new Scanner(System.in);
 
-
-    int[] no = new int[100] ; // 0~99번방 생김
+    int[] no = new int[100];
     String[] title = new String[100];
     Date[] date = new Date[100];
     int[] count = new int[100];
     String response;
 
-    for (int i = 0; 1 < 5; i++) {
+    for (int i = 0; i < 5; i++) {
       System.out.print("번호? ");
       no[i] = keyboard.nextInt();
-      keyboard.nextLine(); 
+      keyboard.nextLine(); // 줄바꿈 기호 제거용
 
       System.out.print("내용? ");
       title[i] = keyboard.nextLine();
 
       date[i] = new Date(System.currentTimeMillis());
-
       count[i] = 0;
 
       System.out.println();
 
       System.out.print("계속 입력하시겠습니까?(Y/n) ");
-      System.out.println();
       response = keyboard.nextLine();
       if (!response.equalsIgnoreCase("y")) {
         break;
@@ -41,10 +39,12 @@ public class App3 {
     System.out.println();
 
     //반복문이 없으면 계속 복붙해야함 똑같은 코드를 반복해서 실행할떄.
-    //for ( 처음시작만; 조건문 참이면 괄호안 실행 ; 1증가 -> 조건문...)
+    //for (처음시작만; 조건문 참이면 괄호안 실행 ; 1증가 -> 조건문...)
     for (int i = 0; i < 5; i++) {
-      System.out.printf("%d, %s, %s, %d\n", no[i], title[i], date[i], count[i]);
+      System.out.printf("%d, %s, %s, %d\n", 
+          no[i], title[i], date[i], count[i]);
     }
-
   }
 }
+
+

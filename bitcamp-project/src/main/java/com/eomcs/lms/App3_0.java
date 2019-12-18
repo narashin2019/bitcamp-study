@@ -3,7 +3,7 @@ package com.eomcs.lms;
 import java.sql.Date;
 import java.util.Scanner;
 
-public class App3 {
+public class App3_0 {
   public static void main(String[] args) {
     Scanner keyboard = new Scanner(System.in);
 
@@ -38,10 +38,9 @@ public class App3 {
       count++; // => count = count + 1;
           
       System.out.println();
+     
       System.out.print("계속 입력하시겠습니까?(Y/n) ");
-      System.out.println();
       response = keyboard.next();
-      System.out.println();
       if (!response.equalsIgnoreCase("y")) {
         break;
       }

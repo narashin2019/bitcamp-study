@@ -6,10 +6,9 @@ import java.util.Scanner;
 public class App {
 
   public static void main(String[] args) {
+    
     Scanner keyboard = new Scanner(System.in);
 
-
-<<<<<<< HEAD
     final int SIZE = 100;
     
     int[] no = new int[SIZE];
@@ -19,18 +18,6 @@ public class App {
     Date[] endDate = new Date[SIZE];
     int[] totalHours = new int[SIZE];
     int[] dayHours = new int[SIZE];
-
-=======
-    final int LENGTH = 100000;
-
-    int[] no = new int[LENGTH];
-    String[] title = new String[LENGTH];
-    String[] description = new String[LENGTH]; 
-    Date[] startDate = new Date[LENGTH];
-    Date[] endDate = new Date[LENGTH];
-    int[] totalHours = new int[LENGTH];
-    int[] dayHours = new int[LENGTH];
->>>>>>> 92a55817b134d6b20114af6628d166449a754fc5
 
     int count = 0;
 

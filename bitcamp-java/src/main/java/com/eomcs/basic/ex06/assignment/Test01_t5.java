@@ -18,6 +18,8 @@ public class Test01_t5 {
     }
   }
   
+  // 1.메인메서드에서 빼내서 밑변길이 값받는 것을 static void inputInt(){}로 모음.
+  // 리턴값이 width=밑변길이 다.
   static int inputInt() {
     Scanner keyScan = new Scanner(System.in);
     System.out.print("밑변 길이? ");
