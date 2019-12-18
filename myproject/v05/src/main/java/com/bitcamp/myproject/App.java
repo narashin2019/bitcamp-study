@@ -37,6 +37,9 @@ public class App {
     
     System.out.print("시작일? ");
     Date startDate = Date.valueOf(keyboard.nextLine()); 
+    //import java.sql.Date;
+    //Date endDate = Date.valueOf(keyboard.nextLine()); 
+    //=>문자열을 주면 날짜 객체를 만든다 
     //"yyyy-MM-dd"형태로 입력된 문자열을 날짜 정보로 바꾼다. 
     //Date라는 도구의 valueof기능(사용자의 입력값)
     //위 형태와 다르면 프로그램이 멈춰버림 > 예외처리문법으로 해결!

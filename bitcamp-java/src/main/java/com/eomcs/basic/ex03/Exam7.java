@@ -34,7 +34,18 @@ package com.eomcs.basic.ex03;
 // - Unix OS 에서는 줄바꿈을 표시하기 위해 LF 1바이트 코드를 삽입한다.
 
 
-
+//# 이스케이프 문자(escape character) = 문자 제어 코드
+//- 화면에 출력하는 문자가 아니라 문자 출력을 제어하는 문자이다.
+//- 제어 문자
+//  \n - Line Feed(LF), 0x0a
+//  \r - Carrage Return(CR), 0x0d
+//  \f - Form Feed, 0x0c
+//  \t - Tab, 0x09
+//  \b - Backspace, 0x08
+//  \' - Single Quote, 0x27
+//  \" - Double Quote, 0x22
+//  \\ - Backslash, 0x5c
+//
 
 
 

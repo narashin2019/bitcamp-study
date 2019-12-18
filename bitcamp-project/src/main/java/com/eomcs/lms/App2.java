@@ -8,6 +8,7 @@ public class App2 {
 
     Scanner keyboard = new Scanner(System.in);
 
+<<<<<<< HEAD
     final int SIZE = 100; // 대부분 상수는 대문자로 이름 표시함. 최대 100명의 회원정보 저장할 수 있는 저장공간 생성.
 
     int[] no = new int[SIZE];
@@ -18,6 +19,21 @@ public class App2 {
     String[] tel = new String[SIZE];
     Date[] registeredDate = new Date[SIZE]; //암기
 
+=======
+    final int LENGTH = 10000;
+    String response;
+    int count = 0;
+
+    int[] no = new int[LENGTH];
+    String[] name = new String[LENGTH];
+    String[] email = new String[LENGTH];
+    String[] password = new String[LENGTH];
+    String[] photo = new String[LENGTH];
+    String[] tel = new String[LENGTH];
+    Date[] registeredDate = new Date[LENGTH];
+
+    for (int i = 0; i < LENGTH; i++) {
+>>>>>>> 92a55817b134d6b20114af6628d166449a754fc5
 
     int count = 0; // 입력받은 개수 카운트하기 위한 변수. 밑에 출력에 사용
     for (int i = 0; i < SIZE; i++) {

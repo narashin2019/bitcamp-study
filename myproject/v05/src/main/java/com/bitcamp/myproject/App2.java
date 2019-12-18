@@ -30,7 +30,9 @@ public class App2 {
     System.out.print("가입일? ");
     Date registeredDate = new Date(System.currentTimeMillis()); 
     keyboard.nextLine();
-    
+    //오늘날짜 구하는 방법: 
+    //java.sql.Date today = new java.sql.Date(System.currentTimeMills());
+
     keyboard.close();
     
     System.out.println();
