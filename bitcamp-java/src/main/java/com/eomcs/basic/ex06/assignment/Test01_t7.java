@@ -1,6 +1,6 @@
 package com.eomcs.basic.ex06.assignment;
 // 임포트 스캐너 뺌
-public class t6 {
+public class Test01_t7 {
 
   public static void main(String[] args) {
 

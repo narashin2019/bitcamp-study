@@ -1,6 +1,6 @@
 package com.eomcs.basic.ex06.assignment;
 
-// 임포트 스캐너 없앰 컨트롤 쉬프트 오
+//space size변수 추가. 반복문 추가 > 다음단계에서 메소드로 바꿈
 
 public class Test01_t6 {
 

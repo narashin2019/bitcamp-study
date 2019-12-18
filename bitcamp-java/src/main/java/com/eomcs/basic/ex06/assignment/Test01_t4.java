@@ -1,44 +1,39 @@
 package com.eomcs.basic.ex06.assignment;
 
+// line(별)을 그리는 반복문 문장을 메소드로 바꿔본다.
+// static void drawLine(int length)로 변환
+
 import java.util.Scanner;
 
 public class Test01_t4 {
 
   public static void main(String[] args) {
-
-    System.out.print("밑변의 길이? "); // 줄바꿈 없이 옆에 입력하게 print
-
-    Scanner keyScan = new Scanner(System.in); //우항: 설계도에 따라 만든 것 객체, 인스턴스 / 인스턴스 스캐너를 다루는 리모컨 keyScan
-  
-    int width = keyScan.nextInt(); // 키스캔으로 스캐너를 인트값받도록 조종. 그값을 width로 한다
-
-  
-//1)
-    int line = 0; // line++ 올리려고 변수초기화 0으로함.
+    Scanner keyScan = new Scanner(System.in);
+    
+    System.out.print("밑변의 길이? "); 
+    int width = keyScan.nextInt();
+    
+// 2. 드로우라인 메소드의 사용, 
+//    (line)=매개변수(여러 개 일 수 있음. cf.리턴값은 언제나 하나여야함. 한 메소드는 하나의 역할을 하기 때문에)
+    int line = 0; 
     while (line++ < width) {
-      int x = 1;
-      while ( x++ <= line) {} // 이자리에 현재 x값을 놓고 x는 x대로 변수 증가시키고 아까 놓은 x를 line가 비교
-      System.out.print("*"); 
-      }
+      drawLine(line); 
       System.out.println();
     }
-
-
-//2)
-    int line = 0; // line++ 올리려고 변수초기화 0으로함.
-    while (line++ < width) {
-      int x = 0;             //
-      while ( x++ < line) {} // x 0부터 시작하려고 =뺌 0부터 시작하면 =안붙이면됨./ 1부터 시작하면 =를 붙여야함
-      System.out.print("*"); 
-      }
-      System.out.println();
-    }
-    
-    
     
     keyScan.close();
-
-
-    
   } // main
+  
+// 1. static 무조건 붙이자고 지금은
+//    void=리턴하지 않을 때=sysout은 값을 리턴하는 문장이 아님
+//    void의 반대 = 값을 리턴할 때 리턴값의 타입을 적음.
+//    라인을 그리는 명령어들을 모았다. 그릴 라인의 길이를 알아야 해서 길이 나타내는 변수 length선언 미리 해줌
+  static void drawLine(int length) {
+    int x = 0;             
+    while (x++ < length) {
+    System.out.print("*"); 
+    }
+  }
+  
+  
 }
