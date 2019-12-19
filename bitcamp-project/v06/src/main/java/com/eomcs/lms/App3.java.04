@@ -1,5 +1,6 @@
 package com.eomcs.lms;
-//배열에 조건문(반복문) + 입력을 카운트하기 count 변수 사용
+//입력을 카운트하기 count 변수 사용
+
 import java.sql.Date;
 import java.util.Scanner;
 
@@ -7,17 +8,15 @@ public class App3 {
   public static void main(String[] args) {
     Scanner keyboard = new Scanner(System.in);
 
-
-    int[] no = new int[100] ; // 0~99번방 생김
+    int[] no = new int[100];
     String[] title = new String[100];
     Date[] date = new Date[100];
     int[] viewCount = new int[100];
-    String response;
+    String response; // 이게 뭐엿더라
 
-    int count = 0;
+    int count = 0; // 카운트 변수 선언
     
-    
-    for (int i = 0; 1 < 5; i++) {
+    for (int i = 0; 1 < 100; i++) {
       System.out.print("번호? ");
       no[i] = keyboard.nextInt();
       keyboard.nextLine(); 
@@ -29,12 +28,11 @@ public class App3 {
 
       viewCount[i] = 0;
 
-      count++; // => count = count + 1;
+      count++; // 카운트변수 1증가 => count = count + 1;
           
       System.out.println();
 
       System.out.print("계속 입력하시겠습니까?(Y/n) ");
-      System.out.println();
       response = keyboard.nextLine();
       if (!response.equalsIgnoreCase("y")) {
         break;
@@ -47,6 +45,7 @@ public class App3 {
 
     //반복문이 없으면 계속 복붙해야함 똑같은 코드를 반복해서 실행할떄.
     //for ( 처음시작만; 조건문 참이면 괄호안 실행 ; 1증가 -> 조건문...)
+    // 카운트만큼만 반복해서 출력    
     for (int i = 0; i < count; i++) {
       System.out.printf("%d, %s, %s, %d\n", no[i], title[i], date[i], viewCount[i]);
     }

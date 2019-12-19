@@ -8,7 +8,7 @@ public class Test03_t6 {
 
     int width = Console.inputInt(); // 소속클래스 명시
 
-    if (width % 2 == 0)
+    if (width % 2 == 0) 
       width--;
 
     int spaceSize = width >> 1; //(=> width / 2)

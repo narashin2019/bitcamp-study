@@ -14,6 +14,7 @@ public class Exam3_4 {
       System.out.println(++i);
     while (i < 10);
 
+    
     System.out.println("---------------------");
 
     

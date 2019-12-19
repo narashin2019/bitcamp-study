@@ -17,11 +17,10 @@ import java.util.Scanner;
 //    -관련된 기능들을 유지보수하기 쉽도록 묶는 용도 (지금 이 파일!)
 
 public class App10 {
+ 
   //메인메소드와 프린트보드메소드가 공유하는 변수
   static final int size = 5735; //  상수 변경할 수 없는 값
- 
   static Boardxx[] boards = new Boardxx[size]; // 보드 설계도에 따라 new 생성하라 5735식판꼽을 수 있는 배식차!!!!!!!!!
-     
   static int count = 0;
 
   public static void main(String[] args) {
@@ -53,24 +52,25 @@ public class App10 {
 
       boards[i] = b; // boards=배식차 식판을 담는 식판을 배식차 지정된 위치에 꼽는다
       
-      count++; // => count = count + 1;
+      count++;
 
       System.out.println();
 
       System.out.print("계속 입력하시겠습니까?(Y/n) ");
-      System.out.println();
       response = keyboard.nextLine();
       if (!response.equalsIgnoreCase("y")) {
         break;
       }
     }
+    
     keyboard.close();
   }
 
   static void printBoards( ) {
     for (int i = 0; i < count; i++) {
       Boardxx b = boards[i];
-      System.out.printf("%d, %s, %s, %d\n", b.no, b.title, b.date, b.viewCount);
+      System.out.printf("%d, %s, %s, %d\n", 
+        b.no, b.title, b.date, b.viewCount);
     }
 
   }

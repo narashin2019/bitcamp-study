@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class App {
 
   public static void main(String[] args) {
+    
     Scanner keyboard = new Scanner(System.in);
-
 
     final int SIZE = 100;
     
@@ -18,7 +18,6 @@ public class App {
     Date[] endDate = new Date[SIZE];
     int[] totalHours = new int[SIZE];
     int[] dayHours = new int[SIZE];
-
 
     int count = 0;
 

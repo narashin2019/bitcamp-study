@@ -12,8 +12,8 @@ public class Exam1_5 {
     if (age >= 19)
       if (age >= 70) 
         System.out.println("지하철 무임승차 가능합니다.");
-    else 
-      System.out.println("미성년입니다.1");
+      else 
+        System.out.println("미성년입니다.1");
 
     System.out.println("--------------------------------");
     // 어? 강사님, if 문에 블록을 사용하지 않으면

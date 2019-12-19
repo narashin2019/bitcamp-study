@@ -14,7 +14,7 @@ public class Test03_t4 {
     
     int spaceSize = width >> 1;
     int line = 0; 
-    while (line++ < width) {
+    while (line++ < width) { 
       if (line % 2 == 0) {
         continue;
       }
