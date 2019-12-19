@@ -8,72 +8,62 @@ public class App {
 
     Scanner keyboard = new Scanner(System.in);
 
-    class ShowInfo {
-      int no;
-      String country;
-      String genres;
-      String titleKor;
-      String titleEng;
-      int ratedStar;
-      String comments;
-      String keywords;
-      Date startDate;
-      Date endDate;
-      int watchedEpisode;
-    }
-    
-    final int SIZE = 1000;
-
-    // 인스턴스의 주소를 담을 배열을 생성한다.
-    ShowInfo[] showInfos = new ShowInfo[SIZE];
-    
-    
-    int count = 0;
+    final int LENGTH = 1000;
     String response;
+    int count = 0;
 
-    for (int i = 0; i < count; i++ ) {
-      count++;
-      
-      ShowInfo showInfo = new ShowInfo();
+    int[] no = new int[LENGTH];
+    String[] country = new String[LENGTH];
+    String[] genres = new String[LENGTH];
+    String[] titleKor = new String[LENGTH];
+    String[] titleEng = new String[LENGTH];
+    int[] ratedStar = new int[LENGTH];
+    String[] comments = new String[LENGTH];
+    String[] keywords = new String[LENGTH];
+    Date[] startDate = new Date[LENGTH];
+    Date[] endDate = new Date[LENGTH];
+    int[] watchedEpisode = new int[LENGTH];
 
+
+    for (int i = 0; i < LENGTH; i++ ) {
       System.out.print("번호? ");
-      showInfo.no = keyboard.nextInt();
+      no[i] = keyboard.nextInt();
       keyboard.nextLine();
 
       System.out.print("국가? ");
-      showInfo.country = keyboard.nextLine();
+      country[i] = keyboard.nextLine();
 
       System.out.print("장르? ");
-      showInfo.genres = keyboard.nextLine();
+      genres[i] = keyboard.nextLine();
 
       System.out.print("제목한글? ");
-      showInfo.titleKor = keyboard.nextLine();
+      titleKor[i] = keyboard.nextLine();
 
       System.out.print("제목영문? ");
-      showInfo.titleEng = keyboard.nextLine();
+      titleEng[i] = keyboard.nextLine();
 
       System.out.print("별점? ");
-      showInfo.ratedStar = keyboard.nextInt();
+      ratedStar[i] = keyboard.nextInt();
       keyboard.nextLine();
 
       System.out.print("코멘트? ");
-      showInfo.comments = keyboard.nextLine();
+      comments[i] = keyboard.nextLine();
 
       System.out.print("키워드? ");
-      showInfo.keywords = keyboard.nextLine();
+      keywords[i] = keyboard.nextLine();
 
       System.out.print("시작일? ");
-      showInfo.startDate = Date.valueOf(keyboard.nextLine()); 
+      startDate[i] = Date.valueOf(keyboard.nextLine()); 
 
       System.out.print("종료일? ");
-      showInfo.endDate = Date.valueOf(keyboard.next()); 
+      endDate[i] = Date.valueOf(keyboard.next()); 
       keyboard.nextLine();
 
       System.out.print("어디까지봤니? ");
-      showInfo.watchedEpisode = keyboard.nextInt();
+      watchedEpisode[i] = keyboard.nextInt();
       keyboard.nextLine();
 
-      showInfos[i] = showInfo;
+      count++;
 
       System.out.println();
       System.out.println("계속 입력하시겠습니까?(Y/n)");
@@ -89,9 +79,8 @@ public class App {
     System.out.println();
     
     for (int i = 0; i < count; i++) {
-      ShowInfo showInfo = showInfos[i];
-      System.out.printf("%d, %-10s, %s ~ %s, %d\n", showInfo.no, showInfo.titleKor,
-          showInfo.startDate, showInfo.endDate, showInfo.watchedEpisode);
+      System.out.printf("%d, %-10s, %s ~ %s, %d\n", no[i], titleKor[i], startDate[i], endDate[i], 
+          watchedEpisode[i]);
     }
     
   }
