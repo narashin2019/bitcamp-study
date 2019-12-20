@@ -8,20 +8,20 @@ public class App2 {
 
     Scanner keyboard = new Scanner(System.in);
 
-    final int LENGTH = 10000; 
+    final int size = 10000; 
     int count = 0;
     String response;
 
-    int[] no = new int[LENGTH];
-    String[] name = new String[LENGTH];
-    String[] email = new String[LENGTH]; 
-    String[] password = new String[LENGTH]; 
-    String[] photo = new String[LENGTH]; 
-    String[] tel = new String[LENGTH]; 
-    Date[] registeredDate = new Date[LENGTH];
+    int[] no = new int[size];
+    String[] name = new String[size];
+    String[] email = new String[size]; 
+    String[] password = new String[size]; 
+    String[] photo = new String[size]; 
+    String[] tel = new String[size]; 
+    Date[] registeredDate = new Date[size];
 
 
-    for (int i = 0; i < LENGTH; i++) {
+    for (int i = 0; i < size; i++) {
       System.out.print("번호? ");
       no[i] = keyboard.nextInt();
       keyboard.nextLine();
