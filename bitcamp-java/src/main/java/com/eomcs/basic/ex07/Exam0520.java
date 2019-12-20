@@ -5,19 +5,23 @@ package com.eomcs.basic.ex07;
 public class Exam0520 {
 
   // 프로그램 아규먼트
-  // - jvm을 실행할 때 프로그램에 전달하는 값
+  // - jvm을 실행할 때 프로그램에 전달하는 값 (문자열 배열의 주소를 넘김)
   // - 예) 
-  // > java -cp bin Exam05_2 aaa bbb cccc
+  // > java -cp bin/main com.eomcs.basic.ex07.Exam0520 aaa bbb cccc
   // aaa bbb cccc 가 프로그램 아규먼트이다.
-  // 
+  // 공백무시하고 문자열만 추출함
+  //
+  //String[] args도 빼면 안됨 무조건 넣어야함. main에서는 
+  
   public static void main(String[] args) {
     // 프로그램 아규먼트는 스트링 배열에 담겨서 main()를 호출할 때 
     // 넘어온다.
     // 프로그램 아규먼트는 공백을 기준으로 문자열을 잘라서 배열을 만든다.
     // 
     for (String value : args) {
-      System.out.printf("[%s]\n", value);
+      System.out.printf("[%s]\n", value); // 실행이 안됨!!
     }
+    System.out.println("종료");
   }
 }
 

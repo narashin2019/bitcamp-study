@@ -17,7 +17,7 @@ public class Exam0240 {
     String r = hello("홍길동", 20);
     System.out.println(r);
 
-    // 리턴 값을 안 받아도 된다.
+    // 리턴 값을 안 받아도 된다. 호출한 쪽 마음
     hello("임꺽정", 30); // 리턴 값은 버려진다.
   }
 }

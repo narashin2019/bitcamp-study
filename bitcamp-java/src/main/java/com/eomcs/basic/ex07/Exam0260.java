@@ -12,7 +12,7 @@ public class Exam0260 {
   }
 
   // 배열 파라미터
-  static void hello2(String[] names) {
+  static void hello2(String[] names) { //엄밀히말해 names = 배열의 주소 받는 변수/ 정확히 말하면 배열의 주소를 받는 배열 파라미터
     for (int i = 0; i < names.length; i++) {
       System.out.printf("%s님 반갑습니다.\n", names[i]);
     }
@@ -30,6 +30,7 @@ public class Exam0260 {
     hello(arr);
     System.out.println("-------------------"); 
 
+    
     // 배열 파라미터의 메서드를 호출할 때는 
     // => 가변 파라미터와달리 낱개의 값을 여러 개 줄 수 없다!
     //hello2("홍길동", "임꺽정", "유관순"); 
@@ -37,7 +38,7 @@ public class Exam0260 {
 
     // => 오직 배열에 담아서 전달해야 한다.
     String[] arr2 = {"김구", "안중근", "윤봉길", "유관순"};
-    hello2(arr2);
+    hello2(arr2); // 배열의 주소를 넘겨줌
     System.out.println("-------------------"); 
   }
 }

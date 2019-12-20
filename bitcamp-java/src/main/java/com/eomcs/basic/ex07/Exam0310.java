@@ -27,7 +27,7 @@ public class Exam0310 {
 
 // call by value
 // => 자바에서는 primitive data type인 경우 메서드를 호출할 때 
-//    값을 넘긴다.
+//    값을 넘긴다. call by value
 // => 자바에서는 primitive data type에 대해서 
 //    메모리 주소를 넘기는 방법이 없다.
 // 

@@ -34,6 +34,8 @@ public class App2_2 {
 
     for (int i = 0; i < SIZE; i++) {
 
+      count++;
+
       Member member = new Member(); // 3. 인스턴스 만들어서 member에 저장한다.
       
       System.out.print("번호? ");
@@ -57,7 +59,6 @@ public class App2_2 {
 
       member.registeredDate = new Date(System.currentTimeMillis());
 
-      count++;
       
       // 4. 회원정보가 담겨있는 인스턴스의 주소를 레퍼런스 배열에 보관한다.
       members[i] = member; 

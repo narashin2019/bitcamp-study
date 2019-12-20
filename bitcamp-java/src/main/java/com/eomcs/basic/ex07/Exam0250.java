@@ -18,7 +18,7 @@ public class Exam0250 {
 
   public static void main(String[] args) {
 
-    hello(); // 이 경우 names 배열의 개수는 0이다.
+    hello(); // 이 경우 names 배열의 개수는 0이다. 안줘도 에러 안떠!! length값이 0 아무것도 실행되지 않음
     System.out.println("-------------------");
 
     hello("홍길동"); // 이 경우 names 배열의 개수는 1이다.
