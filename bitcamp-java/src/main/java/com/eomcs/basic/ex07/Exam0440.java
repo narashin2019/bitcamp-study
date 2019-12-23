@@ -4,7 +4,7 @@ package com.eomcs.basic.ex07;
 //
 public class Exam0440 {
 
-  static int m1(int value) {
+  static int m1(int value) { // 파라미터도 로컬 변수다** 생성시 스택에 메모리 공간 생김**
     int r1 = m2(value);
     int r2 = m3(value);
     return r1 + r2;

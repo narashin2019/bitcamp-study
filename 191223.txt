@@ -1,0 +1,58 @@
+1223 월
+
+* bitcamp-java/ com.eomcs.basic.ex07.assignment;1~3풀이
+* eomcs-java 에서 참고해서 단계별로 sort 공부 특히 2번 3번 꼭 암기
+
+* bitcamp-java/ com.eomcs.basic 전체 완료 // 알고리즘은 여기까지 해도 노상관
+
+
+*이제 객체지향 oop
+
+******class문법
+1) 사용자 정의 데이터 타입을 만들 때 
+=> 메모리 구조 설계
+
+다른타입의 여러가지 변수를 저장할 수 있는 메모리 묶을을 만듬
+
+class Member{
+int no;
+String name;
+float height;
+float weight;
+boolean working;
+}
+
+Member m = new Member();
+좌항: Member의 레퍼런스 (주소저장)
+우항: Member의 인스턴스(오브젝트)
+
+
+2) 메서드 분류
+=> 서로 관련된 일을 하는 메서드를 유지보수하기 쉽게 분류
+
+class BoardHandler{
+   static void listBoard() {
+   }
+
+   static void addBoard {
+   }
+}
+
+
+***bitcamp-project 10번까지함
+
+**nara-java-project v010까지 push tag 다함
+
+### 작업4) 사용자 입력을 처리하는 코드를 메서드로 분리하라. (이거 안함)
+
+- App.java
+    - 키보드로부터 입력 받는 코드를 prompt() 메서드로 분리한다.
+
+
+
+* bitcampjava ex07 assingment test3,4 해야함 
+/ 더이상 추가적으로 메소드만들지 말고 재귀호출로 만들 것 
+
+
+
+

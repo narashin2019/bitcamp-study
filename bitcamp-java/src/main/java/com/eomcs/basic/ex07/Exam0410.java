@@ -11,7 +11,7 @@ public class Exam0410 {
     System.out.printf("swap(): a=%d, b=%d\n", a, b);
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) { 
     int a = 100;
     int b = 200;
     swap(a, b);
@@ -19,12 +19,12 @@ public class Exam0410 {
   }
 }
 // 실행 순서와 메모리
-// 1) java -classpath bin step06.Exam04_1
+// 1) java -classpath bin com.eomcs.basic.ex07.Exam0410
 //    => JVM은 클래스 정보를 Method Area 영역에 로드한다.
 // 2) main() 호출
-//    => JVM Stack 영역에 main() 메서드가 사용할 로컬 변수를 준비한다.
+//    => JVM Stack 영역에 main() 메서드가 사용할 로컬 변수를 준비한다. /파라미터라는 로컬변수, int ab 즉 3개 메모리 준비해야함
 // 3) swap() 호출
-//    => JVM Stack 영역에 swap() 메서드가 사용할 로컬 변수를 준비한다.
+//    => JVM Stack 영역에 swap() 메서드가 사용할 로컬 변수를 준비한다. / main의 a,b와 별개의 a,b 메모리 공간 만듬. 즉 int a,b는 main과 이름은 같으나 다른애임
 // 4) swap() 실행 완료
 //    => JVM Stack 영역에 있던 swap()이 사용한 메모리를 제거한다.
 // 5) main() 실행 완료
