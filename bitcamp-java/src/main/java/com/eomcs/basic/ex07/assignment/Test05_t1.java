@@ -11,32 +11,27 @@ import java.util.Scanner;
 // ****
 // *****
 //
-public class Test05_m1 {
+public class Test05_t1 {
   public static void main(String[] args) {
 
     // 사용자로부터 밑변의 길이를 입력 받는다.
-
-    int base = 0;
-    Scanner keyboard = new Scanner(System.in);
-    System.out.println("밑변 길이?");
-    base = keyboard.nextInt();
-    keyboard.nextLine();
-
-
+    Scanner keyScan = new Scanner(System.in); //keyScan객체의 주소를 담는 변수(레퍼런스)보다 리모콘 비유가 좋은 경우
+    System.out.print("밑변의 길이? ");
+    int base = keyScan.nextInt();
+    keyScan.close();
+    
+    
+    
     // 직삼각형을 출력한다.
     printTriangle(base);
     
-    System.out.println("*");
     
-    keyboard.close();
+    
   }
 
-  static int printTriangle(int base) {
+  static void printTriangle(int base) {
     // 코드를 완성하시오!
-    if (base == 0)
-      return 0;
-
-    return base ?????????
+    System.out.println(base);
 
 
   }

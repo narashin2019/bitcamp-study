@@ -1,4 +1,4 @@
-package com.eomcs.lms;
+package com.eomcs.lms.handler;
 
 // 상호참조하도록 하면 안됩니다. App이라는 클래스 언급되면 안된다. 
 // 컴파일러가 무한루프 도는 문제 유지보수차원에서도 문제
@@ -21,10 +21,14 @@ public class LessonHandler {
   static final int LESSSON_SIZE = 100;
   static Lesson[] lessons = new Lesson[LESSSON_SIZE];
   static int lessonCount = 0;
-  static Scanner keyboard;
+  public static Scanner keyboard; 
+  // public 다른패키지에 있는 클래스에서도 이 변수를 사용하게 하려면 공개해야 한다.
+  // 다 공개하지 말고 공개할 것만 공개해야함 , 공개하지 않는게 기본. 
+  // default = 같은 패키지 소속된 클래스끼리는 공유가능
+  // private 이 내부에서만 씀
+  // protected 이 클래스, 상속받은 자식클래스만
 
-
-  static void addLesson() { 
+  public static void addLesson() { 
     Lesson lesson = new Lesson(); // 
 
     System.out.print("번호? ");
@@ -54,7 +58,7 @@ public class LessonHandler {
     System.out.println("저장하였습니다.");
   } // addLesson 메소드
 
-  static void listLesson() { 
+  public static void listLesson() { 
     for(int i = 0; i < lessonCount; i++) { 
 
       Lesson l = lessons[i]; 
