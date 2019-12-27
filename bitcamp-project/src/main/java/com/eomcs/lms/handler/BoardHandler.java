@@ -8,58 +8,95 @@ public class BoardHandler {
 
 
   // 인스턴스 필드
-  // => new 명령을 실행해야만 생성되는 변수이다. (클래스가 로딩되도 존재하지 않음)
+  // => new 명령을 실행해야만 생성되는 변수이다. (클래스가 로딩되어도 존재하지 않음)
   // => 개별적으로 관리되어야 하는 값일 경우 인스턴스 필드로 선언한다. (static을 뺀다)
-  Board[] boards = new Board[BOARD_SIZE];
+  Board[] boards; //4번
   int boardCount = 0;
+  
+  // 이전까지 게시물 데이터를 입력받을 때 키보드에서 입력 받을 수 있지만,
+  // 향후 네트워크나 파일로부터도 입력 받을 수 있다.
+  // 이런경우를 대비하여 입력 데이터를 읽는 것을 keyboard로 한정하지 말자!
+  // 또한 각 게시판마다 입력받는 방식을 다르게 할 수 있도록인스턴스 변수로 선언하자.
+
+  Scanner input;
+  
   
   // 클래스 필드
   // => Method Area에 클래스 코드가 로딩될 때 자동 생성된다.
   // => 공통으로 허용할 값일 경우 클래스 필드로 선언한다.
-  static final int BOARD_SIZE = 100; // new boardHandler해서 힙에 메모리 각각 만들어도 항상 변하지 않는 값이라 static으로 바꿈
-  public static Scanner keyboard; 
+  static final int BOARD_SIZE = 100; // new boardHandler해서 힙에 메모리 각각 만들어도 항상 변하지 않는 값이라 static으로 바꿈ㅡ 외부패키지 공개 아니라 public 아님
+  
+  // 생성자
+  // => 인스턴스를 생성할 때 반드시 호출되는 메서드
+  // => new 명령을 실행할 때 호출할 생성자를 지정할 수 있다.
+  // => 주로 의존객체를 초기화 시키는 코드를 넣는다.
+  // => 생성자는 리턴 값이 없고 클래스 이름과 같은 이름으로 메서드를 정의한다.
+  // => 생성자를 실행할 때 사용할 값은 파라미터로 받는다.
+  public BoardHandler(Scanner input) { // 생성자와 똑같은 객체 app에 넣어줌
+    // BoardHandler를 실행하려면 데이터를 입력받는 도구가 반드시 있어야한다.
+    // 이런 도구를 "의존객체(dependency object)" 라 부른다.
+    // 보통 "dependency"라 줄여서 부른다
+    // 생성자에서 해야할 일은 인스턴스를 생성할 때
+    // 이런 의존 객체를 반드시 초기화 시키도록 하는 것이다.
+    this.input = input; //
+    this.boards= new Board[BOARD_SIZE]; //4번
+  }
+
+  public BoardHandler(Scanner input, int capacity) { //5번!!!!!!! 게시판 사이즈를 바꾸고 싶을때 생성자 추가 값을 두갬받는 생성자 배열의 크기까지 받음. 
+    this.input = input;
+    if(capacity < BOARD_SIZE || capacity > 10000)
+      this.boards = new Board[BOARD_SIZE];
+    else
+      this.boards = new Board[capacity];
+  }
   
   
-  // 클래스 메서드
-  // => 인스턴스 없이 호출하는 메서드이다.
-  // => 인스턴스를 사용하려면 파라미터를 통해 호출할 때 외부에서 받아야 한다.
-  public static void addBoard(BoardHandler boardHandler) { //변경 //private : 내부에서만 사용 클래스 밖에서 못씀! 따라서 붙이면 안됨)
+  public void addBoard() { 
 
     Board board = new Board();
 
     System.out.print("번호? ");
-    board.no = keyboard.nextInt(); 
-    keyboard.nextLine(); 
+    board.no = input.nextInt(); 
+    input.nextLine(); 
 
     System.out.print("제목? ");
-    board.title = keyboard.nextLine();
+    board.title = input.nextLine();
 
     board.date = new Date(System.currentTimeMillis());
 
     board.viewCount = 0;
 
-    boardHandler.boards[boardHandler.boardCount++] = board; // 변경
+    this.boards[this.boardCount++] = board; // 변경
 
     System.out.println("저장하였습니다.");
   }
 
-  public static void listBoard(BoardHandler boardHandler) { //보드 핸들러설계로에 따라 만든 인스턴스의 주소를 담는 변수 (리모컨)
-    for (int i = 0; i < boardHandler.boardCount; i++) { 
-      Board b = boardHandler.boards[i]; // 변경
+  //게시판 목록 출력
+  // 보드핸들러 객체를 받아 인스턴스 필드를 사용하는 메서드는 > 인스턴스 메서드로 바꾸자!
+  // 인스턴스 메서드 
+  // => 인스턴스가 있어야만 호출할 수 있는 메서드이다.
+  // => 인스턴스를 사용하는 메서드인 경우 인스턴스 메서드로 선언하라.
+  // => 호출 할 때는 반드시 인스턴스 주소를 줘야 한다.
+  //    인스턴스주소.메서드명();
+  // => 이렇게 인스턴스의 변수 값을 다루는 메서드를 '연산자'라 부를 수 있다. operator
+  public void listBoard() { //보드 핸들러설계로에 따라 만든 인스턴스의 주소를 담는 변수 (리모컨)
+    for (int i = 0; i < this.boardCount; i++) { 
+      Board b = this.boards[i]; // 변경
       System.out.printf("%d, %s, %s, %d\n", 
           b.no, b.title, b.date, b.viewCount);
     }
   }
   
-  public static void detailBoard(BoardHandler boardHandler) {//변경
+  
+  public void detailBoard() {//변경
     System.out.println("게시물 번호? ");
-    int no = keyboard.nextInt();
-    keyboard.nextLine(); //숫자 뒤에 남은 공백 제거
+    int no = input.nextInt();
+    input.nextLine(); //숫자 뒤에 남은 공백 제거
     
     Board board = null;
-    for (int i = 0; i < boardHandler.boardCount; i++) {
-      if (boardHandler.boards[i].no == no) { // 변경 // 보드i번방에 들어있는 i식판의 no번호와 사용자 입력번호를 비교해서 같다면 바로 그식판!
-        board = boardHandler.boards[i]; //변경
+    for (int i = 0; i < this.boardCount; i++) {
+      if (this.boards[i].no == no) { // 변경 // 보드i번방에 들어있는 i식판의 no번호와 사용자 입력번호를 비교해서 같다면 바로 그식판!
+        board = this.boards[i]; //변경
         break;
       }
     }
@@ -79,30 +116,4 @@ public class BoardHandler {
   
 }
 
-//메인메소드가 없어서 run as 에 안뜸
-// app에서 명령어 추가
-//   public static void detailBoard() {
-//System.out.println("게시물 번호? ");
-//int no = keyboard.nextInt();
-//keyboard.nextLine(); //이거 꼭 넣어야함 숫자 뒤에 남은 공백 제거
-//
-//if (no < 0 || no >= boardCount) {
-//  System.out.println("게시물 번호가 유효하지 않습니다.");
-//  return; //메소드의 리턴타입이 void일 경우 그냥 리턴만 쓰면 중단됨
-//}
-//
-//Board board = boards[no];
-//
-//System.out.printf("번호: %d\n", board.no);
-//System.out.printf("제목: %s\n", board.title);
-//System.out.printf("등록일: %s\n", board.date);
-//System.out.printf("조회수: %d\n", board.viewCount);
-//} 생성 나머지 보드핸들러2, 3도
-
-
-//* 게시물은 중간에 게시물이 삭제되어도 번호가 바뀌면 안된다!!! 이용자가 서로 전달을 못해
-//삭제된 번호 빵꾸는 유지해야함. 버려
-// > 배열로 하면 배열 인덱스 번호가 땡겨짐...
-//게시물 특징: 번호는 계속 앞으로 직진만 한다.
-// > 그래서 게시물 고유번호가 필요함.
-// 게시물 조회시 배열인덱스로 조회하는 건 나쁘다. 게시물 고유 보드로 찾아야 한다. 
+//게시판 게시물은 언제든지 추가 될 수 있으므로 인스턴스로 만듬

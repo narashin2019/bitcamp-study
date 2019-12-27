@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Exam0230 {
     
-    static class Score {
+    static class Score {//왜 static???
         String name;
         int kor;
         int eng;
@@ -13,13 +13,14 @@ public class Exam0230 {
         int sum;
         float average;
         
-        // 다음 메서드와 같이 인스턴스 변수를 사용하는 경우 인스턴스 메서드로 정의한다.
+        // 다음 메서드와 같이 인스턴스 변수를 사용하는 경우 인스턴스 메서드로 정의한다. nonstatic
         public void compute() {
             // 내장 변수 this에는 compute()를 호출할 때 넘겨준 인스턴스 주소가 들어 있다.
             this.sum = this.kor + this.eng + this.math;
             this.average = this.sum / 3f;
         }
     }
+    
     
     public static void main(String[] args) {
         Scanner keyScan = new Scanner(System.in);
@@ -39,8 +40,8 @@ public class Exam0230 {
         s2.math = keyScan.nextInt();
         
         // 특정 인스턴스에 대해 작업을 수행할 때는 인스턴스 메서드를 호출한다.
-        s1.compute(); // s1에 들어 있는 인스턴스 주소는 compute()에 전달된다. 
-        s2.compute(); // 이번에는 s2에 들어 있는 주소를 compute()에 전달한다.
+        s1.compute(); // s1에 들어 있는 인스턴스 주소는 compute()에 this 전달된다. 
+        s2.compute(); // 이번에는 s2에 들어 있는 주소를 compute()에 this에 전달한다.
        
         
         System.out.printf("%s, %d, %d, %d, %d, %.1f\n",
@@ -54,7 +55,9 @@ public class Exam0230 {
 
 
 
-
+// 
+// 스태틱 메서드는 클래스 이름으로 직접호출 인스턴스 필드가 필요없다면 static
+// 인스턴스 필드를 사용하는 것은 인스턴스 메서드 non-static
 
 
 

@@ -3,11 +3,11 @@ package com.eomcs.oop.ex03;
 
 public class Exam0320 {
     static class Calculator {
-        // new 명령을 실행하면, 다음 변수 선언이 실행되어 Heap에 메모리를 만든다.
+        // new 명령을 실행하면, 다음 변수 선언이 실행되어 Heap에 메모리를 만든다. 인스턴스필드 new Calculator();하면 인스턴스필드만 heap에 생성. 인스턴스 메서드는 메서드 area에. 힙에 만들어지는 것은 필드! 
         int result;
     
         // 주의!
-        // => 이름에 인스턴스가 붙었다고 해서 인스턴스 메서드는 Heap에 만들어지는 것이 아니다!
+        // => 이름에 인스턴스가 붙었다고 해서 인스턴스 메서드는 Heap에 만들어지는 것이 아니다! 인스턴스메서드는 힙이 아니라 메서드에리어에 올라간다.
         // => 클래스의 모든 코드는 Method Area 영역에 로딩 된다.
         public void plus(int value) {
             this.result += value;
@@ -37,6 +37,6 @@ public class Exam0320 {
 
 
 
-
+//******오해하기 쉬운 부분
 
 
