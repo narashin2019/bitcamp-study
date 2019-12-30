@@ -37,7 +37,8 @@ public class Exam0240 {
         java.sql.Date d = java.sql.Date.valueOf("2019-12-30");
         System.out.println(d);
         // println()에 문자열을 주지 않고 그냥 객체의 주소를 넘기면
-        // println() 내부에서 해당 객체의 tㅐString을 호출한 후에 그 리턴 값을 출력한다.
+        // println() 내부에서 해당 객체의 tㅐString을 호출한 후에 
+        // 그 리턴 값을 출력한다.
     }
 }
 
