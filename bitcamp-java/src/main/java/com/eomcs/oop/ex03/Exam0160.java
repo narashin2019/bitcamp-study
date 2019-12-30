@@ -4,11 +4,11 @@ package com.eomcs.oop.ex03;
 public class Exam0160 {
 
   static class Member {
+    // => 모든 인스턴스가 다음의 변수에 대해 같은 값을 가질 경우,
+    //    클래스 변수로 만드는 것이 바람직하다.
     // => 만약 값을 저장하는 것이 아닌 조회하는 용도로만 사용하는 변수라면
     //    대문자로 선언하여 상수임을 표현하라!
     // => 조회 용도로만 사용하기로 했으면 문법적으로 값을 변경하는 것을 막아라! final 붙임
-    // => 모든 인스턴스가 다음의 변수에 대해 같은 값을 가질 경우,
-    //    글래스 변수로 만드는 것이 바람직하다.
     // => 보통 조회용으로 사용하는 변수는 공개해도 되기 때문에 public으로 선언한다!
     public static final int GUEST = 0;
     public static final int MEMBER = 1;
@@ -65,9 +65,9 @@ public class Exam0160 {
 
 
 
-//*인스턴스로 모두 만들고 static 여부를 고민한다.
-//static은 공유하는 경우 / 인스턴스가 많이 생겨도 변하지 않는 값인 경우 / 따라서 final은 무조건 static
-// 상수는 대부분 public static final  으로 해서 외부 패키지 공개. 변하지 않는 값이라 static함
+//*모두 인스턴스로 만들고 static 여부를 고민한다.
+// static은 공유하는 경우 / 인스턴스가 많이 생겨도 변하지 않는 값인 경우 / 따라서 final은 무조건 static
+// 상수는 대부분 public static final  으로 해서 외부 패키지 공개. 변하지 않는 값이라 static.
 
 
 

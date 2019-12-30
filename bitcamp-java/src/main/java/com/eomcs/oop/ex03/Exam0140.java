@@ -8,6 +8,7 @@ public class Exam0140 {
     }
     
     public static void main(String[] args) {
+       // v1은 클래스 변수이기 때문에 클래스명.변수명 = 으로 초기화 가능하다.
         A.v1 = 100;
         
         // v2 는 인스턴스 변수이기 때문에 사용하기 전에 new 명령으로 먼저 생성해야 한다.

@@ -30,7 +30,7 @@ public class Exam0410 {
         }
         
         
-        //그냥 메서드
+        //그냥 인스턴스 메서드
         public void compute() {
             this.sum = this.kor + this.eng + this.math;
             this.average = this.sum / 3f;

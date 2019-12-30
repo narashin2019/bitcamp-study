@@ -38,7 +38,7 @@ public class Exam0510 {
     System.out.printf("%d, %d, %d, %d, %c, %.1f, %.1f, %b, %s, %s\n", 
         A.b, A.s, A.i, A.l, A.c, A.f, A.d, A.bool, A.str, A.date);
 
-    // 인스턴스 변수도 클래스 변수와 마찬가지 이다. 
+    // 인스턴스 변수도 클래스 변수처럼 생성되는 순간 0으로 자동 초기화 된다.
     A obj = new A();
     System.out.printf("%d, %d, %d, %d, %c, %.1f, %.1f, %b, %s, %s\n", 
         obj.b2, obj.s2, obj.i2, obj.l2, obj.c2, obj.f2, obj.d2, obj.bool2, obj.str2, obj.date2);
