@@ -6,19 +6,29 @@ import com.eomcs.lms.domain.Member;
 
 public class MemberHandler {
 
-  MemberList memberList;
+  // 인스턴스 필드 = 논 스태틱 필드
+  // => 개별적으로 관리해야 하는 변수
+  // => new 명령을 통해 생성된다.
+  //
+  Member[] members;//3
+  int memberCount = 0;
 
-  Scanner input;
-
-  
-  public MemberHandler(Scanner input) {
+  public Scanner input; //1인풋으로 전체 변환 // 향후 다른 스캐너 사용할 수 있으니 static 제거
+  public MemberHandler(Scanner input) { //2. 뭔말이야
     this.input = input;
-    memberList = new MemberList();
+    this.members = new Member[MEMBER_SIZE];//3
   }
 
 
+
+
+  // 클래스 필드 = 스태틱 필드
+  // => 공유하는 변수
+  // => 클래스가 메모리에 로딩될 때 자동으로 생성된다.
+  //
+  static final int MEMBER_SIZE = 100;
+
   public void addMember() {
-    
     Member member = new Member();
 
     System.out.print("번호? ");
@@ -42,15 +52,16 @@ public class MemberHandler {
 
     member.setRegisteredDate(new Date(System.currentTimeMillis()));
 
-    memberList.add(member); 
+    this.members[this.memberCount++] = member; 
 
     System.out.println("저장하였습니다.");
   }
 
 
-  public void listMember() {
-    Member[] members = memberList.toArray();
-    for (Member m : members) {
+  public  void listMember() {
+
+    for (int i = 0; i < this.memberCount; i++) {
+      Member m = this.members[i]; 
       System.out.printf("%d, %s, %s, %s, %s\n", 
           m.getNo(), m.getName(), m.getEmail(), m.getTel(), m.getRegisteredDate());
     }
