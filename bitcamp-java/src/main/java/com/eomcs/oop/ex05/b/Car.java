@@ -5,6 +5,7 @@ public class Car {
     String model;
     String maker;
     int capacity;
+    //필드추가
     boolean sunroof;
     boolean auto;
     
@@ -22,7 +23,7 @@ public class Car {
     public Car(String model, String maker, int capacity, 
             boolean sunroof, boolean auto) {
         // 이 클래스의 다른 생성자를 먼저 호출할 수 있다.
-        // => 이때 this()를 사용한다.
+        // => 이때 this()를 사용한다. 다른 생성자를 호출하는 문법. 똑같은 코드 또 작성할 필요 없음. 단 첫번째 문장으로 와야함.
         this(model, maker, capacity);
         
         this.sunroof = sunroof;
