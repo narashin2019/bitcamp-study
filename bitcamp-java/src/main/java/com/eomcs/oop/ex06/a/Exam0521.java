@@ -1,12 +1,13 @@
 // 다형성 - 다형적 변수의 형변환 응용 - instanceof 연산자
 package com.eomcs.oop.ex06.a;
 
-public class Exam05 {
+public class Exam0521 {
 
     // Sedan과 Truck, Bike의 모든 정보를 자세히 출력하라!
     // 단, 한 개의 메서드로 처리하라!
     
-    public static void print(Vehicle v) {
+    public static void print(Vehicle v) { // 비히클을 요구한다는 것은 비히클의 자식인스턴스도 모두 줄 수 있다. 나 비히클이면 다 받을 수 있쪄!
+        // 
         System.out.println("[기본정보]");
         System.out.printf("모델명: %s\n", v.model);
         System.out.printf("수용인원: %d\n", v.capacity);
@@ -63,7 +64,7 @@ public class Exam05 {
         truck.dump = true;
         truck.ton = 15;
         
-        print(bike);
+        print(bike); // print의 참조변수는 Vehicle v임. 이게 바이크인지 세단인지 트럭인지 알아내는게 instance of
         print(sedan);
         print(truck);
         
