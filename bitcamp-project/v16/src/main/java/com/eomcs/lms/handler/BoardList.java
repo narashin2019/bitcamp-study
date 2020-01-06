@@ -37,7 +37,8 @@ public class BoardList {
       arr[i] = this.list[i];
     }
     */
-    return Arrays.copyOf(this.list, this.size); //새 배열을 만들고 기존 배열에서 사용자가 입력한 사이즈 3개만큼 복사한다. // 클래스스태틱메소드다. 인스턴스없이 ㅏ로 실행하는 경우. 배열을 다루는 클래스다. Arrays 클래스 안에는 배열을 다루는 메서드가 잔뜩 있고 그중에 하나 쓴거다.
+    return Arrays.copyOf(this.list, this.size); 
+    //새 배열을 만들고 기존 배열에서 사용자가 입력한 사이즈 3개만큼 복사한다. // 클래스스태틱메소드다. 인스턴스없이 ㅏ로 실행하는 경우. 배열을 다루는 클래스다. Arrays 클래스 안에는 배열을 다루는 메서드가 잔뜩 있고 그중에 하나 쓴거다.
   }
 
 
@@ -55,7 +56,8 @@ public class BoardList {
       }
       this.list = arr; // 새배열의 주소를 담는다. list에
       */
-      this.list = Arrays.copyOf(this.list, newCapacity); //새배열의 주소를 list에 넣는다
+      this.list = Arrays.copyOf(this.list, newCapacity); 
+      //새배열의 주소를 list에 넣는다
       System.out.printf("새 배열을 %d개 생성하였음", newCapacity);
     }
     this.list[this.size++] = board;

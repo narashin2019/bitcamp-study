@@ -5,18 +5,18 @@ import com.eomcs.lms.domain.Member;
 
 public class MemberList {
 
-  static final int DEFAULI_CAPACITY = 3;
+  static final int DEFAULT_CAPACITY = 3;
 
   Member[] list;
   int size = 0;
 
   public MemberList() {
-    this.list = new Member[DEFAULI_CAPACITY];
+    this.list = new Member[DEFAULT_CAPACITY];
   } 
 
   public MemberList(int capacity) {
-    if(capacity < DEFAULI_CAPACITY || capacity > 10000)
-      this.list = new Member[DEFAULI_CAPACITY];
+    if(capacity < DEFAULT_CAPACITY || capacity > 10000)
+      this.list = new Member[DEFAULT_CAPACITY];
     else
       this.list = new Member[capacity];
   }
