@@ -6,6 +6,7 @@ public class Exam0110 {
     public static void main(String[] args) {
         // 환자 데이터를 등록해보자!
         Customer c1 = new Customer();
+        
         c1.name = "홍길동";
         c1.age = 300;
         c1.weight = 100;
@@ -23,12 +24,14 @@ public class Exam0110 {
         // 이를 방지하기 위해 만든 문법이 "캡슐화(encapsulation)"이다.
         //
         // 캡슐화?
+        // => 추상화가 무너지지 않게 도와주는 문법.
+        // => 클래스가 원래 목적에 맞는 값을 담도록 도와주는 문법
         // => 인스턴스의 변수에 추상화 목적에 맞는 유효한 값만 넣을 수 있도록
         //    외부 접근을 제한하는 문법이다.
         // => 제한 범위
         //    private   : 클래스 내부에서만 접근 가능
-        //    (default) : 클래스 내부 + 같은 패키지
-        //    protected : 클래스 내부 + 같은 패키지 + 자식클래스
+        //    (default) : 클래스 내부 + 같은 패키지 (식료품)
+        //    protected : 클래스 내부 + 같은 패키지 + 자식클래스(다른패키지라도)   (냉장고)
         //    public    : 모두 접근 가능!
         // 
     }

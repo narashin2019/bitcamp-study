@@ -22,7 +22,8 @@ class Score4 {
   // => getXxxx(), setXxxx()는 "프로퍼티(property)"라 부른다.
   // => 필드를 프로퍼티라 부르는 것이 아니다!
   //    게터/세터를 프로퍼티라 부르는 것이다. 리드온리프로퍼티 롸이트온리프로퍼티 리드롸이트프로퍼티
-  //
+  // 프로그래밍의 일관성때문에 필드는 private, 메서드는 public
+  // 어떤 필드는 굳이 새터게터필요없으나 실무에서는 무조건 만듬. 일관성때문.
   
   private String name;
   private int kor;

@@ -7,13 +7,14 @@ import com.eomcs.oop.ex01.Score;
 public class Exam0111 {
   public static void main(String[] args) {
     Score s1 = new Score();
+    
     s1.name = "홍길동";
     s1.kor = 100;
     s1.eng = 90;
     s1.math = 80;
     s1.compute();
 
-    // 계산을 한 후에 임의적으로 합계나 평균을 변경한다면?
+    // 만약 계산을 한 후에 임의적으로 합계나 평균을 변경한다면?
     s1.sum = 300;
     s1.aver = 100.0f;
 

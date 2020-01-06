@@ -19,13 +19,14 @@ public class Exam0230 extends C {
         // => 그럼 이 클래스를 개발자가 사용하지 말라는 것인가?
         //    개발자들이 이 클래스의 인스턴스를 만들 수 있도록 스태틱 메서드를 제공한다.
         //    당연히 그 메서드는 외부에서 호출할 수 있도록 public으로 공개되었다.
+      // 이유: 인스턴스 생성과정이 복잡해서.
         Calendar cal1 = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
         System.out.println(cal1 == cal2);
         
         // getInstance()의 리턴 값을 확인해 보면 다르다는 것을 알 수 있다.
         // 즉 getInstance() 메서드는 singleton 기능을 수행하는 메서드가 아니라,
-        // 복잡한 Calendar 객체를 대신 생성해주는 factory method로서 역할을 수행한다.
+        // 복잡한 Calendar 객체를 대신 생성해주는 "factory method"로서 역할을 수행한다.
         //
         // 생성자를 protected로 감추고, getInstance()를 public 으로 공개하였다.
         // 캡슐화를 응용한 예이다.

@@ -11,7 +11,7 @@ class Score {
   float aver;
   
   void compute() {
-    this.sum = this.kor + this.eng +this.math;
+    this.sum = this.kor + this.eng +this.math; //this변수에 s1 주소가 들어가 있겠다.
     this.aver = this.sum / 3f;
   }
 }

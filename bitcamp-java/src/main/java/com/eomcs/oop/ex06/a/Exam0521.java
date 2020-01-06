@@ -11,7 +11,6 @@ public class Exam0521 {
         System.out.println("[기본정보]");
         System.out.printf("모델명: %s\n", v.model);
         System.out.printf("수용인원: %d\n", v.capacity);
-        
         // 파라미터 v에 들어있는 주소가 Bike인지 Sedan인지 Truck인지를 구분해서 처리해야 한다.
         // 자바는 이런 경우를 대비해 인스턴스의 주소가 어떤 클래스의 주소인지 
         // 판단할 수 있는 연산자를 제공한다. 

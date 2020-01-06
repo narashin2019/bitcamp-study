@@ -66,13 +66,15 @@ class Score3 {
 
 public class Exam0310 {
   public static void main(String[] args) {
+    
     Score3 s1 = new Score3();
+    
     s1.name = "홍길동";
     s1.setKor(100);
     s1.setEng(90);
     s1.setMath(80);
     
-    // 세터를 통해서 국, 영, 수 값을 설정할 때마다 
+    // 세터를 통해서 국, 영, 수 값을 설정(인스턴스 필드에 값을 직접넣지 않고 세터메서드로 값 집어넣음)할 때마다 
     // 합계와 평균을 자동으로 계산하기 때문에 직접 compute()를 호출할 필요가 없다.
     //s1.compute();
     
@@ -90,3 +92,9 @@ public class Exam0310 {
         s1.name, s1.getKor(), s1.getEng(), s1.getMath(), s1.getSum(), s1.getAver());
   }
 }
+
+//접근범위를 조정해서  필드나 메서드를 잘못사용하지 않게 도와주는 문법 = 캡슐화
+// 공개할 것은 공개하고 막을 것은 막자.
+
+//일관성이 없다. 어떤 필드값은 직접넣고 어떤 필드값은 메서드 호출해서 넣고.
+//차라리 불편하더라도 이로간성있는 것이 유지보수에 좋다. -?> 다름

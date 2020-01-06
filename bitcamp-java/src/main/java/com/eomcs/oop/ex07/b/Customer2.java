@@ -7,3 +7,5 @@ public class Customer2 {
     private int weight;
     private int height;
 }
+
+//  private 여기에 선언된 메소드만 접근 가능

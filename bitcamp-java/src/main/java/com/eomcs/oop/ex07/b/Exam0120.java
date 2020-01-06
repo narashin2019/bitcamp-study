@@ -6,6 +6,7 @@ public class Exam0120 {
     public static void main(String[] args) {
         // 환자 데이터를 등록해보자!
         Customer2 c1 = new Customer2();
+        
         c1.name = "홍길동";
         c1.age = 300;
         c1.weight = 100;
@@ -15,7 +16,7 @@ public class Exam0120 {
         // 다른 클래스는 해당 인스턴스 변수에 접근할 수 없다.
         // 해결책?
         // => 이 클래스에서 제공하는 메서드를 사용하라!
-        // => Exam01_3.java를 확인하라!
+        // => Exam0130.java를 확인하라!
     }
 }
 
