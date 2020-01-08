@@ -99,8 +99,9 @@ public class ArrayList<E> {
     } 
     // 넉넉할 때는 파라미터로 받은 배열을 그대로 리턴. 
     System.arraycopy(this.elementData, 0, arr, 0, this.size);
+    //this.list를 0번방부터 arr에 0번방부터 this.size만큼 복사한다
     return arr;
-   //Arrays.copyOf(original, newLength, newType)
+   
   }
   
 }

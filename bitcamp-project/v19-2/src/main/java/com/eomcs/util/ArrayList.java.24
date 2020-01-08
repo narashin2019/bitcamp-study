@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class ArrayList<E> {
 
-  private static final int DEFAULT_CAPACITY = 2; 
+  private static final int DEFAULT_CAPACITY = 10; 
   
   Object[] elementData; 
   int size;
@@ -100,7 +100,7 @@ public class ArrayList<E> {
     // 넉넉할 때는 파라미터로 받은 배열을 그대로 리턴. 
     System.arraycopy(this.elementData, 0, arr, 0, this.size);
     return arr;
-   //Arrays.copyOf(original, newLength, newType)
+   
   }
   
 }
