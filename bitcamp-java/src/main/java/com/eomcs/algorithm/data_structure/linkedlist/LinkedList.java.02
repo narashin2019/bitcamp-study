@@ -1,0 +1,10 @@
+package com.eomcs.algorithm.data_structure.linkedlist;
+
+public class LinkedList {
+
+  static class Node { //클래스 설계도. 오브젝트라 어브젝트를 상속받은 어떤 값이라도 저장할 수 있음 다형적변수 하위객체 참조 가능.
+    Object value;
+    Node next;
+  }
+  
+}

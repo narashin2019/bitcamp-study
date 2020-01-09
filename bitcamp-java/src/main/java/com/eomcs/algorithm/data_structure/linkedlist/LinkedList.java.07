@@ -1,0 +1,103 @@
+package com.eomcs.algorithm.data_structure.linkedlist;
+
+public class LinkedList {
+
+  Node first;
+
+  Node last;
+
+  int size; //인스턴스 변수는 초기화 안해도 기본값으로 설정됨. null, 0 false등
+
+  public void add(Object value) {
+    Node newNode = new Node();
+    newNode.value = value;
+
+    if (first == null) { //this생략된 인스턴스변수 = 파랑샏ㄱ
+      last = first = newNode;
+    } else {
+      last.next = newNode;
+      last = newNode;
+    }
+    this.size++;
+  }
+
+
+  public Object get(int index) {
+    if (index < 0 || index >= size)
+      return null;
+
+    Node cursor = first;
+    for (int i = 0; i < index; i++) {
+      cursor = cursor.next;
+    }
+
+    return cursor.value;
+  }
+
+
+
+
+  public void add(int index, Object value) {
+    if (index < 0 || index >= size)
+      return; //유효하지 않는 인덱스는 즉시 빠져나간다.
+
+    Node newNode = new Node();
+
+    newNode.value = value;
+
+
+    Node cursor = first; //100
+    for (int i = 0; i < index - 1; i++) {
+      cursor = cursor.next;
+    }
+
+    if (index == 0) {
+      newNode.next = first;
+      first = newNode;
+    } else {
+      newNode.next = cursor.next;
+      cursor.next = newNode;
+    }
+
+    this.size++;
+  }
+
+
+
+  public Object remove(int index) {
+    if (index < 0 || index >= size)
+      return null; //유효하지 않는 인덱스는 즉시 빠져나간다.
+
+    Node cursor = first; //100
+    for (int i = 0; i < index - 1; i++) {
+      cursor = cursor.next;
+    }//지우고 싶은거의 바로 전꺼 찾는 코드. 커서얘가리키는데 삭제할 놈은 커서의 넷스트
+
+    Node deletedNode = null;
+
+    if (index == 0) {
+      deletedNode = first;
+      first = deletedNode.next;
+    } else {
+      deletedNode = cursor.next;
+      cursor.next = deletedNode.next;
+    }
+
+    deletedNode.next = null; //오리알을 null로 초기화 가비지가 되려면 주소를 누구도 갖지 않아야한다.
+    size--;
+
+    return deletedNode.value; // 리턴값은 딜리트노드의 값. 혹시나 누가 필요할까봐
+  }
+
+
+
+
+
+
+
+  static class Node { //클래스 설계도. 오브젝트라 어브젝트를 상속받은 어떤 값이라도 저장할 수 있음 다형적변수 하위객체 참조 가능.
+    Object value;
+    Node next;
+  }
+
+}

@@ -4,24 +4,23 @@ package com.eomcs.lms.handler;
 
 import java.sql.Date;
 import com.eomcs.lms.domain.Board;
-import com.eomcs.util.LinkedList;
+import com.eomcs.util.ArrayList;
 import com.eomcs.util.Prompt;
 
 public class BoardHandler {
 
-  LinkedList<Board> boardList; 
+  ArrayList<Board> boardList; 
   Prompt prompt;
 
   public BoardHandler (Prompt prompt) {
     this.prompt = prompt;
-    boardList = new LinkedList<>();// <Board>에서 Board 생략가능 <>는 남기고
+    boardList = new ArrayList<>();// <Board>에서 Board 생략가능 <>는 남기고
   }
 
-//  public BoardHandler(Prompt prompt, int capacity) {
-//    this.prompt = prompt;
-//    this.boardList = new LinkedList<>(capacity); 
-//  }
-  //링크드 리스트에서는 2번째 생성자 필요없음 
+  public BoardHandler(Prompt prompt, int capacity) {
+    this.prompt = prompt;
+    this.boardList = new ArrayList<>(capacity); 
+  }
 
 
   public void addBoard() { 

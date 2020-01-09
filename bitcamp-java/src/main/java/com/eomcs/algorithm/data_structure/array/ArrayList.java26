@@ -1,5 +1,5 @@
 package com.eomcs.util;
-
+26) add()와 add(int,E)에 중복 작성된 배열을 늘리는 코드를 grow() 메서드로 분리한다. 
 import java.util.Arrays;
 
 public class ArrayList<E> {
@@ -22,12 +22,6 @@ public class ArrayList<E> {
   }
   
   
-  public void add(E e) {
-    if (this.size == this.elementData.length) {
-      grow();
-    }
-    this.elementData[this.size++] = e;
-  }
 
   
   @SuppressWarnings("unchecked")
@@ -92,7 +86,14 @@ public class ArrayList<E> {
     return arr; // 넉넉할 때는 파라미터로 받은 배열을 그대로 리턴. 
   }
   
-  
+
+  public void add(E e) {
+    if (this.size == this.elementData.length) {
+      grow();
+    }
+    this.elementData[this.size++] = e;
+  }
+
   
   public void add(int index, E value) {
     if (index < 0 || index >= this.size)
@@ -108,8 +109,6 @@ public class ArrayList<E> {
     this.elementData[index] = value;
     this.size++;
   }
-  
-  
   
   
   public Object[] grow () {

@@ -11,13 +11,14 @@ public class Board {
   private String writer;
   
   
-  //이퀄스 비교할 때 date뺴고 만들어. 날짜가 달라도 제목이 같으면 같은 게시물로 취급
+  
   
   
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
+    result = prime * result + ((date == null) ? 0 : date.hashCode());
     result = prime * result + no;
     result = prime * result + ((title == null) ? 0 : title.hashCode());
     result = prime * result + viewCount;
@@ -33,6 +34,11 @@ public class Board {
     if (getClass() != obj.getClass())
       return false;
     Board other = (Board) obj;
+    if (date == null) {
+      if (other.date != null)
+        return false;
+    } else if (!date.equals(other.date))
+      return false;
     if (no != other.no)
       return false;
     if (title == null) {
