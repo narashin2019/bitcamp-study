@@ -1,4 +1,4 @@
-package gomgugu.njp.util;
+package com.eomcs.util;
 
 import java.util.Arrays;
 
@@ -17,12 +17,12 @@ public class ArrayList<E> {
 
   //생성자
   public ArrayList(int initialCapacity) {
-    if(initialCapacity < DEFAULT_CAPACITY)
+    if(initialCapacity < DEFAULT_CAPACITY) {
       this.elementData = new Object[DEFAULT_CAPACITY];
-    else
+    } else {
       this.elementData = new Object[initialCapacity];
+    }
   }
-
 
 
 
@@ -32,11 +32,9 @@ public class ArrayList<E> {
   public E get(int index) {
     if (index < 0 || index >= this.size) {
       return null;
-    } else {
-      return (E) this.elementData[index]; 
-      //타입캐스팅(E) 실행할 때 저장되는 값의 리턴타입이 결정된다. 
-      //스트링이면 스트링인지 아닌지 컴파일러가 다 검사함.
-    }
+    } return (E) this.elementData[index]; 
+    //타입캐스팅(E) 실행할 때 저장되는 값의 리턴타입이 결정된다. 
+    //스트링이면 스트링인지 아닌지 컴파일러가 다 검사함.
   }
 
 
@@ -59,28 +57,27 @@ public class ArrayList<E> {
     if (index < 0 || index >= this.size) {
       return null;
     }
-    
+
     //삭제할 항목을 따로 보관해 둔다. 필요할 수 있다.
     E oldValue = (E) this.elementData[index];
-    
+
     System.arraycopy(this.elementData, index + 1, 
         this.elementData, index, this.size - (index + 1));
     /*
     for (int i = index + 1; i < this.size; i++) {
       this.elementData[i - 1] = this.elementData[i];
     }
-    */
-    
+     */
     this.size--;
     return oldValue;
   }
-  
-  
+
+
   public int size() {
     return this.size; //this는 생략가능. this변수에 들어있는 size
   }
-  
-  
+
+
   public Object[] toArray() {
     return Arrays.copyOf(this.elementData, this.size);
     /*
@@ -89,14 +86,14 @@ public class ArrayList<E> {
       arr[i] = this.elementData[i];
     }
     return arr;
-    */
+     */
   }
-  
-  
+
+
   @SuppressWarnings("unchecked")
   public E[] toArray(E[] arr) { 
- // 제네릭은  E[] arr = new E[100]; 이거 안됨  배열을 뉴로 못만듬
-    
+    // 제네릭은  E[] arr = new E[100]; 이거 안됨  배열을 뉴로 못만듬
+
     if (arr.length < this.size) {
       // 파라미터로 받은 배열이 작을 때는 현재 사이즈 크기의 새 배열을 만들어 리턴
       return (E[]) Arrays.copyOf(this.elementData, this.size, arr.getClass()); //arr.getClass() 클래스타입이 무엇인지 정보 가져옴
@@ -106,7 +103,7 @@ public class ArrayList<E> {
     //this.elementData를 0번방부터 arr에 0번방부터 this.size만큼 복사한다
     return arr;
   }
-  
+
 
   public void add(E e) {
     if(this.size == this.elementData.length) {
@@ -114,8 +111,8 @@ public class ArrayList<E> {
     }
     this.elementData[this.size++] = e;
   }
-  
-  
+
+
   public void add(int index, E value) {
     if (index < 0 || index >= this.size)
       return;
@@ -130,39 +127,40 @@ public class ArrayList<E> {
     this.elementData[index] = value;
     this.size++;
   }
-  
-  
+
+
   public Object[] grow () {
-    
-    int oldSize = this.elementData.length;
-    int newSize = oldSize + (oldSize >> 1);
-    
-    return this.elementData = Arrays.copyOf(this.elementData, newSize);
+    return this.elementData = Arrays.copyOf(this.elementData, newCapacity());
   }
-  
-  
-//  public static void main(String[] args) {
-//    ArrayList<String> list = new ArrayList<>();
-//    list.add("aaaa");
-//    list.add("bbbb");
-//    list.add("cccc");
-//    list.add("dddd");
-//    list.add("eeee");
-//    list.add("ffff");
-//
-//    //list.remove(6);
-//    //    list.set(0, "0000");
-//    //    list.set(3, "3333");
-//    //    list.set(5, "5555");
-//    //    list.set(-1, "ㅋㅋㅋㅋ");
-//    //    list.set(6, "^^^^^^");
-//
-//
-//    String[] arr = list.toArray(new String[] {});
-//    for (String s : arr) {
-//      System.out.println(s);
-//    }
-//  }
+
+  private int newCapacity () { //왜 프라이빗이징
+    int oldSize = this.elementData.length;
+    return oldSize + (oldSize >> 1);
+  }
+
+
+  //  public static void main(String[] args) {
+  //    ArrayList<String> list = new ArrayList<>();
+  //    list.add("aaaa");
+  //    list.add("bbbb");
+  //    list.add("cccc");
+  //    list.add("dddd");
+  //    list.add("eeee");
+  //    list.add("ffff");
+  //
+  //    //list.remove(6);
+  //    //    list.set(0, "0000");
+  //    //    list.set(3, "3333");
+  //    //    list.set(5, "5555");
+  //    //    list.set(-1, "ㅋㅋㅋㅋ");
+  //    //    list.set(6, "^^^^^^");
+  //
+  //
+  //    String[] arr = list.toArray(new String[] {});
+  //    for (String s : arr) {
+  //      System.out.println(s);
+  //    }
+  //  }
 
 }
 

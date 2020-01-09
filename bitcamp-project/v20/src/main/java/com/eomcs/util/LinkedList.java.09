@@ -12,7 +12,7 @@ public class LinkedList {
     Node newNode = new Node();
     newNode.value = value;
 
-    if (first == null) { //this생략된 인스턴스변수 = 파랑샏ㄱ
+    if (first == null) { //this생략된 인스턴스변수 = 파랑색
       last = first = newNode;
     } else {
       last.next = newNode;
