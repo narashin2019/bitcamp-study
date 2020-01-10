@@ -1,4 +1,4 @@
-// Wrapper 클래스 - 종류
+// Wrapper 클래스 - 종류 감싸는것 클래스니까 대문자 인티저 캐릭터는 풀명칭으로
 package com.eomcs.corelib.ex01;
 
 public class Exam0210 {
@@ -19,9 +19,22 @@ public class Exam0210 {
     // 이렇게 primitive data type에 대응하여 만든 클래스를 
     // primitive data를 포장하는 객체라고 해서 
     // "랩퍼(wrapper) 클래스"라 부른다.
-
-    // primitive data type의 값을 객체에 담아 전달하고 싶다면
-    // 언제든 wrapper 클래스의 인스턴스를 만들면 된다.
+    
+    // 래퍼 클래스의 주요 용도:
+    // => primitive data type의 값을 객체로 주고 받을 때 사용한다.
+    // => primitive data type의 값을 객체에 담아 전달하고 싶다면
+    //    언제든 wrapper 클래스의 인스턴스를 만들면 된다.
+    
+    //다 디플리케이트 뜸
+    // Wrapper 클래스의 인스턴스를 생성할 때는 생성자 대신 클래스 메서드를 사용하라.
+    Byte b2 = Byte.valueOf((byte)100);               // ==> byte
+    Short s2 = Short.valueOf((short)20000);          // ==> short
+    Integer i2 = Integer.valueOf(3000000);           // ==> int
+    Long l2 = Long.valueOf(60000000000L);            // ==> long
+    Float f2 = Float.valueOf(3.14f);                 // ==> float
+    Double d2 = Double.valueOf(3.14159);             // ==> double
+    Boolean bool2 = Boolean.valueOf(true);           // ==> boolean
+    Character c2 = Character.valueOf((char)0x41);    // ==> char
 
   }
 }

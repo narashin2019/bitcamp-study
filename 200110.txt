@@ -1,0 +1,59 @@
+200110 금요일
+package com.eomcs.corelib.ex01
+package com.eomcs.generic. 복습 꼭 ㅠㅠ
+
+
+19-1마이프로젝트 완료 후 커밋, 태그해야함
+
+19-2~20은 비트캠프20191202랑 비트캠프 스터디의 비트캠프프로젝트 비교먼저 하고
+비트캠프스터디의 비트캠프프로젝트 보면서 마이프로젝트 완료 및 컴밋 태그
+
+
+문법을 활용하는 단계단계별이 더 중요함 
+프로젝트를 암기할 정도로 단계 별로 잘 넘어가는지 연습해야한다.
+
+ 
+===============================
+비트캠프자바
+package com.eomcs.corelib.ex01; Exam0110 {
+
+com.eomcs.generic.ex01
+
+
+자바 튜토리얼 영어로 검색해서 문서확인
+
+
+교양서: 기계는 어떻게 생각하는가. 추천
+
+https://docs.oracle.com/en/java/javase/11/docs/api/index.html
+
+https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html
+
+
+HashMap은 ~(값만 저장)와 다르게 키와 값을 저장 찾을 때도 키로 찾음
+
+
+제프 앳우드: 코딩호러
+
+조엘 스폴스키 ㅡ똑똑하고 100배 일 잘하는 개발자 모시기에 나온 의자:
+
+
+
+https://search.shopping.naver.com/search/all.nhn?query=%ED%97%88%EB%A8%BC%EB%B0%80%EB%9F%AC+%EB%89%B4%EC%97%90%EC%96%B4%EB%A1%A0&cat_id=&frm=NVSHATC
+
+
+--------------------
+
+어려운게 정상이다.
+그러니까 연봉이 다르지.
+
+남이 쓴 코드를 보고 읽어 낼 줄만 알면됨.
+내가 머리짜서 코드 짤일은 초보때 없다..
+
+
+package com.eomcs.generic.ex01;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class Exam0220 {
