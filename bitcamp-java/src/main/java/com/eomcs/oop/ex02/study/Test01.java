@@ -19,7 +19,8 @@ public class Test01 {
     
     
     //Score.calculate(s); //int i =100; ++(i); 이런 느낌
-    //  int i = 100; i++; 이런식으로 쓰고 싶어. s를 앞에서 준다. /스코어 파일에서 static뺀다 ()안도 뺀다.
+    //  int i = 100; i++; 이런식으로 쓰고 싶어. s를 앞에서 준다. 
+    //스코어 파일에서 static뺀다 ()안도 뺀다.
     s.calculate(); 
     //Score.calculate(); // 안됨!! 꼭 인스턴스 주소s를 앞에 줘야 함.
     // 파라미터로 다른 인스턴스 주소를 줄 필요가 없다!!

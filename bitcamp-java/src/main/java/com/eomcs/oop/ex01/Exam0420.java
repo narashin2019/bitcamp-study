@@ -9,6 +9,7 @@ package com.eomcs.oop.ex01;
 // => bin/main/com/eomcs/oop/ex01/A.class
 class A {}
 
+//=> bin/main/com/eomcs/oop/ex01/Exam0420.class
 public class Exam0420 {
 
   // 중첩 클래스(nested class)

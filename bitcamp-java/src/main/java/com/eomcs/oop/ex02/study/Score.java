@@ -1,6 +1,6 @@
 package com.eomcs.oop.ex02.study;
 
-public class Score { //static이 안붙었어! => new로 생성되는 메모리구나.
+public class Score { //static이 없다! => new로 생성되는 메모리구나.
   // 변수선언을 통해 메모리 구조 설계 : 인스턴스 변수
   String name;
   int kor;
@@ -29,4 +29,4 @@ public class Score { //static이 안붙었어! => new로 생성되는 메모리�
   
 }
 
-//인스턴스를 다루기 쉽도록 하는게 인스턴스 메서드. this에 보낼 값은 호풀시 앞에 줌. 
+//인스턴스를 다루기 쉽도록 하는게 인스턴스 메서드. this에 보낼 값은 호출시 앞에 줌. 

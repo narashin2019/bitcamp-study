@@ -5,7 +5,7 @@ package com.eomcs.oop.ex01;
 public class Exam0110 {
   public static void main(String[] args) {
     // 낱개의 변수를 사용하여 한 사람의 성적 정보를 저장하라!
-    // => 식탁에 밥, 국, 반찬1, 반찬2, 반찬3 을 각각 따로 가져오는 상황. 그릇6개
+    // => 식탁에 밥, 국, 반찬1, 반찬2, 반찬3 을 각각 따로 가져오는 상황. 그릇 6개
     String name;
     int kor;
     int eng;
@@ -18,7 +18,8 @@ public class Exam0110 {
     eng = 90;
     math = 85;
     sum = kor + eng + math;
-    aver = (float)sum / 3; // 명시적 형변환 해야 정확히 플롯으로 나눔/한쪽만 붙여도 암시적형변환으로 float으로 됨/ 변수의 타입은 한번 선언하면 바뀌지 않음 
+    aver = (float)sum / 3; // 명시적 형변환 해야 정확히 플롯으로 나눔/한쪽만 붙여도 암시적형변환으로 float으로 됨/
+                           //변수의 타입은 한번 선언하면 바뀌지 않음 
 
     System.out.printf("이름: %s\n", name);
     System.out.printf("국어: %d\n", kor);

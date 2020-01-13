@@ -25,10 +25,6 @@ public class Exam0512 {
 
 }
 
-//public static void print(Vehicle v) { 
-//비히클을 요구한다는 것은 비히클의 자식인스턴스도 모두 줄 수 있다. 나 비히클이면 다 받을 수 있쪄!
-
-
 
 
 

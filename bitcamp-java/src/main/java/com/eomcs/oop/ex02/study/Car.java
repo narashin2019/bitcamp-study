@@ -6,7 +6,7 @@ public class Car {
   public static final int OIL = 1;
   public static final int GAS = 2;
   
-  //static가 붙으면 클래스 실행시 메소드 에리어에 자도으로 생김 별도 메로리생서엉ㅄ이 바로쓸수 있음 
+  //static가 붙으면 클래스 실행시 메소드 에리어에 자동으로 생김 메모리없이 바로쓸수 있음 
   //클래스 로딩될때 단 1번. Car.name = 신; 이렇게 접근
   String name; 
   int type;
@@ -17,7 +17,7 @@ public class Car {
   int cleanLevel;
   //자동차를 여러개 저장하고 싶다면?
   //static을 뗀다
-  // 인스턴스 필드. (인스턴스 생성시 만들어지느,ㄴ 변수)
+  // 인스턴스 필드. (인스턴스 생성시 만들어지는 변수)
 
 
   //  //스피드업이라는 메서드를 호출하면 주어진 자동차의 스피드를 10만큼 증가시킨다.
@@ -29,7 +29,7 @@ public class Car {
   //  }
 
 
-  //인스턴스 메서드로 바꿈. static 뺌. 메서드를 호출할 때 넘겨준 ㄹ인스턴스 주소가 Car.this 히든변수에 들어감
+  //인스턴스 메서드로 바꿈. static 뺌. 메서드를 호출할 때 넘겨준 인스턴스 주소가 Car.this 히든변수에 들어감
   void speedUp() { 
     if (this.speed >= 100)
       return; // 현재상태에서 함수를 끝낸다. 밑에줄 실행 x

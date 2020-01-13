@@ -7,6 +7,7 @@ public class Exam0460 {
     java.lang.Integer obj1; // OK!
     java.lang.System obj2; //OK
     java.io.File obj3; //OK
+   
     Integer obj4;// OK
     System obj5;// OK
     //File obj6; // 컴파일 오류!

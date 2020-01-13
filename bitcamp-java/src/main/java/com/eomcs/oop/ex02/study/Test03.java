@@ -3,7 +3,7 @@ package com.eomcs.oop.ex02.study;
 public class Test03 {
 
   public static void main(String[] args) {
-    //인스턴스 필드는 new로 메모리 생성. 여러개 만들수 있음. 그 주소를 담을 변수 필요 ㅊ1, ㅊ2 c3는 레퍼런스.
+    //인스턴스 필드는 new로 메모리 생성. 여러 개 만들수 있음. 그 주소를 담을 변수 필요 c1, c2 c3는 레퍼런스.
     Car c1 = new Car();
     Car c2 =new Car();
     
@@ -22,7 +22,7 @@ public class Test03 {
     c2.speed = 0;
     c2.energy = 100;
     c2.power = 300;
-    //int i = new int 할필요 없음,
+    //cf) int i = new int 할필요 없음,
     
 //    Car.speedUp(c1); // static이 붙은 speedUp이 스태틱붙어서 클래스명으로 접근. Car.speedup(c1)
 //    Car.speedUp(c1);
@@ -47,4 +47,4 @@ public class Test03 {
 }
 
 
-//클래스로 사용자정의 데이터타입을 인스턴스 필드로 설계해 메모리 구조 만들고 + 그 데이터를 다루는 연산자는 인스턴스 메서드로 설계한다.++
+//클래스에 사용자정의 데이터타입을 인스턴스 필드로 설계해 메모리 구조 만들고 + 그 데이터를 다루는 연산자는 인스턴스 메서드로 설계한다.++

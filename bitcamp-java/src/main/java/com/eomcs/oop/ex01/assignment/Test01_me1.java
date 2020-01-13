@@ -22,7 +22,6 @@ public class Test01_me1 {
     int count = 0;
 
 
-
     for (int i = 0; i < SIZE; i++) {
       
       count++;
@@ -35,9 +34,10 @@ public class Test01_me1 {
       score.eng = keyscan.nextInt();
       score.math = keyscan.nextInt();
       keyscan.nextLine();
+
       score.sum = score.kor + score.eng+ score.math;
       score.avr = score.sum / 3f;
-
+      
       scores[i] = score;
 
       System.out.println();
@@ -50,6 +50,8 @@ public class Test01_me1 {
       }
     }
 
+    
+    
 
     System.out.println();
 

@@ -2,7 +2,7 @@ package com.eomcs.oop.ex01;
 
 // import 는 package 선언 다음에 두어야 한다.
 import com.eomcs.oop.ex01.test.B;
-//com.eomcs.oop.ex01.test.*; // 임포트에 와일드카드 쓰는 방법 하지마 B클래스의 위치 알수 없어.
+     //com.eomcs.oop.ex01.test.*; // 임포트에 와일드카드 쓰는 방법 하지마 B클래스의 위치 알수 없어.
 
 //# 클래스 사용 - import
 //

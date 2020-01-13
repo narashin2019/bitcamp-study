@@ -1,0 +1,12 @@
+package com.eomcs.util;
+
+public class Queue extends LinkedList<Object>{
+  
+  public void offer(Object value) { //큐에서 애드는 오터
+    this.add(value);
+  }
+  
+  public Object poll() {//큐에서 겟은 폴
+    return this.remove(0); // 스택이나 큐는 값을 아예 꺼내는 것. 조회만 하는게 아님. 따라서 꺼내고 그장소가 없어져야함 
+  }
+}

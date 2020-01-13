@@ -40,9 +40,9 @@ public class Exam0150 {
         // => 다른 개발자가 이 코드를 봤을 때, count가 인스턴스 변수라고 착각할 것이다.
         // "클래스 변수는 클래스 이름을 사용하여 접근하라!"
         // 클래스 변수 레퍼런스로 접근 가능하다. 하지만 하지말라.
-        //System.out.println(s1.count); 
-        //System.out.println(s2.count);
-        //System.out.println(s3.count);
+        //System.out.println(s1.count);  하지마
+        //System.out.println(s2.count);  하지마
+        //System.out.println(s3.count);  하지마
     }
 }
 

@@ -39,7 +39,7 @@ public class Exam0113 {
         // CLI(Command Line Interface; 콘솔창, 명령창)에서 실행하면
         // 정상적으로 한글 문자열이 출력되지만, 
         // Windows에서 실행하면 한글 문자열이 깨진다. 
-        //java -cp bin/ main com.eomcs.oop.ex04.Exam0113
+        //java -cp bin/main com.eomcs.oop.ex04.Exam0113
         //오류: 기본 클래스 main을(를) 찾거나 로드할 수 없습니다.
         //원인: java.lang.ClassNotFoundException: main
         //

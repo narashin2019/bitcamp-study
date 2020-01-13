@@ -7,6 +7,7 @@ public class Test02 {
 
     // 식1) 2 + 3 - 1 * 7 / 3 = ?
     // 식2) 3 * 2 + 7 / 4 - 5 = ?
+   
     Calculator c1 = new Calculator();
     Calculator c2 = new Calculator();
     
@@ -20,22 +21,22 @@ public class Test02 {
     // 즉 인스턴스 마다 따로 생성되게 하라!
     // 인스턴스 필드로 만들면 된다.
     
-    //3. 마지막 단계 메서드를 호출할 떄 어떤 result변수에 그 계산결과를 저장할 것인지 
+    // 메서드를 호출할 떄 어떤 result변수에 그 계산결과를 저장할 것인지 
     // 파라미터로 인스턴스 주소를 넘겨야 한다.
     c1.plus(2); //Calculator.plus(c1, 2); // 식1
     c2.plus(3); //Calculator.plus(c2, 3); // 식2
     
-    Calculator.plus(c1, 3); // 식1
-    Calculator.multiple(c2, 2); // 식2
+    c1.plus(3); // 식1
+    c2.multiple(2); // 식2
     
-    Calculator.minus(c1, 1); // 식1
-    Calculator.plus(c2, 7); // 식2
+    c1.minus(1); // 식1
+    c2.plus(7); // 식2
     
-    Calculator.multiple(c1, 7);//식1
-    Calculator.divide(c2, 4); // 식2
+    c1.multiple(7);//식1
+    c2.divide(4); // 식2
     
-    Calculator.divide(c1, 3); //식1
-    Calculator.multiple(c2, 5); // 식2
+    c1.divide(3); //식1
+    c2.multiple(5); // 식2
 
 
     System.out.printf("식1 결과: %d\n", c1.result); // 식1?
