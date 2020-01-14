@@ -33,8 +33,8 @@ public class App {
         continue;
       
       commandStack.push(command);
-      commandQueue.offer(command);
       
+      commandQueue.offer(command);
       
       switch (command) {
         case "/lesson/add":
@@ -101,6 +101,24 @@ public class App {
     keyboard.close();
   }
   
+  private static void printCommandHistory2() {
+    Queue<String> historyQueue = commandQueue.clone();
+    int count = 0;
+    
+    while (historyQueue.size() > 0) {
+      System.out.println(historyQueue.poll());
+      
+      if ((++count % 5) == 0) {
+        System.out.print(":");
+        String str = keyboard.nextLine();
+        if (str.equalsIgnoreCase("q")) {
+          break;
+        }
+      }
+    }
+    
+  }
+
   private static void printCommandHistory() {
     Stack<String> historyStack = commandStack.clone();
     int count = 0;
@@ -116,24 +134,6 @@ public class App {
         }
       }
     }
-  }
-  
-  static void printCommandHistory2() {
-    Queue<String> historyQueue = commandQueue.clone();
-    int count = 0;
-    
-    while (commandQueue.size() > 0) {
-      System.out.println(commandQueue.poll());
-      
-      if ((++count % 5) == 0) {
-        System.out.print(":");
-        String str = keyboard.nextLine();
-        if (str.equalsIgnoreCase("q")) {
-          break;
-        }
-      }
-    }
-    
   }
   
 }

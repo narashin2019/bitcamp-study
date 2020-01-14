@@ -11,7 +11,9 @@ public class Customer3 {
     // 그래서 이를 가능하게 하는 수단/방법(method)을 제공해야 한다.
     // => 보통 메서드 명은 set으로 시작한다.
     // => 그래서 이 메서드를 "셋터(setter)"라고 부른다.
+    
     // 셋터 메서드 주변 값의 유효범위 정할 수 있다. 
+    
     // 인스턴스 변수 name의 값을 넣는 메서드
     public void setName(String name) {
         // 이 메서드에서 이름 값이 유효한지 검사한다.

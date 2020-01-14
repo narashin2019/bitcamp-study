@@ -3,7 +3,7 @@ package com.eomcs.oop.ex06.e;
 
 public class Exam02 {
   public static void main(String[] args) {
-    
+
     A a = new A3();
     a.m(); // A2의 m()을 호출
     //a가 실제 가리키는 A3 클래스부터 상위클래서를 따라 올라가면서

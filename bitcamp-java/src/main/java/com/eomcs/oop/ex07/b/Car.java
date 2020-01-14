@@ -28,7 +28,7 @@ public class Car {
     //    인스턴스를 생성하면 인스턴스를 사용하고픈 개발자는 코드가 간결해진다
     // 이런 설계 방식에 대해 이름을 붙였으니 그 이름도 유명한 "factory method" 설계 패턴이다.
     // 
-    public static Car create(String name) { // statica메서드
+    public static Car create(String name) { // static메서드
         
         Car c = new Car(); // private은 클래스 안에서 사용할 수 있다.
         
