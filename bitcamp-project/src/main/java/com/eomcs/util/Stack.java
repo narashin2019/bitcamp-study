@@ -104,6 +104,13 @@ public class Stack<E> implements Cloneable {
       return null;
     }
   }
+  
+  
+  public Iterator<E> iterator() {
+    return new StackIterator<E>(this);
+  }
+  
+  
 }
 
 

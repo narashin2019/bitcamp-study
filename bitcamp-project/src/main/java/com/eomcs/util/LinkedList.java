@@ -144,9 +144,18 @@ public class LinkedList<E> extends AbstractList<E>{
   //  마지막으로 (E[]) 까지!
 
 
+  
+
+  
+  
   static class Node<T> {//t에 e가 넘어오는 것 /스태틱 네스티드 클래스는 그대로 둠 
     T value;
     Node<T> next; // 노드 클래스에 저장하는 값 타입을 T타입이라고 하자. E하고 충돌안일어나게
   }
+  
+  
+  
+  
+  
 
 }

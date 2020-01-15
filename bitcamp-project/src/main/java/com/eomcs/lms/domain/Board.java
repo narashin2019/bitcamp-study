@@ -49,6 +49,7 @@ public class Board {
       return false;
     return true;
   }
+  
   //게터/세터를 이용해 저장 출력 되도록 함. 게터/세터는 public
   public int getNo() {
     return no;
