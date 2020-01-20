@@ -1,42 +1,53 @@
-// Wrapper 클래스 - wrapper 객체 생성
+// Wrapper 클래스 - auto-boxing/auto-unboxing 응용
 package com.eomcs.corelib.ex02;
 
-public class Exam0230 {
+public class Exam0224 {
+
+  static class Member {
+    String name;
+    String tel;
+
+    @Override
+    public String toString() {
+      return name + "," + tel;
+    }
+  }
+
   public static void main(String[] args) {
-    
-    Integer obj1 = new Integer(100); // Heap에 인스턴스 생성 
-    Integer obj2 = new Integer(100); // Heap에 인스턴스 생성 
-    System.out.println(obj1 == obj2);
-    // 설명:
-    // => new 연산자를 통해 Integer 객체를 생성하면 Heap에 인스턴스를 생성한다.
-    // => 그래서 같은 값이더라도 다른 인스턴스가 생성된다.
-    
-    
-    Integer obj3 = 100; // Integer.valueOf(100)
-    Integer obj4 = 100; // Integer.valueOf(100)
-    System.out.println(obj3 == obj4);
-    // 설명:
-    // => 정수 리터럴을 이용하여 auto-boxing으로 객체를 생성할 경우 constants pool에 생성된다.
-    // => 같은 값을 가지는 Integer 객체가 여러 개 존재해야 할 필요가 없다.
-    // => 그래서 가능한 이 방법을 사용해야 한다.
-    // => 자바에서도 메모리 절약을 위해 이 방법을 사용하도록 유도하기 위해 
-    //    Wrapper 클래스의 생성자를 Deprecated로 선언하였다.
-    
-    
-    Integer obj5 = Integer.valueOf(100); 
-    Integer obj6 = Integer.valueOf(100);
-    System.out.println(obj5 == obj6);
-    // Wrapper 클래스의 valueOf()로 객체를 생성하는 경우 constants pool에 생성된다.
-    // 즉 auto-boxing과 같다.
-    // 
-    
-    // 다음과 같이 auto-boxing으로 생성된 객체와 valueOf()가 리턴한 객체를 비교해 보자! 
-    System.out.println(obj3 == obj5); // true
+    // auto-boxing, auto-unboxing 기능이 없다면
+    // print() 처럼 primitive data type 과 클래스를 구분하여
+    // 메서드를 정의해야 한다.
+    print(100);
+    print(new Member());
+
+    // auto-boxing, auto-unboxing 기능이 있기 때문에
+    // printObject()처럼 한 개의 메서드로
+    // primitive data type과 클래스를 모두 처리할 수 있는 것이다.
+    printObject(100);
+    // 파라미터 타입이 Object 이면
+    // 자바 컴파일러는 auto-boxing 코드로 변환한다.
+    // 즉 Integer.valueOf(100) 으로 바꾼다.
+
+    printObject(new Member());
+  }
+
+  static void print(int i) {
+    System.out.print("정수: ");
+    System.out.println(i);
+  }
+
+  static void print(Member m) {
+    System.out.print("회원: ");
+    System.out.println(m);
+  }
+
+  // auto-boxing/auto-unboxing 기능이 제공되기 때문에
+  // 다음과 같이 primitive type의 값과 객체를 구분하지 않고
+  // Object 파라미터를 사용하여 처리할 수 있다.
+  //
+  static void printObject(Object obj) {
+    System.out.println(obj);
   }
 }
-
-
-
-
 
 

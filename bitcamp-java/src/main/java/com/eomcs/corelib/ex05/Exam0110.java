@@ -1,9 +1,9 @@
-// Stack 구현과 사용
+// java.util.Stack 사용
 package com.eomcs.corelib.ex05;
 
-import com.eomcs.corelib.ex04.LinkedList;
+import java.util.Stack;
 
-public class Exam0110 {
+public class Exam0120 {
 
   public static void main(String[] args) {
     String s1 = new String("aaa");
@@ -31,36 +31,17 @@ public class Exam0110 {
     print(stack);
 
     String value;
-    while ((value = (String) stack.pop()) != null) {
-      System.out.println(value);
+    while (stack.size() > 0) {
+      System.out.println(stack.pop());
     }
   }
 
-  static void print(LinkedList list) {
+  static void print(Stack list) {
     for (int i = 0; i < list.size(); i++) {
       System.out.print(list.get(i) + ", ");
     }
     System.out.println();
-  }    
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

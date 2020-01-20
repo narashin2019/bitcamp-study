@@ -14,7 +14,7 @@ public class Exam0120 {
 
     ArrayBlockingQueue queue = new ArrayBlockingQueue(100);
     queue.offer(s1); // aaa,
-    print(queue); 
+    print(queue);
     queue.offer(s2); // aaa, bbb,
     print(queue);
     queue.offer(s3); // aaa, bbb, ccc,
@@ -42,26 +42,7 @@ public class Exam0120 {
       System.out.print(value + ", ");
     }
     System.out.println();
-  }    
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

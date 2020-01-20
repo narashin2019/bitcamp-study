@@ -1,54 +1,44 @@
-// 람다(lambda) - 파라미터와 리턴 값이 있는 람다
-package com.eomcs.oop.ex12;
+// Internationalization(i18n) 구현
+package com.eomcs.oop.ex13;
 
-public class Exam04 {
+import java.io.FileReader;
+import java.util.Properties;
 
-    static interface Calculator {
-        int compute(int a, int b);
-    }
-    
-    static void test(Calculator c) {
-        System.out.println(c.compute(100, 200));
-    }
-    
-    public static void main(String[] args) {
-        
-        // 파라미터와 리턴 값이 있는 메서드 구현하기
-        test((a, b) -> a + b);
-        
-        // 위의 람다 표현식은 다음 익명 클래스와 같은 의미다. 
-        test(new Calculator() {
-            public int compute(int a, int b) {
-                return a + b;
-            }
-        });
-        
-        // 여러 문장을 실행하는 경우 블록 {}으로 감싸라!
-        test((a, b) -> {
-            int sum = 0;
-            for (int i = a; i <= b; i++) {
-                sum += i;
-            }
-            return sum;
-        });
-        // 위의 람다 표현식은 다음 익명 클래스와 같은 의미다.
-        test(new Calculator() {
-            public int compute(int a, int b) {
-                int sum = 0;
-                for (int i = a; i <= b; i++) {
-                    sum += i;
-                }
-                return sum;
-            }
-        });
-        
-    }
+public class Exam01 {
+  static String filename = "message";
+  static String userCountry = "US";
+  static String userLanguage = "en";
+  static Properties label;
+
+  static void init() throws Exception {
+    if (System.getProperty("user.country") != null)
+      userCountry = System.getProperty("user.country");
+
+    if (System.getProperty("user.language") != null)
+      userLanguage = System.getProperty("user.language");
+
+    label = new Properties();
+    label.load(
+        new FileReader(String.format("%s-%s%s.properties", filename, userLanguage, userCountry)));
+
+  }
+
+  public static void main(String[] args) throws Exception {
+    init();
+    // 다음은 화면에 텍스트를 출력할 때 직접 입력한 값을 출력하는 것이 아니라
+    // 프로퍼티 파일에서 읽은 값을 출력한다.
+    // 이렇게 한 이유는 다양한 언어로 출력하기 위함이다.
+    // 즉 다국어를 제공할 수 있도록 프로그래밍 하는 것을
+    // "국제화(i18n;Internationalization)"라 한다.
+    //
+    System.out.println(label.get("welcome"));
+
+    // 지역화(l10n;Localization)
+    // => 국제화를 지원하는 프로그램의 경우 메뉴명, 라벨명, 버튼명 등
+    // 화면에서 출력하는 텍스트를 별도의 프로퍼티 파일에 저장한다.
+    // => 이 프로퍼티 파일에 저장된 데이터를 각각의 언어로 바꾸는 것을 지역화라 부른다.
+  }
 
 }
-
-
-
-
-
 
 

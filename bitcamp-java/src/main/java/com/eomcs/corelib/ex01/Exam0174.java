@@ -45,7 +45,6 @@ public class Exam0174 {
       // => 포함하고 있는 하위 객체에 대한 복제를 수행하려면 다음과 같이 
       //    개발자가 직접 하위 객체를 복제하는 코드를 작성해야 한다.
       // 
-      //
       Car copy = (Car) super.clone();
       copy.engine = this.engine.clone();
       return copy;
@@ -64,9 +63,10 @@ public class Exam0174 {
     System.out.println(car2);
     System.out.println(car.engine == car2.engine);
     
-    // car의 엔진과 car2의 엔진이 다른 엔진인지 확인해보자.
+    // car의 엔진과 car2의 엔진이 다른 엔진인지 확인해보자!
     car.engine.cc = 2000;
     System.out.println(car2.engine.cc);
+    
   }
 }
 
