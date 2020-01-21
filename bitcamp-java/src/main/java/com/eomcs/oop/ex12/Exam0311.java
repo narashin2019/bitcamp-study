@@ -1,7 +1,7 @@
-// 람다(lambda) - 익명 클래스
+// 아규먼트에 람다(lambda) 활용
 package com.eomcs.oop.ex12;
 
-public class Exam01 {
+public class Exam0311 {
 
   static interface Player {
     void play();
@@ -12,7 +12,8 @@ public class Exam01 {
   }
 
   public static void main(String[] args) {
-    // 메서드가 한 개 짜리인 인터페이스를 익명 클래스 문법을 이용하여 구현하기
+    // 간단한 인터페이스 구현체 조차
+    // 다음과 같이 따로 정의하여 사용하면 매우 불편하다.
     Player player = new Player() {
       @Override
       public void play() {
@@ -21,7 +22,6 @@ public class Exam01 {
     };
 
     testPlayer(player);
-
   }
 
 }
