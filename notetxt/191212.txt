@@ -1,0 +1,35 @@
+191212
+
+*git\bitcamp-study\bitcamp-java\src\main\java\com\eomcs\basic\ex04 Exam31~
+*git\bitcamp-study\bitcamp-java\src\main\java\com\eomcs\basic\ex99
+
+*eomcs-java-project-2019만 봐 eomcs-java-project는 지워도 됨
+
+*샌드박싱한다. 샌드박스. 프로그램마다 자기 메모리 공간을 넘어갈 수 없음.
+ex. 웹브라우저는 샌드박싱. 사용자가 개입해야지 로컬 컴에서 웹으로 보낼수있음 자동으로안됨
+
+*파이썬은 상위버전에서 하위버전 문서 실행 x 자바는 됨
+
+*git\bitcamp-study\bitcamp-project /
+이전 소스 실행해보고 싶을떄
+네이게이터에서 src이름 임시로 바꿔 놓고 v01에 들어 있는 거 꺼냈다가 다시 넣고 해
+
+*코딩문법도 자동차면허 필기시험처럼.
+중력 원리 이해 못하면서 스르레스 받아서 어케 살아?
+아 저렇게하면 뭐한다 까지만 기억
+문장을 통째로 외워
+남이 짠거에서 내가 원하는 기능을 하는 코드를 찾아내서 덩어리로 떼어내서 내 프로젝트에 적용시키는 능력
+ex.
+오늘날짜 구하는 방법: java.sql.Date today = new java.sql.Date(System.currentTimeMills());
+
+*마이프로젝트에 readme는 내 설계도 대로 수정해라. 문서작성 연습. 나중에 깃허브에 올라갈거라고 생각.
+이력서에 쓸 수 있는 프로젝트로
+
+*eomcs.basic.ex04.assignment2 에 있는 과제 할 것. 검색해서 
+https://github.com/eomcs/eomcs-java/blob/master/src/main/java/com/eomcs/basic/ex04/assignment2/Test01.java
+https://github.com/eomcs/eomcs-java/blob/master/src/main/java/com/eomcs/basic/ex04/assignment2/Test02.java
+
+=====
+
+package com.eomcs.basic.ex04.assignment2;
+

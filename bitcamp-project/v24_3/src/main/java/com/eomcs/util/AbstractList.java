@@ -29,7 +29,7 @@ public abstract class AbstractList<E> implements List<E>{
 
       //생성자
       public ListIterator() { // 바깥클래스에 주소(AbstractList.this)가 들어와서 생성됨., 
-        this.list = (list<T>) AbstractList.this; // 구냥 this안딤
+        this.list = (List<T>) AbstractList.this; // 구냥 this안딤
       }
       
       

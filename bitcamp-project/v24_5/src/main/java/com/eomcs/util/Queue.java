@@ -54,7 +54,7 @@ public class Queue<E> extends LinkedList<E> implements Cloneable {
   
   public Iterator<E> iterator() {
     
-    // anonymous class: 인스턴스를 한 갬나 생성할 경우 로컬 클래스를 익명 클래스로 정의하라
+    // anonymous class: 인스턴스를 한 개만 생성할 경우 로컬 클래스를 익명 클래스로 정의하라
     
     return new Iterator<E>() {
 

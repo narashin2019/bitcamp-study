@@ -1,0 +1,82 @@
+200108 수요일
+
+ <비트캠프프로젝트 ArrayList 다시 만들기>
+package com.eomcs.util; ArrayList2.java 에 리드미만 보고 다시 연습해볼것.
+23번 24번 이해안감.
+----------------------------------
+
+// 제네릭은  E[] arr = new = E[100]; 이거 안됨  배열을 뉴로 못만듬
+
+    System.arraycopy(this.list, 0, arr, 0, this.size);
+   //this.list를 0번방부터 arr에 0번방부터 this.size만큼 복사한다
+
+
+return (E[]) Arrays.copyOf(this.elementData, this.size, arr.getClass());
+=>Arrays.copyOf(original, newLength, newType)
+
+------------------------------------------------------
+
+arrylist 25~27추가됨 해볼 것. eomcs java알고리즘> 어레이에 있음.
+
+-------------------------------------------------------------------
+
+네이버 코딩 폰트 검색해서 나온 글꼴 써봐 좋음.
+
+----------------------------------------------------------
+package com.eomcs.lms.handler; 레슨핸들러 19-2번
+
+*
+nextInt()): 숫자입력할때까지 리턴안함. 엔터만 치면 그냥 엔터만 넘어가고 다음 단계가 안보임..
+> 그냥 엔터치면 넘어가게 하고 싶어
+> nextInt를 nextLine으로 바꿈!
+
+*
+빈문자열 판단 조건식: 
+System.out.printf("수업명(%s)? ", oldLesson.getTitle());
+    inputStr = input.nextLine();
+ 이거랑   if (inputStr.equals("")) / 이것 중에 ( if (inputStr.length() == 0) 편한걸로 하면됨. 
+
+*
+nextLine은 무조건 문자열로 리턴한다.
+> Integer.parseInt(inputStr) 괄호안(사용자가 입력한 문자열)을 정수로 바꾼다!
+
+*내용 변경 했는지 안했는지 판단해서 출력 다르게 하는 코드 추가: boolean
+
+
+
+-------------------------------------------------------------------------
+**제네릭을 적용하기 전 : ArrayList에 get 메서드 타입이 Object다. 
+따라서 형변환으로 실제 데이터 타입알려줘서 꺼낼 수 있게 알려 줌.
+  Board board = (Board) this.boardList.get(index);
+> 제네릭을 적용하면 (Board) 를 할 필요 없다!!
+---------------------------------------------------------------------
+
+**생성자 개수 다른 이유:
+-2개로 해도 되고 하나만 해도 된다.
+-차이: 위에것은 디폴트값 2개 생성 / 아래 것은 사용자가 입력한 값이 최소 생성갯수가 된다. 
+
+ public BoardHandler(Scanner input) {
+    this.input = input;
+    this.boardList = new ArrayList<>();
+  }
+  
+  public BoardHandler(Scanner input, int capacity) {
+    this.input = input;
+    this.boardList = new ArrayList<>(capacity);
+  }
+
+
+-------------------------------------------------------------
+**기본부터 짜라. 중간중간 바꿀때마다 오류 체크. 그다음에 기능을 덧붙이는 것.
+
+
+모방 암기만이 답이다!!!
+
+
+
+com.eomcs.util/ 엄시에스에서 25~27보고 해보고 전부다 모르겟다
+
+bitcamp자바 엄시에스 알고리즘 어레이에 백업!!함.
+
+마이프로젝트 19번부터 해야함.
+

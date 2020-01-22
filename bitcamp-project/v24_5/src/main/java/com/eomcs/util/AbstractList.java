@@ -67,7 +67,7 @@ public abstract class AbstractList<E> implements List<E>{ //리스트 규칙을 
         return list.get(cursor++);
         
       }
-  }; // 클래스정의 및 인스턴스를 생성하는 문장이기 때문에 ; qnxduwna. ;
+  }; // 클래스정의 및 인스턴스를 생성하는 문장이기 때문에 ; 붙여준다.
   }
  
   

@@ -65,7 +65,7 @@ public abstract class AbstractList<E> implements List<E> {
     }
 
     // 로컬 클래스는 인스턴스 멤버가 아니기 때문에
-    // 앞쪽에 인스턴스 주소를 전달해서는 아노딘다.
+    // 앞쪽에 인스턴스 주소를 전달해서는 안된다.
     // 즉 this.을 붙여서는 안된다. 
     return new ListIterator<E>();
   }

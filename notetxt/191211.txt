@@ -1,0 +1,127 @@
+191211
+
+*eomcs-java 아침마다 땡길것.
+
+*리터럴 복습하세요
+
+*하드디스크는 1과0을 n s극으로 저장 전기를 끊더라도 그 상태를 유지 
+시간이 지나면 자력이 약해짐 하드디스크도 영원하지 않다
+
+*integrated developement ~ 이클립스 IDE : 종합개발도구
+
+*깃허브에서 저장소 만들고 클론해오고 내가 만든 플로젝트 때려 넣음
+
+*마이프로젝트 참고자료: eomcs-java-project-2019
+
+*App~3 다시 작성 - eomcs-java-project-2019-04참고(주석으로 복사함)
+
+*신입은 성능 양질 속도 따지지마 온리 기능이 동작하느냐 아니냐
+4시간 걸릴 걸 구조고민해서 4일 걸려서 해봤자 년차 높은 선배가 많은 게 더 나음
+주화인마 회사에서 무능력자로 찍히지 말아라
+고객이 ok하는게 제일 중요
+결과가 나오는게 중요
+엄연히 리팩토링이라는 기술이라는 게 존재해. 신입이 할 일 아님.
+구현 먼저 그다음이 리팩토링
+
+*개발자 세계는 코드로 말한다. 생각을 말하지 말고 코드로 구현해놓고 질문해라.
+질문의 원칙: 코드o 생각x 말x
+
+*프로젝트의 본보기가 있어야해. 명확한 기준.
+==================================
+C:\Users\user\git\bitcamp-study\bitcamp-project v05
+
+어시스턴트뷰어시스턴트윈도우
+
+작업하면서 git add. git commit -m 까지만 해놔도 중간 백업됨
+
+C:\Users\user\git\bitcamp-study\bitcamp-java\src\main\java\com\eomcs\basic\ex04
+
+gradle compileJava그레이들로 컴파일하면 빌드 폴더 내에 컴파일한 값이 놓임
+이클립스로 컴파일하면 bin 폴더 내에 컴파일한 값이 놓임
+
+실행은 안해도 컴파일은 꼭해라 에러 있는지 없는지 확인하는 절차.
+
+javac -encoding utf8 -d bin/main src/main/java/com/eomcs/basic/ex04/Exam111.java
+java -cp src/main/java com.eomcs.basic.ex04.Exam111
+
+이클립스는 컴파일러 아님, 나 대신 내부적으로 JDK통해서 위에 명령어 실행하는 것
+------------------------------------------------
+*
+C:\Users\user\git\bitcamp-study\bitcamp-java> dir                                                                    
+
+    디렉터리: C:\Users\user\git\bitcamp-study\bitcamp-java
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----     2019-12-04   오후 4:06                bin
+d-----     2019-12-04   오후 2:59                src
+
+->gradle init 하면 됨
+
+->
+ C:\Users\user\git\bitcamp-study\bitcamp-java> dir                                                                    
+
+    디렉터리: C:\Users\user\git\bitcamp-study\bitcamp-java
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----     2019-12-11   오후 2:25                .gradle
+d-----     2019-12-04   오후 4:06                bin
+d-----     2019-12-11   오후 2:25                gradle
+d-----     2019-12-04   오후 2:59                src
+-a----     2019-12-11   오후 2:26            160 .gitattributes
+-a----     2019-12-11   오후 2:26            108 .gitignore
+-a----     2019-12-11   오후 2:26            968 build.gradle
+-a----     2019-12-11   오후 2:25           5764 gradlew
+-a----     2019-12-11   오후 2:25           2942 gradlew.bat
+-a----     2019-12-11   오후 2:26            371 settings.gradle
+
+
+생김!
+->readmemd
+->
+build.gradle 그레이들 설정하는 스크립트 파일 안에 이클립스를 작성하는 플러그인을 넣어줘야 한다.
+
+
+->
+gradle eclipse
+
+->
+ C:\Users\user\git\bitcamp-study\bitcamp-java> dir                                                                    
+
+    디렉터리: C:\Users\user\git\bitcamp-study\bitcamp-java
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----     2019-12-11   오후 2:28                .gradle  
+d-----     2019-12-11   오후 2:28                .settings  3
+d-----     2019-12-04   오후 4:06                bin
+d-----     2019-12-11   오후 2:25                gradle
+d-----     2019-12-04   오후 2:59                src
+-a----     2019-12-11   오후 2:28           6043 .classpath 3
+-a----     2019-12-11   오후 2:26            160 .gitattributes
+-a----     2019-12-11   오후 2:26            108 .gitignore
+-a----     2019-12-11   오후 2:28            403 .project 3
+-a----     2019-12-11   오후 2:28            986 build.gradle
+-a----     2019-12-11   오후 2:25           5764 gradlew
+-a----     2019-12-11   오후 2:25           2942 gradlew.bat
+-a----     2019-12-11   오후 2:26            371 settings.gradle
+
+->
+이클립스에서 임포트해서 보셈!
+
+-------------------------------------------------------
+
+지역변수= 단일 메모리 형식 원소 8개
+객체= 복합 메모리 (인트3개 + 바이트 1개) 분자 / 
+원소 8개를 사용해서 새로운 형태에 메모리를 만들었다
+
+클래스= 객체 즉 메모리를 어떻게 다뤄야 할 지 기능을 정의한 설계도.
+
+
+인터페이스는 서로 대화를 나누는 사용 규칙이다.
+
+-------------------------------------------

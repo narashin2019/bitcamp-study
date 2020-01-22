@@ -1,0 +1,77 @@
+200122 수요일
+
+*비트캠프 프로젝트
+
+26번:
+search 명령어 추가한다면? 
+사이즈가 늘고 기존코드를 손대는 위험성
+>커맨드 패턴! 을 이용해서 명령어 들어왔을 때작업당 메소드 1개 있을때, 별도의 클래스로 분리
+메소드를 클래스화 시킨다x 메소드를 객체화 시킨다o 
+
+스프링프레임워크 오픈소스 egovframe(국가표준프레임워크)
+===================================
+27번: 예외처리 
+
+예외가 자바 버추얼 머신 끝까지 보고되는 순간 멈춤
+중간에 캐치 가로채는것.
+
+그러나 예외 중에 가로채지 말아야 할 것이 있음
+대표적으로 아웃오브 메모리. 이것은 자바 버추얼머신이 알아야함.
+다만 보고하기 전에 임시로 저장하고 보고해야함.
+
+*프로그램 오류 2개:
+자바버추얼머신에게 전달할수밖에 없는 오류 = 에러
+프로그램에서 처리할 수 있는 문제 = 예외 익셉션
+
+===================================
+
+com.eomcs.exception.ex1;
+
+예외처리 -> File I/O -> Networking -> Multitasking(Thread)
+-> DBMS + SQL + JDBC
+-> Application Server(프로그램을 서버에서 실행)
+-> Web(Sercvlet/JSP)
+-> HTML + CSS + JavaScript
+-> Spring Framework WebMVC
+
+
+===============================
+
+
+ex03 0641복사하기
+
+ src/main/java/com/eomcs/basic/ex05/Exam0210. 재비교
+
+쓰로우어블:클래스
+-어블 : 인터페이스 많음
+==========================
+
+28번
+
+csv: 콤마 세퍼레이티드 밸류 / 각각의 밸류를 콤마로 구분
+
+프로그램 입장에서 저장은 out 읽는건 in 
+
+
+데이터를 파일에 저장하는 형식: 데이터포멧 - 에 따라,
+ 읽을 때도 데이터포멧 형식에 따라 읽는다.
+ex jpeg파일포멧..
+
+
+진짜로 파일 입출력 다룰 때는 오라클 MySQL쓴다(유 무료)
+>마이 에스큐엘 개발자들이 나와서 만든 MariaDB (구글도 이거씀ㅁ)
+
+---------------------------
+
+
+
+  private int no;
+  private String title;
+  private Date date;
+  private int viewCount;
+  private String writer;
+
+   board.setNo(prompt.inputInt("번호? "));
+    board.setTitle(prompt.inputString("내용? "));
+    board.setDate(new Date(System.currentTimeMillis()));
+    board.setViewCount(0);

@@ -1,0 +1,347 @@
+191209
+
+* 패키지명 변환: package com.eomcs.basic.ex01;
+* 사용자>사용자>git은 저장소를 두는 폴더. 저장소 안에 저장소 두면 안됨.
+* ohoracs-java 대신 git clone https://github.com/eomcs/eomcs-java.git 이거 사용
+* bitcamp-java 실습한거랑 eomcs-java에서 그대로 파일 비교하며 공부
+* C:\Users\user\git\bitcamp-study\bitcamp-java\bin\main\com\eomcs\basic\ex03 Exam21~42
+
+* javac -encoding utf8 -d bin/main src/main/java/com/eomcs/basic/ex03/Exam21.java
+* java -cp bin/main com.eomcs.basic.ex03.Exam21
+
+* System.out.println(); 한줄로 출력한다.
+
+* 상수 고정값을 직접 적을 때는 _로 자리수 표시할 수 있다. 
+
+*하이코이즌: 한 클래스가 하나의 역할을 하는게 좋다 + 로우커플링: 한 클래스와 연결되는 클래스가 적은게 좋다
+
+*회사 2년다니고 어학연수가라. 2년 번 돈 때려부어.
+
+*모든 데이터는 2진수로 바뀌어야 처리함.
+-정수: 2의 보수법(음수)으로 2진수화함
+-부동소수점: 
+12.375 
+
+
+#### 데이터 종류에 따른 리터럴 표기법
+
+- [ ] `정수, 부동소수점, 논리, 문자, 문자열` 리터럴 문법의 용도를 이해한다. `ex03/Exam1.java`
+- [ ] 정수 리터럴을 10진수, 8진수, 2진수, 16진수로 표현할 수 있다. `ex03/Exam21.java`
+- [ ] 문자 '_' 를 사용하여 정수 리터럴의 자릿수를 표현할 수 있고, _ 문자의 적절한 위치를 안다. `ex03/Exam22.java`
+- [ ] 메모리에 값을 저장하기 위해 데이터를 2진수로 변환해야 하는 이유를 설명할 수 있다.
+- [ ] 메모리 크기에 따라 정수를 저장할 수 있는 범위가 다른 이유를 이해한다.
+- [ ] 메모리 크기에 따라 정수 리터럴을 4바이트와 8바이트로 구분하여 표현할 수 있다. `ex03/Exam23.java`
+- [ ] 정수 리터럴이 메모리 크기를 벗어날 때 어떤 문제가 발생하는지 안다. `ex03/Exam23.java`
+- [ ] 정수 리터럴이 메모리에 어떻게 저장되는지 이해한다. `ex03/Exam24.java`
+- [ ] 정수를 2진수로 표현하는 다양한 방법을 이해한다. (Sign-magnitude, 1의 보수, 2의 보수, Excess-K 방식)
+- [ ] 부동소수점 리터럴을 다양한 방식으로 표기할 수 있다. `ex03/Exam31.java`
+- [ ] 메모리 크기에 따라 부동소수점 리터럴을 4바이트와 8바이트로 구분하여 표현할 수 있다.`ex03/Exam32.java
+- [ ] 메모리 크기에 따라 부동소수점의 최소/최대 크기를 알아낼 수 있다. `ex03/Exam33.java`
+- [ ] 부동소수점이 메모리에 저장되는 원리를 이해한다. (IEEE 754 규칙에 따라 부동소수점이 2진수로 변환되는 것을 이해한다.) `ex03/Exam34.java`
+- [ ] 부동소수점이 때론 완전하게 2진수로 변환되지 못하는 이유를 안다.
+- [ ] 자바에서 부동소수점을 IEEE 754 규칙에 따라 2진수로 변환된 것을 확인해 볼 수 있다. `ex03/Exam35.java`
+- [ ] 문자 리터럴을 다양한 방식으로 표기할 수 있다. `ex03/Exam41.java`
+- [ ] 문자 집합(character set), 유니코드, UCS, UTF, UTF-8, UTF-16의 의미를 이해한다. `ex03/Exam42.java`
+- [ ] ASCII, ISO-8859-1, EUC-KR, 조합형, MS949, Unicode의 의미를 이해한다.
+- [ ] UCS(ISO 10646)를 UTF-8로 바꾸는 규칙을 이해한다.
+- [ ] UCS 대신 UTF-8이 사용되는 이유를 안다.
+- [ ] 문자를 다룰 때 작은 따옴표('')의 의미를 이해한다. `ex03/Exam43.java`
+- [ ] 논리 리터럴을 표현할 수 있다. `ex03/Exam5.java`
+- [ ] 문자열 리터럴을 표현할 수 있다. `ex03/Exam6.java`
+- [ ] 문자열과 다른 유형의 데이터를 결합할 때 어떤 결과가 발생하는지 안다. `ex03/Exam6.java`
+- [ ] 이스케이스 문자의 역할과 사용법을 안다. `ex03/Exam7.java`
+
+------------------------
+* com.eomcs.basic.ex03 Exam41~43 문자리터럴
+
+
+==============================
+191210
+
+*package com.eomcs.basic.ex03;Exam43~/5~
+
+*https://docs.oracle.com/javase/specs/ 즐겨찾기 추가
+
+* 문법 + 프로젝트(LMS만들기) + 개인프로젝트(안보고)
+
+* 
+전체가 bitcamp-study
+
+도구사용법 안내문서
+[bitcamp-docs]
+
+java 언어의 문법   --- eomcs-java 참고 https://github.com/eomcs/eomcs-java.git
+[bitcamp-java]
+
+↓ 응용
+
+문법활용연습
+[bitcamp-project] --- -eomcs-java-project 참고 (**eomcs-java-project-2019 정리중, 젤 최신버전)
+수업중 따라하기
+
+↓
+
+내 프로젝트
+[myproject]    --- 안보고 나혼자
+4시 자율스터디
+
+-------------------------
+=======================================
+*gradle init 하면 해당 폴더에 생기는 폴더와 파일들:
+.gradle 서버에 공유 x
+gradle 미설치자도 쓸수있도록
+src
+나머지는 서버에 올라가는 것.
+
+* 그레이들로 컴파일하는것 gradle build 이걸로 하지마
+디스트리뷰션 생겨서 복잡해
+build > libs > *.jar(Java arcahive자바아카이브의 약자)
+build > distributions > *.zip 
+>실행도 복잡
+>이방법있음: gradle run (C:\Users\user\git\bitcamp-study\bitcamp-project> gradle run  )
+
+* gradle compileJava : 컴파일만 되고 디스트리뷰션 안생김 이걸로 컴파일하라.
+
+* 실행 java -cp build/classes/java/main com.eomcs.lms.App
+
+*gradle의 tasks! 중에서 이걸로 해라.
+
+$gradle clean : 빌드 폴더 없어짐. 따라서 빌드 폴더는 깃허브에 업로드 안하는 것
+$gradle compileJava : 자바를 컴파일 하라
+
+
+===================================================
+<eomcs-java-project-2019 > eomcs-java-project-2019-01 > README.md>
+
+* bitcamp-study 저장소에서 작업 (C:\Users\user\git\bitcamp-study\myproject)
+* $mkdir myproject : 새 폴더 생성
+* C:\Users\user\git\bitcamp-study\myproject> gradle init : 새폴더에 그레이들 시작 
+(패키지: com.bitcamp.myproject로 해.)
+
+* 만들면 resourse폴더에는 아무 파일도 없어서 git 업로드 불가. 따라서 resourse폴더마다 README.me파일 만들어야함.
+
+1. bitcamp-study > myproject > src > main > resourse > README.me 만들어줘.
+내용)
+# src/main/resources
+애플리케이션이 사용할 설정 파일이나 기타파일을 보관하는 폴더이다.
+
+2. bitcamp-study > myproject > src > test > resourse > README.me 만들어줘.
+내용)
+# src/test/resources
+단위 테스트를 실행하는 동안 사용할 설정 파일이나 기타파일을 보관하는 폴더이다.
+
+3. bitcamp-study > myproject > src > test > java > README.me 만들어줘.
+내용)
+# src/test/java
+단위 테스트 자바 소스를 두는 폴더이다.
+
+* test > java > com 파일은 delete
+
+**build.gralde 파일에 내용 추가
+-주석은 다 지운다
+-아래 코드를 복사해서 plugins함수 밑에 붙여넣기 하고 저장!!
+```
+tasks.withType(JavaCompile) {
+    //프로젝트의 소스 파일 인코딩을 gradle에게 알려준다.
+    options.encoding = 'UTF-8'
+    //소스 파일을 작성할 때 사용한 자바 버전
+    sourceCompatibility = '1.8'
+    //자바 클래스를 실행시킬 JVM의 최소버전
+    targetCompatibility = '1.8'
+}
+
+```
+=>의미
+-프로젝트의 소스 파일 인코딩을 gradle에게 알려준다. 
+(그레이들이 컴파일 시 나 대신 -encoding utf8옵션넣어서 해주는 것)
+-소스 파일을 작성할 때 사용할 자바 버전(고객사의 버전으로 만들어야함) 1.8을 넘어가는 문법 안쓰겠다는 말, 써봐야 그레이들 컴파일자바하면 에러남
+-자바 클래스를 실행시킬 JVM의 최소 버전 (컴파일하면 클래스 파일에 JVM~이상에서 실행할 수 있다 라는 말이 들어 있음)
+(특별한 경우 아니면 두 버전 같음)
+
+* gradle build 프로젝트 빌드하기
+* gradle run 프로젝트 실행하기
+
+
+
+====================================
+*버전별 백업방법
+
+eomcs-java-project-2019에서 eomcs-java-project-01 폴더 내에 README.md 복사해서 
+C:\Users\user\git\bitcamp-study\myproject에 붙여넣고 덮어쓰기
+
+작업하기
+
+C:\Users\user\git\bitcamp-study\myproject 에 v01폴더 생성.
+src폴더 / build.gradle / README.md 3개 선택후 복사해서 v01에 붙여넣기.
+
+
+*이 방법 말고 깃에 커밋으로 버전관리 할 수 있음. 커밋 시 태그 붙여서 커밋하면 바뀐부분 눈으로 확인할 수 있음.
+
+=======================================
+
+# v02 - `이클립스 IDE`로 프로젝트 다루기
+
+* id 'eclipse' 를 build.gradle에 plugins에 붙여넣기
+
+plugins {
+    id 'java'
+    id 'application'
+    // 이클립스 그레이들 플러그인
+    // - 이클립스 IDE 관련 작업을 수행할 수 있는 명령이 들어있다.
+    id 'eclipse'
+}
+
+* 파워셸에서 C:\Users\user\git\bitcamp-study\myproject> gradle eclipse 실행
+(이클립스 명령어가 추가 되는 것 $gradle tasks --all 로 확인)
+(build.gradle : groovy로 쓰여짐. 그루비는 자바 호환언어 컴파일하며 .class만들어짐)
+
+
+-----------------------------
+*build.gradle문서의 plugins 의미들.
+
+
+*C:\Users\user\git\bitcamp-study\myproject > 
+.settings 폴더: ?~로 만들떄 정보가 들어있는 폴더
+build 폴더: 언제든지 지워도 됨. 컴파일하면 생김 그레이들 빌드 하거나 
+.classpath 파일: 메모장으로 열어봐 xml형식으로 정보 작성되어 있음. 
+	        이클립스를 위한것. 인텔리제이한테는 의미없는 파일
+                   지워도 됨 
+.project 파일: 이클립스가 이게 자바프로젝트인지 씨쁠쁠인지 웹프로젝트인지 정보가 들어있는 것 . 메모장 열림 이클립스용 지워도 됨. 
+
+나머지는 손대면 안 돼.
+
+*README.md 현재 하고 있는 작업이 뭔지 명세서.
+
+
+========================================
+<이클립스 사용해보기>
+
+C:\Users\user\eclipse\jee-latest-released\eclipse / eclipse.exe 실행
+C:\Users\user\eclipse-workspace : 이클립스 작업 폴더
+
+*설정에 관련된 파일은 보통 .으로 시작함
+
+*.metadata 폴더: 이클립스 개발하는 동안 관련된 설정 정보 있음 손대지마
+
+*
+package exploler: 개발에 필요한 폴더만 보여줌. src만 보여줌.
+navigator: 파일탐색기 구조 그대로 보고 싶어요.(곧 사라짐..)
+outline: 클래스 메소드 목록만 보여서 빨리 찾아갈 수 있음
+
+이클립스 전체화면: 작업대 workbench
+워크벤치를 쪼개서 사용.
+쪼개진 화면: view / 이동가능
+
+
+*이클립스 워크스페이스로 프로젝트 가져오기
+기존 프로젝트 정보만 이클립스로 가져올 때. 폴더는 위치 그대로 있음. 실시간 연동 안되는듯?
+file > import > General > Existing Projects into workspace 더블클릭
+디렉토리 비트캠프스터디-마이프로젝트 선택 체크하고 옵션 체크 안하고 피니쉬.
+
+* 이클립스나 인텔리j로 프로젝트 만들면 안 되는 이유.
+회사는 개발 툴 통일하지 않음. 개발자 마음.
+특정 개발 툴에 종속된 프로젝트 만들면 안 됨.
+
+그래서 그레이들로 maven프로젝트 구조를 만든 것.
+그리고 이클립스용 플러그인 넣어주면 됨.
+
+*VI VIM 이맥은 키보드로만 개발하는 툴
+
+
+* 이클립스 설정 재확인 
+프리퍼런스 
+>제너럴 웤스페이스 new text file line deliniter
+윈도우:4바이트 그대로 내비둬.
+>웹 css files/ jsp files : utf 8 확인
+>자바  인스톨jres 확인
+
+*이클립스 구글스타일로 설정하기: 
+"google java eclipse style"구글 검색
+https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml
+eclipse-java-google-style.xml에서 raw클릭
+ct S 바탕화면 저장
+이클립스에서 
+프리퍼런스>자바>코드 스타일 > 포매터 : 에 아까 저장한거 임포트함. 
+
+
+*예제는 커맨드창. 프로젝트는 이클립스로!
+
+리드미의 미션 코드 작성하고 
+**이클립스에서 ct + i 하면 구글 스타일로 정렬됨!
+
+*이클립스는 한줄 지울때 ct D / 비주얼코드는 ct Z
+
+*클래스 이름은 항상 대문자로 시작
+
+*이클립스 저장버튼 누를 때  컴파일이 자동으로 됨.
+
+==============
+
+(요약?)
+
+* bitcamp-study 저장소에서 작업
+* mkdir myproject
+* C:\Users\user\git\bitcamp-study\myproject> gradle init
+* com.eomcs.lms (패키지) / com.bitcamp.myproject로 해.
+
+vs code로 가서 v01 readme.md 복사 : 하고
+
+gradle build
+
+gradle run
+
+v01폴더 만들고 src build.gradle README.md 복사 넣어
+
+
+========================================
+
+
+<sublime text3 에서 16진수로 소스파일 보는법>
+ABC
+abc
+012
+가각간
+똘똠똥
+
+test1.txt파일 ANSI로 저장 (ms949임)
+test2 ~
+test3 le
+test4 utf8
+
+확장자 class으로 변경
+서브라임텍스트 켜고 파일 오픈.
+
+
+서브라임텍스트3 플러그인 구글검색
+http://shinboard.net/archives/3976
+
+ct+` 치면 커맨드창 뜸.
+import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+붙여넣기 엔터
+
+ct shift p에서 package control: install package 실행 hexv검색 헥사뷰어 설치
+
+설치할떄마다 재실행.
+
+ct shift p / hex 토글 실행
+
+제일 앞에 붙은 걸로 어떤 인코딩인지 알 수 있음
+
+1번 fffe : ANSI (ms949) 윈도우에선 엔터치면 항상 2바이트가 들어감(0d0a)
+2번 feff : 유니코드 유씨에스2 utf16 빅엔디언방식 영어한글 둘다 2바이트
+4번 코드 맨앞에 아무것도 안붙음 utf-8 영어1바이트 한글은 3바이트
+
+타자기의 캐리지가 라인이 올라가면 앞으로 리턴됨
+>이 타자기를 그대로 본따서 만든게 이것
+0d 캐리지 리턴
+0a 라인 피드
+
+// 줄바꿈 코드
+// Carrage Return(CR) : 0d
+// Line Feed(LF) : 0a
+// - window OS 에서는 줄바꿈을 표시하기 위해 CRLF 2바이트 코드를 삽입한다.
+// - Unix OS 에서는 줄바꿈을 표시하기 위해 LF 1바이트 코드를 삽입한다.
+
+============================================
+
+src/main/java/com/bitcamp/myproject/App~3.java 작업하기

@@ -1,0 +1,38 @@
+191213
+*eomcs-java.src.main.java.com.eomcs.basic.ex04.assignment2 과제1**선생님꺼 다시 보기
+
+*한번도 못배운거는 못푸는게 정상이야.
+한번 배우고 따라 치고 암기해서 다음부터 비슷한 문제 잘 풀면 돼.
+나는 100년에 한 번 나오는 천재가 아니다.
+나는 매우 보통의 평범한 사람이다.
+필사하는 소설가처럼. 
+그 단계가 지나야 자신만의 문체가 나온다.
+
+*git clone https://github.com/eomjinyoung/bitcamp-20191202 bitcamp-teacher 실시간수업중자료
+
+*C:\Users\user\git\eomcs-java-project-2019\eomcs-java-project-06
+C:\Users\user\git\bitcamp-teacher\bitcamp-project 61
+배열 프로젝트 실습
+
+*팝업메뉴x 상황에따라뜨는메뉴= 컨텍스트 메뉴
+상황인지시스템 context intelligence
+
+
+*bitcamp-study / bitcamp-java ~ ex04 배열
+
+
+--------------------------------------
+*https://visualgo.net/en 알고리즘 사이트
+sorting 링크드 리스트 해쉬? 그래프 정도 해봐
+
+
+*https://github.com/eomcs/eomcs-java/tree/master/src/main/java/com/eomcs/basic/ex04/assignment2
+
+
+*비트캠프 프로젝트 app2, app1
+*마이프로젝트 app3,2,1
+
+
+*이클립스는 저장소 임포트x 프로젝트를 임포트
+
+*프로젝트 단위로 그 폴더에서 gradle build
