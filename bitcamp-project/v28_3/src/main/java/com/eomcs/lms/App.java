@@ -169,12 +169,6 @@ public class App {
 
       // 위의 코드를 간략히 줄이면 다음과 같다.
       lessonList.addAll(Arrays.asList(new Gson().fromJson(in, Lesson[].class)));
-      // Gson객체를 만들어 fromJson을 호출할 때 in에서 받아 저장한 json파일에서 문자열을 뽑아
-      // Lesson[].class = 자바객체 중 lesson배열 타입에 넣고 그 lesson 배열을 ArrayList형식으로 바꿔서(=Arrays.asList)
-      // lessonList에 addAll=추가한다.
-
-      // json문자열파일 => 자바 배열 객체로 바꾸기
-      // 들어온 in을 Lesson[] 형태의 객체로 바꿔서(Json->Object) List로 저장 후, lessonList에 한꺼번에 추가
 
 
       System.out.printf("총 %d 개의 수업 데이터를 로딩했습니다.\n", lessonList.size());
@@ -185,16 +179,13 @@ public class App {
   }
 
 
+
   private static void saveLessonData() {
     // 데이터가 보관된 파일을 정보를 준비한다. json으로 확장자명 바꿈
     File file = new File("./lesson.json");
 
     try (FileWriter out = new FileWriter(file)) {
       out.write(new Gson().toJson(lessonList));
-      // Gson 객체를 만들고 toJson 호출 시 lessonList를 주면, json문자열 형식으로 변환해서 json파일 만든 데에 넣어서 그걸 그대로 출력
-      // 자바 객체를 -> json문자열 파일에 넣기
-      // lessonList를 Json 문자열로 변환해서 out에 쓰기
-
       System.out.printf("총 %d 개의 수업 데이터를 저장했습니다.\n", lessonList.size());
 
     } catch (IOException e) {
@@ -226,8 +217,6 @@ public class App {
 
     try (FileWriter out = new FileWriter(file)) {
       out.write(new Gson().toJson(memberList));
-
-
 
       System.out.printf("총 %d 개의 게시물 데이터를 저장했습니다.\n", memberList.size());
 

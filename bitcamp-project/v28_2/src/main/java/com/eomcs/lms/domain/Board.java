@@ -13,7 +13,7 @@ public class Board {
   // CSV 포맷:
   // - 번호,제목,등록일,조회수,작성자
   //
-  public static Board valueOf(String csv) {
+  public static Board valueOf(String csv) { //csv파일에서 값을 꺼내서 board 식판에 넣는 메서드
     String[] data = csv.split(",");
 
     Board board = new Board();
@@ -27,7 +27,9 @@ public class Board {
 
   public String toCsvString() {
     return String.format("%d,%s,%s,%d,%s", this.getNo(), this.getTitle(), this.getDate(),
-        this.getViewCount(), this.getWriter());
+        this.getViewCount(), this.getWriter()); //csv문장을 만들어주는 포맷 
+    //this가 가르키는 객체에서 값을 꺼내서 csv문자열을 만들어 리턴
+    // 이 메서드는 특정 인스턴스 값을 사용하기 때문에 스태틱이 아닌 인스턴스 메서드
   }
 
   @Override

@@ -1,17 +1,16 @@
 package com.eomcs.lms;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
@@ -45,9 +44,9 @@ public class App {
   static Deque<String> commandStack = new ArrayDeque<>();
   static Queue<String> commandQueue = new LinkedList<>();
 
-  static List<Lesson> lessonList = new ArrayList<>();
-  static List<Member> memberList = new ArrayList<>();
-  static List<Board> boardList = new ArrayList<>();
+  static ArrayList<Lesson> lessonList = new ArrayList<>();
+  static LinkedList<Member> memberList = new LinkedList<>();
+  static LinkedList<Board> boardList = new LinkedList<>();
 
   public static void main(String[] args) {
 
@@ -153,115 +152,154 @@ public class App {
     // 데이터가 보관된 파일을 정보를 준비한다.
     File file = new File("./lesson.json");
 
-    try (FileReader in = new FileReader(file)) { // 자원을 자동해제 해주는 문법 적용
-      // 방법1) JSON ===> List
-      // Gson json도구 = new Gson();
-      // Lesson[] 배열 = json도구.fromJson(in, Lesson[].class);
-      // for (Lesson 수업 : 배열) {
-      // lessonList.add(수업);
-      // }
-
-      // 방법2) JSON ===> List
-      // Gson json도구 = new Gson();
-      // Lesson[] 배열 = json도구.fromJson(in, Lesson[].class);
-      // List<Lesson> 읽기전용List구현체 = Arrays.asList(배열);
-      // lessonList.addAll(읽기전용List구현체);
-
-      // 위의 코드를 간략히 줄이면 다음과 같다.
-      lessonList.addAll(Arrays.asList(new Gson().fromJson(in, Lesson[].class)));
-      // Gson객체를 만들어 fromJson을 호출할 때 in에서 받아 저장한 json파일에서 문자열을 뽑아
-      // Lesson[].class = 자바객체 중 lesson배열 타입에 넣고 그 lesson 배열을 ArrayList형식으로 바꿔서(=Arrays.asList)
-      // lessonList에 addAll=추가한다.
-
-      // json문자열파일 => 자바 배열 객체로 바꾸기
-      // 들어온 in을 Lesson[] 형태의 객체로 바꿔서(Json->Object) List로 저장 후, lessonList에 한꺼번에 추가
+    FileReader in = null;
 
 
-      System.out.printf("총 %d 개의 수업 데이터를 로딩했습니다.\n", lessonList.size());
+    try {
+      in = new FileReader(file);
 
-    } catch (IOException e) {
+      Lesson[] lessons = new Gson().fromJson(in, Lesson[].class);
+      // 쥐슨객체를 만들고 프롬스트링을 호출할 때 in에서 받은 데이터문자열을 뽑아 json형식으로 Lesson[].class 자바객체 중 배열타입에 하나씩 넣어서 레슨스 배열에 꽂음 
+      // json문자열파일을  자바 배열 객체로 바꾸기
+      for (Lesson lesson : lessons) { // 보드에서 보드 하나 뽑아서 보드리스트에 꼽는다.를 반복
+        lessonList.add(lesson);
+      }
+
+      System.out.printf("총 %d 개의 게시물 데이터를 로딩했습니다.\n", lessonList.size());
+
+    } catch (Exception e) {
       System.out.println("파일 읽기 중 오류 발생! - " + e.getMessage());
+    } finally {
+      try {
+        in.close();
+      } catch (Exception e) {
+      }
     }
   }
+
 
 
   private static void saveLessonData() {
-    // 데이터가 보관된 파일을 정보를 준비한다. json으로 확장자명 바꿈
-    File file = new File("./lesson.json");
+    File file = new File("./lesson.json"); // json으로 확장자명 바꿈
 
-    try (FileWriter out = new FileWriter(file)) {
-      out.write(new Gson().toJson(lessonList));
+    FileWriter out = null;
+
+    try {
+      out = new FileWriter(file);
       // Gson 객체를 만들고 toJson 호출 시 lessonList를 주면, json문자열 형식으로 변환해서 json파일 만든 데에 넣어서 그걸 그대로 출력
       // 자바 객체를 -> json문자열 파일에 넣기
-      // lessonList를 Json 문자열로 변환해서 out에 쓰기
+      out.write(new Gson().toJson(lessonList));
 
-      System.out.printf("총 %d 개의 수업 데이터를 저장했습니다.\n", lessonList.size());
+      System.out.printf("총 %d 개의 게시물 데이터를 저장했습니다.\n", lessonList.size());
 
     } catch (IOException e) {
       System.out.println("파일 쓰기 중 오류 발생! - " + e.getMessage());
+
+    } finally {
+      try {
+        out.close();
+      } catch (IOException e) {
+      }
     }
   }
-
-
 
   private static void loadMemberData() {
     File file = new File("./member.json");
 
-    try (FileReader in = new FileReader(file)) {
+    FileReader in = null;
 
-      memberList.addAll(Arrays.asList(new Gson().fromJson(in, Member[].class))); // 리스트구현체는 컬렉션구현체다.
+    try {
+      in = new FileReader(file);
 
+      Member[] members = new Gson().fromJson(in, Member[].class);
+      // 쥐슨형식으로 되어 있는 파일형식의 데이터를 읽어서 제이슨 배열로 만들어서 리턴해준다. 제이슨을 객체로 만든다.
+      for (Member member : members) { // 보드에서 보드 하나 뽑아서 보드리스트에 꼽는다.를 반복
+        memberList.add(member);
+      }
       System.out.printf("총 %d 개의 회원 데이터를 로딩했습니다.\n", memberList.size());
 
-    } catch (IOException e) {
+    } catch (FileNotFoundException e) {
       System.out.println("파일 읽기 중 오류 발생! - " + e.getMessage());
+    } finally {
+
+      try {
+        in.close();
+      } catch (Exception e) {
+      }
     }
   }
 
-
-
   private static void saveMemberData() {
-    File file = new File("./member.json");
+    File file = new File("./member.json"); // json으로 확장자명 바꿈
 
+    FileWriter out = null;
 
-    try (FileWriter out = new FileWriter(file)) {
+    try {
+      out = new FileWriter(file);
+      // 쥐슨 객체를 준비. 투제이슨 호출 시 멤버리스트를 주면 문자열로 변화해서 리턴함. 그걸 그대로 출력
+      // 파라미터에 주어진 객체의 데이터를 추출하여 제이슨 형의 문자열로 만들어서 리턴해줌 = 객체를 제이슨으로 만든다.
       out.write(new Gson().toJson(memberList));
-
-
 
       System.out.printf("총 %d 개의 게시물 데이터를 저장했습니다.\n", memberList.size());
 
     } catch (IOException e) {
       System.out.println("파일 쓰기 중 오류 발생! - " + e.getMessage());
+
+    } finally {
+      try {
+        out.close();
+      } catch (IOException e) {
+      }
     }
   }
 
   private static void loadBoardData() {
     File file = new File("./board.json");
 
-    try (FileReader in = new FileReader(file)) {
-      boardList.addAll(Arrays.asList(new Gson().fromJson(in, Board[].class)));
+    FileReader in = null;
+
+
+    try {
+      in = new FileReader(file);
+
+      Board[] boards = new Gson().fromJson(in, Board[].class);
+      // 쥐슨객체를 만들고 프론스트링을 호출할 때 in에서받은 스트링을 뽑아 Board[].class 타입으로 투 제이슨으로 만들어 보드스에 리턴해주세요
+      for (Board board : boards) { // 보드에서 보드 하나 뽑아서 보드리스트에 꼽는다.를 반복
+        boardList.add(board);
+      }
 
       System.out.printf("총 %d 개의 게시물 데이터를 로딩했습니다.\n", boardList.size());
 
-    } catch (IOException e) {
+    } catch (Exception e) {
       System.out.println("파일 읽기 중 오류 발생! - " + e.getMessage());
+    } finally {
+      try {
+        in.close();
+      } catch (Exception e) {
+      }
     }
   }
 
-
-
   private static void saveBoardData() {
-    File file = new File("./board.json");
+    File file = new File("./board.json"); // json으로 확장자명 바꿈
 
+    FileWriter out = null;
 
-    try (FileWriter out = new FileWriter(file)) {
+    try {
+      out = new FileWriter(file);
+      // 쥐슨 객체를 준비. 투제이슨 호출 시 보드리스트를 주면 문자열로 변화해서 리턴함. 그걸 그대로 출력
       out.write(new Gson().toJson(boardList));
+
       System.out.printf("총 %d 개의 게시물 데이터를 저장했습니다.\n", boardList.size());
 
     } catch (IOException e) {
       System.out.println("파일 쓰기 중 오류 발생! - " + e.getMessage());
 
+    } finally {
+      try {
+        out.close();
+      } catch (IOException e) {
+      }
     }
   }
 }
