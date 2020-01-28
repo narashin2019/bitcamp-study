@@ -1,6 +1,6 @@
 200128 화요일
 
-com.eomcs.io.ex01 : 다 복사해와야함
+com.eomcs.io.ex01
 -------------------
 io nio 2개 패키지 있는데 실무에서 많이 쓰는 io씀
 
@@ -12,7 +12,7 @@ io nio 2개 패키지 있는데 실무에서 많이 쓰는 io씀
 유닉스 서버 사용연습가능.
 
 --------------------
-*com.eomcs.io.ex02; com.eomcs.io.ex03 : 다 복사해와야함
+*com.eomcs.io.ex02; com.eomcs.io.ex03
 
 UCS2(공식용어) + 알파 => utf-16
 
