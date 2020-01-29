@@ -6,14 +6,25 @@ import java.io.FileInputStream;
 public class Exam0110 {
 
   public static void main(String[] args) throws Exception {
-    FileInputStream in = new FileInputStream("temp/jls8.pdf");
+    FileInputStream in = new FileInputStream("temp/jls11.pdf");
 
     int b;
 
     long startTime = System.currentTimeMillis(); // 밀리초
 
     int callCount = 0;
-    while ((b = in.read()) != -1) callCount++; // 파일을 끝까지 읽는다.
+    while ((b = in.read()) != -1) { // b변수와 -1 비교
+      callCount++; // 파일을 끝까지 읽는다.
+    }
+
+    // in.read()메서드보면 파일을 끝까지 읽으면 -1을 리턴한다고 되어 있음.
+    // while (true) {
+    // b = in.read();
+    // if (b = -1) {
+    // break;
+    // }
+    // callCount++;
+    // }
 
     long endTime = System.currentTimeMillis();
 

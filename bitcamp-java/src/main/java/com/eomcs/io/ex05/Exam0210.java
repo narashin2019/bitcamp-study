@@ -12,14 +12,14 @@ public class Exam0210 {
     member.gender = true;
 
     // 인스턴스의 값을 출력하라!
-    // 1) 이름 출력 
-    out.writeUTF(member.name); 
+    // 1) 이름 출력
+    out.writeUTF(member.name);
 
     // 2) 나이 출력 (4바이트)
     out.writeInt(member.age);
 
     // 3) 성별 출력 (1바이트)
-    out.writeBoolean(member.gender);
+    out.writeBoolean(member.gender); // true1 false0
 
     out.close();
 

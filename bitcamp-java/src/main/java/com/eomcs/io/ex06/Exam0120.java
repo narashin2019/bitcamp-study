@@ -6,15 +6,17 @@ import java.io.FileInputStream;
 public class Exam0120 {
 
   public static void main(String[] args) throws Exception {
-    FileInputStream in = new FileInputStream("temp/jls8.pdf");
+    FileInputStream in = new FileInputStream("temp/jls11.pdf");
 
-    byte[] buf = new byte[8196]; // 보통 8KB 정도 메모리를 준비한다.
+    byte[] buf = new byte[8192]; // 보통 8KB 정도 메모리를 준비한다.(범용)
     int count = 0;
 
     long startTime = System.currentTimeMillis(); // 밀리초
 
     int callCount = 0;
-    while ((count = in.read(buf)) != -1) callCount++; // 파일을 끝까지 읽는다.
+    while ((count = in.read(buf)) != -1) { // 다시 복사해오기
+      callCount++; // 파일을 끝까지 읽는다.
+    }
 
     long endTime = System.currentTimeMillis();
 
@@ -24,3 +26,8 @@ public class Exam0120 {
   }
 
 }
+
+// 1000000백만바이트=100메가 하면 4번 호출!!!!
+// 무조건 배열 용량을 늘려 read() 1번호출 한다고 시간이 무한정 줄어들지 않음 = 헤드이동시간 기본값이 있음.
+
+// 상용, 돈받고 프로그램을 짤 때 버퍼 쓰는게 필수. -> 속도 때문에.
