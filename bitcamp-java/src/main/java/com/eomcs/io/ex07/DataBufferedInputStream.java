@@ -1,24 +1,20 @@
 package com.eomcs.io.ex07;
 
-import java.io.ByteArrayInputStream;
+import com.eomcs.io.ex06.BufferedInputStream;
 
-public class ByteArrayDataInputStream extends ByteArrayInputStream {
+public class DataBufferedInputStream extends BufferedInputStream {
 
-  public ByteArrayDataInputStream(byte[] buf) {
-    super(buf);
+  public DataBufferedInputStream(String filename) throws Exception {
+    super(filename);
   }
 
   public String readUTF() throws Exception {
     // 상속 받은 read() 메서드를 사용하여 문자열 출력
     int size = this.read();
     byte[] bytes = new byte[size];
-    this.read(bytes); // 배열 개수 만큼 바이트를 읽어 배열에 저장한다.
+    this.read(bytes); // 이름 배열 개수 만큼 바이트를 읽어 배열에 저장한다.
     return new String(bytes, "UTF-8");
   }
-  // 첫번째1바이트읽어, 문자열이 몇바이트로 되어 있는지 문자열 바이트 개수를 알아낸 후 int size = this.read();
-  // 그 개수만큼 바이트 배열을 만들고
-  // 그 배열에 문자열 데이터를 저장하고
-  // 그 바이트 배열에 저장된 문자열데이터로 스트링 객체를 만든다.
 
   public int readInt() throws Exception {
     // 상속 받은 read() 메서드를 사용하여 int 값 출력
@@ -52,5 +48,8 @@ public class ByteArrayDataInputStream extends ByteArrayInputStream {
     else
       return false;
   }
-
 }
+
+
+
+// 상속은 기존의 기능을 확장. 상속이란 이런 것이다.

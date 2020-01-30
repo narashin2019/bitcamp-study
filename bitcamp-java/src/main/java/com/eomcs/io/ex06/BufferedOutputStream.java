@@ -14,12 +14,24 @@ public class BufferedOutputStream extends FileOutputStream {
   @Override
   public void write(int b) throws IOException {
     if (cursor == buf.length) { // 버퍼가 다차면
-      this.write(buf); // 버퍼에 들어있는 데이터를 한 번에 출력한다.
+      super.write(buf); // 버퍼에 들어있는 데이터를 한 번에 출력한다.
+                        // this로 하면 무한스택이라 super바꿈
+                        // super. super클래스에서 write메서드를 찾아라
+                        // this. = 현재클래스부터 write메서드를 찾아라
       cursor = 0; // 다시 커서를 초기화시킨다.
     }
 
     // 1바이트 출력하라고 하면 일단 버퍼에 저장할 것이다.
     buf[cursor++] = (byte) b;
+  }
+
+
+
+  @Override
+  public void write(byte[] buf) throws IOException {
+    for (byte b : buf) {
+      this.write(b & 0x000000ff);
+    }
   }
 
 
@@ -36,6 +48,8 @@ public class BufferedOutputStream extends FileOutputStream {
       cursor = 0;
     }
   }
+
+
 
 }
 

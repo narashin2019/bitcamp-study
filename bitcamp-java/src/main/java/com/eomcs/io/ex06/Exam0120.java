@@ -9,12 +9,12 @@ public class Exam0120 {
     FileInputStream in = new FileInputStream("temp/jls11.pdf");
 
     byte[] buf = new byte[8192]; // 보통 8KB 정도 메모리를 준비한다.(범용)
-    int count = 0;
+    int len = 0;
 
     long startTime = System.currentTimeMillis(); // 밀리초
 
     int callCount = 0;
-    while ((count = in.read(buf)) != -1) { // 다시 복사해오기
+    while ((len = in.read(buf)) != -1) {
       callCount++; // 파일을 끝까지 읽는다.
     }
 

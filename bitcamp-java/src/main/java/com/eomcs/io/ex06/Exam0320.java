@@ -14,10 +14,9 @@ public class Exam0320 {
     while ((b = in.read()) != -1)
       out.write(b);
 
-    // 아직 파일로 출력되지 않고 버퍼 남아있는 데이터를
+    // 아직 파일로 출력되지 않고 버퍼 남아 있는 데이터를
     // 마무리로 출력한다.
-    out.flush();
-
+    // out.flush();
 
     long endTime = System.currentTimeMillis();
 
@@ -28,5 +27,6 @@ public class Exam0320 {
   }
 
 }
+
 
 // 0120과 비교 = 진짜 1바이트씩 write하지 않고 속으로는 8192버퍼가 꽉차면 한번 write
