@@ -1,18 +1,25 @@
 package com.eomcs.lms;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.Set;
+import com.eomcs.lms.context.ApplicationContextListener;
 import com.eomcs.lms.domain.Board;
 import com.eomcs.lms.domain.Lesson;
 import com.eomcs.lms.domain.Member;
@@ -35,20 +42,51 @@ import com.eomcs.lms.handler.MemberDetailCommand;
 import com.eomcs.lms.handler.MemberListCommand;
 import com.eomcs.lms.handler.MemberUpdateCommand;
 import com.eomcs.util.Prompt;
-import com.google.gson.Gson;
 
 public class App {
 
-  static Scanner keyboard = new Scanner(System.in);
+  Scanner keyboard = new Scanner(System.in);
 
-  static Deque<String> commandStack = new ArrayDeque<>();
-  static Queue<String> commandQueue = new LinkedList<>();
+  Deque<String> commandStack = new ArrayDeque<>();
+  Queue<String> commandQueue = new LinkedList<>();
 
-  static ArrayList<Lesson> lessonList = new ArrayList<>();
-  static LinkedList<Member> memberList = new LinkedList<>();
-  static LinkedList<Board> boardList = new LinkedList<>();
+  List<Lesson> lessonList = new ArrayList<>();
+  List<Member> memberList = new ArrayList<>();
+  List<Board> boardList = new ArrayList<>();
 
-  public static void main(String[] args) {
+  // 옵저버 목록을 관리할 객체 준비
+  // - 같은 인스턴스를 중복해서 등록하지 않도록 한다. 그래서 리스트 대신 set 썼다.
+  // - Set은 등록 순서를 따지지 않는다.
+  Set<ApplicationContextListener> listeners = new HashSet<>();
+
+  // 옵저버를 등록하는 메서드이다.
+  public void addApplicationContextListener(ApplicationContextListener listener) {
+    listeners.add(listener);
+  }
+
+  // 옵저버를 제거하는 메서드이다.
+  public void removeApplicationContextListener(ApplicationContextListener listener) {
+    listeners.remove(listener);
+  }
+
+  // 애플리케이션이 시작되면, 등록된 리스너에게 알린다.
+  private void notifyApplicationInitialized() {
+    for (ApplicationContextListener listener : listeners) {
+      listener.contextInitialized();
+    }
+  }
+
+  // 애플리케이션이 종료되면, 등록된 리스너에게 알린다.
+  private void notifyApplicationDestroyed() {
+    for (ApplicationContextListener listener : listeners) {
+      listener.contextDestroyed();
+    }
+  }
+
+  public void service() {
+
+    notifyApplicationInitialized();
+
 
     // 파일에서 데이터 로딩
     loadLessonData();
@@ -110,6 +148,7 @@ public class App {
         try {
           commandHandler.execute();
         } catch (Exception e) {
+          e.printStackTrace();
           System.out.printf("명령어 실행 중 오류 발생: %s\n", e.getMessage());
         }
       } else {
@@ -124,15 +163,11 @@ public class App {
     saveMemberData();
     saveBoardData();
 
-  } // main()
+    notifyApplicationDestroyed();
 
-  // 이전에는 Stack에서 값을 꺼내는 방법과 Queue에서 값을 꺼내는 방법이 다르기 때문에
-  // printCommandHistory()와 printCommandHistory2() 메서드를 따로 정의했다.
-  // 이제 Stack과 Queue는 일관된 방식으로 값을 꺼내주는 Iterator가 있기 때문에
-  // 두 메서드를 하나로 합칠 수 있다.
-  // 파라미터로 Iterator를 받아서 처리하기만 하면 된다.
-  //
-  private static void printCommandHistory(Iterator<String> iterator) {
+  } // service()
+
+  private void printCommandHistory(Iterator<String> iterator) {
     int count = 0;
     while (iterator.hasNext()) {
       System.out.println(iterator.next());
@@ -148,159 +183,95 @@ public class App {
     }
   }
 
-  private static void loadLessonData() {
-    // 데이터가 보관된 파일을 정보를 준비한다.
-    File file = new File("./lesson.json");
+  @SuppressWarnings("unchecked")
+  private void loadLessonData() {
+    File file = new File("./lesson.ser2");
 
-    FileReader in = null;
-
-
-    try {
-      in = new FileReader(file);
-
-      Lesson[] lessons = new Gson().fromJson(in, Lesson[].class);
-      // 쥐슨객체를 만들고 프롬스트링을 호출할 때 in에서 받은 데이터문자열을 뽑아 json형식으로 Lesson[].class 자바객체 중 배열타입에 하나씩 넣어서 레슨스 배열에 꽂음 
-      // json문자열파일을  자바 배열 객체로 바꾸기
-      for (Lesson lesson : lessons) { // 보드에서 보드 하나 뽑아서 보드리스트에 꼽는다.를 반복
-        lessonList.add(lesson);
-      }
-
-      System.out.printf("총 %d 개의 게시물 데이터를 로딩했습니다.\n", lessonList.size());
+    try (ObjectInputStream in =
+        new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
+      lessonList = (List<Lesson>) in.readObject();
+      System.out.printf("총 %d 개의 수업 데이터를 로딩했습니다.\n", lessonList.size());
 
     } catch (Exception e) {
       System.out.println("파일 읽기 중 오류 발생! - " + e.getMessage());
-    } finally {
-      try {
-        in.close();
-      } catch (Exception e) {
-      }
     }
   }
 
+  private void saveLessonData() {
+    File file = new File("./lesson.ser2");
 
-
-  private static void saveLessonData() {
-    File file = new File("./lesson.json"); // json으로 확장자명 바꿈
-
-    FileWriter out = null;
-
-    try {
-      out = new FileWriter(file);
-      // Gson 객체를 만들고 toJson 호출 시 lessonList를 주면, json문자열 형식으로 변환해서 json파일 만든 데에 넣어서 그걸 그대로 출력
-      // 자바 객체를 -> json문자열 파일에 넣기
-      out.write(new Gson().toJson(lessonList));
-
-      System.out.printf("총 %d 개의 게시물 데이터를 저장했습니다.\n", lessonList.size());
+    try (ObjectOutputStream out =
+        new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)))) {
+      out.writeObject(lessonList);
+      System.out.printf("총 %d 개의 수업 데이터를 저장했습니다.\n", lessonList.size());
 
     } catch (IOException e) {
       System.out.println("파일 쓰기 중 오류 발생! - " + e.getMessage());
-
-    } finally {
-      try {
-        out.close();
-      } catch (IOException e) {
-      }
     }
   }
 
-  private static void loadMemberData() {
-    File file = new File("./member.json");
+  @SuppressWarnings("unchecked")
+  private void loadMemberData() {
+    File file = new File("./member.ser2");
 
-    FileReader in = null;
-
-    try {
-      in = new FileReader(file);
-
-      Member[] members = new Gson().fromJson(in, Member[].class);
-      // 쥐슨형식으로 되어 있는 파일형식의 데이터를 읽어서 제이슨 배열로 만들어서 리턴해준다. 제이슨을 객체로 만든다.
-      for (Member member : members) { // 보드에서 보드 하나 뽑아서 보드리스트에 꼽는다.를 반복
-        memberList.add(member);
-      }
+    try (ObjectInputStream in =
+        new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
+      memberList = (List<Member>) in.readObject();
       System.out.printf("총 %d 개의 회원 데이터를 로딩했습니다.\n", memberList.size());
 
-    } catch (FileNotFoundException e) {
+    } catch (Exception e) {
       System.out.println("파일 읽기 중 오류 발생! - " + e.getMessage());
-    } finally {
-
-      try {
-        in.close();
-      } catch (Exception e) {
-      }
     }
   }
 
-  private static void saveMemberData() {
-    File file = new File("./member.json"); // json으로 확장자명 바꿈
+  private void saveMemberData() {
+    File file = new File("./member.ser2");
 
-    FileWriter out = null;
-
-    try {
-      out = new FileWriter(file);
-      // 쥐슨 객체를 준비. 투제이슨 호출 시 멤버리스트를 주면 문자열로 변화해서 리턴함. 그걸 그대로 출력
-      // 파라미터에 주어진 객체의 데이터를 추출하여 제이슨 형의 문자열로 만들어서 리턴해줌 = 객체를 제이슨으로 만든다.
-      out.write(new Gson().toJson(memberList));
-
-      System.out.printf("총 %d 개의 게시물 데이터를 저장했습니다.\n", memberList.size());
+    try (ObjectOutputStream out =
+        new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)))) {
+      out.writeObject(memberList);
+      System.out.printf("총 %d 개의 회원 데이터를 저장했습니다.\n", memberList.size());
 
     } catch (IOException e) {
       System.out.println("파일 쓰기 중 오류 발생! - " + e.getMessage());
-
-    } finally {
-      try {
-        out.close();
-      } catch (IOException e) {
-      }
     }
   }
 
-  private static void loadBoardData() {
-    File file = new File("./board.json");
+  @SuppressWarnings("unchecked")
+  private void loadBoardData() {
+    File file = new File("./board.ser2");
 
-    FileReader in = null;
-
-
-    try {
-      in = new FileReader(file);
-
-      Board[] boards = new Gson().fromJson(in, Board[].class);
-      // 쥐슨객체를 만들고 프론스트링을 호출할 때 in에서받은 스트링을 뽑아 Board[].class 타입으로 투 제이슨으로 만들어 보드스에 리턴해주세요
-      for (Board board : boards) { // 보드에서 보드 하나 뽑아서 보드리스트에 꼽는다.를 반복
-        boardList.add(board);
-      }
-
+    try (ObjectInputStream in =
+        new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
+      boardList = (List<Board>) in.readObject();
       System.out.printf("총 %d 개의 게시물 데이터를 로딩했습니다.\n", boardList.size());
 
     } catch (Exception e) {
       System.out.println("파일 읽기 중 오류 발생! - " + e.getMessage());
-    } finally {
-      try {
-        in.close();
-      } catch (Exception e) {
-      }
     }
   }
 
-  private static void saveBoardData() {
-    File file = new File("./board.json"); // json으로 확장자명 바꿈
+  private void saveBoardData() {
+    File file = new File("./board.ser2");
 
-    FileWriter out = null;
-
-    try {
-      out = new FileWriter(file);
-      // 쥐슨 객체를 준비. 투제이슨 호출 시 보드리스트를 주면 문자열로 변화해서 리턴함. 그걸 그대로 출력
-      out.write(new Gson().toJson(boardList));
-
+    try (ObjectOutputStream out =
+        new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)))) {
+      out.writeObject(boardList);
       System.out.printf("총 %d 개의 게시물 데이터를 저장했습니다.\n", boardList.size());
 
     } catch (IOException e) {
       System.out.println("파일 쓰기 중 오류 발생! - " + e.getMessage());
 
-    } finally {
-      try {
-        out.close();
-      } catch (IOException e) {
-      }
     }
+  }
+
+  public static void main(String[] args) {
+    App app = new App();
+
+    // 애플리케이션의 상태를 정보를 받을 옵저버를 등록한다.
+    app.addApplicationContextListener(new DataLoaderListener());
+
+    app.service();
   }
 }
 

@@ -1,85 +1,58 @@
-# 28_3 - 파일 포맥으로 JSON 도입하기 
+# 31_2 - 애플리케이션을 시작하거나 종료할 때 작업할 옵저버를 추가한다.
 
-## 학습 목표 
+## 학습목표
 
-- 외부 라리브러리를 가져와서 프로젝트에 적용할 수 있다.
-- JSON 포맷의 사용 이점을 이해한다.
-- Google JSON 라이브러리를 사용할 수 있다.
-
-## JSON 데이터 포맷 특징
-
-- 문자열로 데이터를 표현한다.
-- '{프로퍼티:값, ...}' 방식으로 객체의 값을 저장한다.
-- 바이너리 방식에 비해 데이터가 커지는 문제가 있지만,
-  모든 프로그래밍 언어에서 다룰 수 있다는 장점이 있다.
-- 그래서 이기종 플랫폼(OS, 프로그래밍 언어 등ㅇ) 간에 데이터를 교환할 때 많이 사용한다.
-  
-
-
+- 옵저버 디자인 패턴에 따라 옵저버를 정의할 수 있다.
 
 ## 실습 소스 및 결과
 
-- build.gradle 변경
+- src/main/java/com/eomcs/lms/DataLoaderListener.java 추가
 - src/main/java/com/eomcs/lms/App.java 변경
-  
+
 ## 실습  
 
-### 훈련 1: Gradle 스크립트 파일(build.gradle)에 Google JSON 라이브러리를 추가하라.
+### 훈련 1: 애플리케이션을 시작하거나 종료할 때 데이터를 로딩하고 저장할 옵저버를 만들라.
 
-- mvnrepository.com에서 라이브러리 검색
-   - json.org 사이트에서 자바 라이브러리 확인 / google-gson
-   - 'gson' 키워드로 검색
-   - 최신버전 그레이들 눌러서 나오는 코드 복사. 
+- DataLoaderListener.java 추가 (DataLoaderListener.java.01) 클래스임.
+  - ApplicationContextListener를 구현한다.
+  - 테스트 할 용도로 간단하게 구현한다.
   
--build.gradle을 편집한다.
-   -의존 라이브러리(dependencies) 블록에 gson 정보를 추가한다.
-- 이클립스 설정 파일을 갱신한다.
-   -'gradle eclipse'를 실행
-   - 이클립스 에서 해당 프로젝트를 'refresh'한다
-   - 'Referenced Libraries' 노드에서 gson 라이브러리 파일이 추가된 것을 확인한다.
-   
-   
-### 훈련 2: 게시물 데이터를 저장하고 읽을 때 JSON형식을 사용하라.
 
-- App.java
-  - saveBoardData() 메서드 변경
-  - loadBoardData() 메서드 변경 
+### 훈련 2: DataLoaderListener 옵저버를 App 객체에 등록하고 실행 확인하라.
+
+- App.java 변경 (App.java.01)
+  - DataLoaderListener 객체를 생성한 후 App 객체에 등록한다.
+  - 실행하여 옵저버가 동작하는 지를 확인한다.
+    
+
+### 훈련 3: DataLoaderListener 옵저버에서 데이터를 로딩하고 저장하게 하라.
+
+- DataLoaderListener.java 변경 (DataLoaderListener.java.02)
+  - App 클래스에 있는 List 객체를 이 클래스로 옮긴다.
+  - App 클래스에 있는 데이터 로딩, 저장 관련 메서드를 이 클래스로 옮긴다.
   
-### 훈련 3: 회원 데이터를 저장하고 읽을 때 JSON형식을 사용하라.
+- App.java 변경 (계속 작업 중)
+  - List 객체를 필드에서 제거한다.(DataLoaderListener가 할 일이다.)
+  - 데이터 로딩, 저장 관련 메서드를 제거한다.(DataLoaderListener가 할 일이다.)
+  - 데이터 로딩 호출 코드를 제거한다.(DataLoaderListener가 할 일이다.)
+  - 데이터 저장 호출 코드를 제거한다.(DataLoaderListener가 할 일이다.)
 
-- App.java
-  - saveMemberData() 메서드 변경
-  - loadMemberData() 메서드 변경 
-  
-### 훈련 4: 수업 데이터를 저장하고 읽을 때 JSON형식을 사용하라.
+### 훈련 4: App 클래스가 옵저버의 결과물을 사용할 수 있게 하라!
 
-- App.java
-  - saveLessonData() 메서드 변경
-  - loadLessonData() 메서드 변경 
-  
-  
-### 훈련 5: Arrays 의 메서드를 활용하여 배열을 List 객체로 만들어라.
+ApplicationContextListener.java (변경)
+  - contextInitialized()에 Map 파라미터를 추가한다.
+  - contextDestroyed()에 Map 파라미터를 추가한다.
 
-- App.java
-  - 해당 부분의 코드를 변경한다. 
-  
-  
-##참고:
-[{"no":1,"title":"asdcvmsad,asd,","date":"1월 23, 2020","viewCount":0}]
+### 훈련 5: DataLoaderListener의 작업 결과를 Map 객체를 통해 공유하라.
 
-gson 파일 형식 읽기: 
+DataLoaderListener.java (변경)
+  - 데이터 로딩 결과를 Map 객체에 보관한다.
 
-대괄호 -> 배열, 어레이리스트 링크드리스트 형식 다 같아.
-중괄호 -> 한 객체
-그 객체 안에 no프로퍼티 값은 1
+### 훈련 6: DataLoaderListener에서 준비한 List 객체를 Command에게 전달하라.
 
-*csv문제: 값안에 콤마가 있으면 제대로 안읽혀 > json은 가능하다!
-*웹 안드로이드 아이폰 어플 개발 제이슨 백퍼 쓴다 필수사항
+App.java (변경)
+  - 애플리케이션이 시작될 때 옵저버를 실행한 후 Map 에 저장된 작업 결과를 꺼내
+    Command 객체에 전달한다.
+    
 
-바이너리 데이터 : 이미지 pdf: 메모장 편집 불가
-문자열 데이터 캐릭터 데이터 : 메모장 편집가능
-장점:  바이너리 방식에 비해 데이터가 커지는 문제가 있지만, 
-모든 프로그래밍 언어에서 다룰 수 있다는 장점이 있다.
-그래서 이기종 플랫폼(OS, 프로그래밍 언어 등) 간에 데이터를 교환할 때 많이 사용한다.
-데이터가 더 정교하다. 
 
