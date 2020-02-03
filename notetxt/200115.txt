@@ -1,6 +1,6 @@
 200115 수요일
 
-ppt로 비트캠프 프로젯트 정리함 \git> cd .\eomcs-java-project-2019\
+ppt로 비트캠프 프로젝트 정리함 \git> cd .\eomcs-java-project-2019\
 
 oop ex09, ex10
 
