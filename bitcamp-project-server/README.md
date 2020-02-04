@@ -37,12 +37,12 @@
 - ServerApp.java 변경
   - processRequest() 메서드 변경
   
-### 훈련 5: 클라리언트의 게시물 변경 요청(/board/detail)을 처리하라.
+### 훈련 5: 클라리언트의 게시물 변경 요청(/board/update)을 처리하라.
 
 - ServerApp.java 변경
   - processRequest() 메서드 변경  
   
-### 훈련 6: 클라리언트의 게시물 삭제 요청(/board/detail)을 처리하라.
+### 훈련 6: 클라리언트의 게시물 삭제 요청(/board/delete)을 처리하라.
 
 - ServerApp.java 변경
   - processRequest() 메서드 변경  

@@ -1,17 +1,18 @@
+// " /lesson/list" 명령처리
+
 package com.eomcs.lms.handler;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
-import com.eomcs.lms.domain.Board;
+import com.eomcs.lms.domain.Lesson;
 
-// "/board/list" 명령어 처리
-public class BoardListCommand implements Command {
-// 사용할 수 밖에 없는 의존객체 디펜던시를 외부에서 주입받음 => 디펜전시인젝션 (의존성주입) = DI
+public class LessonListCommand implements Command {
+
   ObjectOutputStream out;
   ObjectInputStream in;
 
-  public BoardListCommand(ObjectOutputStream out, ObjectInputStream in) {
+  public LessonListCommand(ObjectOutputStream out, ObjectInputStream in) {
     this.out = out;
     this.in = in;
   }
@@ -19,11 +20,11 @@ public class BoardListCommand implements Command {
   @SuppressWarnings("unchecked")
   @Override
   public void execute() {
+
     try {
-      out.writeUTF("/board/list");
+      out.writeUTF("/lesson/list");
 
       // 서버에 데이터를 즉시 전송하도록 버퍼에 저장된 내용을 내보낸다.
-      // 안쓰면 실제 서버에 보내지지않고 버퍼에 쌓여있는상태.
       out.flush();
       // 기존에 println()으로 데이터를 보낼 때는 flush()를 따로 호출하지 않았는데,
       // 왜 writeUTF()를 사용하여 데이터를 보낼 때는 flush()를 따로 호출해야 하는가?
@@ -43,20 +44,17 @@ public class BoardListCommand implements Command {
         return;
       }
 
-      List<Board> boards = (List<Board>) in.readObject();
-      for (Board b : boards) {
-        System.out.printf("%d, %s, %s, %d\n", b.getNo(), b.getTitle(), b.getDate(),
-            b.getViewCount());
+      List<Lesson> lessons = (List<Lesson>) in.readObject();
+      for (Lesson l : lessons) {
+        System.out.printf("%d, %s, %s ~ %s, %d\n", l.getNo(), l.getTitle(), l.getStartDate(),
+        l.getEndDate(), l.getTotalHours());
       }
 
     } catch (Exception e) {
       System.out.println("통신 오류 발생!");
     }
+    
   }
-
-
 }
 
 
-
-// 통신규칙 = 프로토콜: 규칙에 따라 요청 응답해야한다.

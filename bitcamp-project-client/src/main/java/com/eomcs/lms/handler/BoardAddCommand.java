@@ -1,5 +1,4 @@
 // "/board/add" 명령어 처리
-
 package com.eomcs.lms.handler;
 
 import java.io.ObjectInputStream;
@@ -21,8 +20,6 @@ public class BoardAddCommand implements Command {
     this.prompt = prompt;
   }
 
-
-
   @Override
   public void execute() {
     Board board = new Board();
@@ -37,22 +34,19 @@ public class BoardAddCommand implements Command {
       out.writeObject(board);
       out.flush(); // 플러쉬를 해야 버퍼에 있는게 방출 된다. = 서버에 보낸다.
 
-
       String response = in.readUTF();
       if (response.equals("FAIL")) {
-        System.out.println(in.readUTF()); // 이유를 보내니까 이유를 읽는다.
-
+        System.out.println(in.readUTF());  // 이유를 보내니까 이유를 읽는다.
         return;
       }
 
       System.out.println("저장하였습니다.");
 
     } catch (Exception e) {
-      System.out.println("통신 오류 발생");
+      System.out.println("통신 오류 발생!");
     }
   }
 
-
-
 }
+
 
