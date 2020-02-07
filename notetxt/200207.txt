@@ -1,0 +1,213 @@
+200207 금요일
+
+데이터관리 / 사용자의 입력 처리하는 부분을 분리
+서버앱 - 파일입출력담당 - 실제 데이터처리 - 클라이언트와의통신
+--
+사용자(Actor)는
+클라이언트앱을통해서 
+입출력을 함
+ui제공
+서버와의통신
+
+
+통신을 통해서 요청
+통신을 통해서 응답
+
+네트워킹 프로그램 
+
+클라이언트앱 밑에 부하들을 둠
+- 보드리스트커맨드
+- 보드애드커맨드
+=> 
+커맨드패턴 적용
+명령어 1개를 1개의 메소드로 처리한다면 1개의 클래스로 정의하라 = 객체화시켜라 = 캡슐화시켜라
+
+
+
+
+서버앱 밑에 부하를 둠
+-보드리스트서블릿 : 클라이언트의 보드리스트커맨드가 요청한 것을 처리할
+-보드애드서블릿
+=>마찬가지로 커맨드처럼 1개메소드를 1개의 클래스로 정의.
+요청을 받아서 응답하는 서비스를 제공 
+게시물목록을 서비스하는 서버의 일부 = 보드리스트서블릿
+
+=> List<Board>객체를 공유해서 데이터를 처리하고 파일에 저장, 파일에서 로딩
+
+=> 보드오브젝트파일다오 만듬 : 데이터처리 
+보드리스트서블릿은 클라이언트와의 통신만 담당하고 보드오브젝트파일다오를 이용
+
+
+=>보드오브젝트파일다오는 파일로 시리얼라이제이션되고 자바앱으로 디시리얼라이즈만됨
+
+=> 프로그램 언어와 응용프로그램에 상관없이 표준포맷으로 하자
+텍스트포맷인데 XML보다 인기있는 JSON형식으로 데이터를 출력하고 객체를 만들게함
+
+보드제이슨파일디에이오를 만듬
+
+디비를 뭘 쓰느냐에 따라 보드csv파일dao 보드오라클dbdao... 파일을 어떻게 저장하는지에 따라
+보드리스트서블렛을 바꿔야함.
+
+보드dao인터페이스적용해서 샤프주세요x 쓸것주세요로 바꿈
+
+
+나 보드dao구현체가 필요하다o
+나 보드오브젝트파일다오필요하다x
+
+
+오늘은 
+클라이언트쪽
+
+보드리스트커맨드, 등이 데이터를 보내고 받을때 규칙에 따라 해야함
+-----------------------------------------
+사진2
+
+프록시는 작업객체를 대행하는 대행객체를 서버개발자가 만든다
+
+===========================
+
+비트캠프 프로젝트 서버
+프록시
+
+com.eomcs.lms.dao.proxy 패키지 생성
+
+BoardDaoProxy 자바 파일 생성
+implement BoardDao
+
+LessonDaoProxy 자바 파일 생성
+MemberDaoProxy 자바 파일생성
+
+
+비트캠프프로젝트클라이언트
+프록시 dao 가져오고
+커맨드바꾸고
+클라이언트앱 파라미터 변경
+
+=============================
+
+
+package com.eomcs.lms.dao.proxy;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+// BoardDao를 구현하는 작업 객체를 대행할 프록시를 정의한다.
+// 프록시 객체는 항상 작업 객체와 동일한 인터페이스를 구현해야 한다.
+// 마치 자신이 작업 객체인 양 보이기 위함이다.
+// 프록시는 자기가 일하지 않고 서버에게 역할을 지시한다.
+import java.util.List;
+import com.eomcs.lms.dao.BoardDao;
+import com.eomcs.lms.domain.Board;
+
+public class BoardDaoProxy implements BoardDao {
+  ObjectInputStream in;
+  ObjectOutputStream out;
+
+  public BoardDaoProxy(ObjectInputStream in, ObjectOutputStream out) {
+    this.in = in;
+    this.out = out;
+  }
+
+  // Client의 BoardAddCommand.execute()를 이동
+  @Override
+  public int insert(Board board) throws Exception {
+    out.writeUTF("/board/add");
+    out.writeObject(board);
+    out.flush();
+
+    String response = in.readUTF();
+    if (response.equals("FAIL")) {
+      // 저장 실패시 0을 return하는 방법 대신 예외를 던지고 이유를 전달하도록 함
+      throw new Exception(in.readUTF());
+    }
+
+    return 1; // 저장됨
+  }
+
+  // Client의 BoardListCommand.execute()를 이동
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<Board> findAll() throws Exception {
+    out.writeUTF("/board/list");
+    out.flush();
+
+    String response = in.readUTF();
+    if (response.equals("FAIL")) {
+      // 저장 실패시 0을 return하는 방법 대신 예외를 던지고 이유를 전달하도록 함
+      throw new Exception(in.readUTF());
+    }
+
+    return (List<Board>) in.readObject();
+  }
+
+  // Client의 BoardDetailCommand.execute()를 이동
+  @Override
+  public Board findByNo(int no) throws Exception {
+    out.writeUTF("/board/detail");
+    out.writeInt(no); // 번호를 파라미터로 받아옴
+    out.flush();
+
+    String response = in.readUTF();
+    if (response.equals("FAIL")) {
+      // 저장 실패시 0을 return하는 방법 대신 예외를 던지고 이유를 전달하도록 함
+      throw new Exception(in.readUTF());
+    }
+
+    return (Board) in.readObject();
+  }
+
+  // Client의 BoardUpdateCommand.execute()를 이동
+  @Override
+  public int update(Board board) throws Exception {
+    out.writeUTF("/board/update");
+    out.writeObject(board);
+    out.flush();
+
+    String response = in.readUTF();
+    if (response.equals("FAIL")) {
+      // 저장 실패시 0을 return하는 방법 대신 예외를 던지고 이유를 전달하도록 함
+      throw new Exception(in.readUTF());
+    }
+
+    return 1; // 변경함
+  }
+
+  // Client의 BoardDeleteCommand.execute()를 이동
+  @Override
+  public int delete(int no) throws Exception {
+    out.writeUTF("/board/delete");
+    out.writeInt(no);
+    out.flush();
+
+    String response = in.readUTF();
+    if (response.equals("FAIL")) {
+      // 저장 실패시 0을 return하는 방법 대신 예외를 던지고 이유를 전달하도록 함
+      throw new Exception(in.readUTF());
+    }
+
+    return 1; // 삭제함
+  }
+}
+
+
+
+32_11 리드미 백업 폴더에 다시 복사!!!
+
+
+===============================
+
+
+정보처리기사 : 올해 따라
+
+한국어능력시험
+한국사
+컴활
+워드
+정보관리기술사
+컴퓨터시스템응용기술사
+
+OCM = DB자격 마스터
+SQLP = 국가공인 SQL자격증
+
+=========================
+
+
+package com.eomcs.net.ex01; 오버뷰
