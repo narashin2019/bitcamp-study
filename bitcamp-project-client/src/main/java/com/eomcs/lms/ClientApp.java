@@ -47,7 +47,7 @@ public class ClientApp {
       port = prompt.inputInt("포트? ");
 
     } catch (Exception e) {
-      System.out.println("서버 주소 또는 포트 번호가 유효하지 않습니다!");
+      System.out.println("서버 주소 또는 포트 번호가 유효하지 않습니다!"); //예외처리할때 전체 예외하고 키보드 클로스
       keyboard.close();
       return;
     }
@@ -56,7 +56,7 @@ public class ClientApp {
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 
-      System.out.println("서버와 연결을 되었음!");
+      System.out.println("서버와 연결이 되었음!");
 
       processCommand(out, in);
 
