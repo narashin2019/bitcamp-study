@@ -1,0 +1,132 @@
+200214 금요일
+
+
+데이터베이스
+
+가능하면 메모리를 효과적으로 쓸수있게 하자
+재사용가능한 건 가능하게
+
+클라이언트 요청이 들어왔을 때 스레드를 생성하는게 아니라 기존에 생성된 스레드를 가져와서 씀
+스레드 사용후 pool에 리턴된다.
+
+스레드풀을 구현해보자
+
+런 메서드를 멈추지 않게 하면됨. 스레드는 데드상태로 가면 가비지가 되어서 쓸수없다.
+
+new Thread() 생성
+준비상태 ------------->start()하면 running상태 -----> sleep()호출하면 Not Runnable 상태
+------> timeout 시간이 지나면 다시 러닝 상태로
+
+러닝 ----> 데드 , 근데 데드에서 러닝, 낫러너블로 갈 수 없음.데드로 가면 스레드 재활용 x
+
+러닝에서 sleep()이 아닌 낫러버블상태로 보내는 메서드 있음 wait()
+다시 러닝으로 돌아가기 : notiry () notifyAll()
+
+
+=================================
+
+com.eomcs.concurrent.ex6
+
+비츠캠프프로젝트36자 리드미/서버앱 변경
+
+=========================
+
+윈도우에 db 설치
+
+https://mariadb.com 다운로드 
+설치
+
+윈도우 검색창에 서비스 앱들어가서 mariaDB 실행중이면 된거. 
+
+C:\Program Files\MariaDB 10.4\bin 경로 복사 (파일시스템경로)
+
+시스템 환경변수편집 > 환경변수 > 시스템변수에 새로만들기 > 맨밑에 있는 것을 위로 이동
+
+파워셸: mysql -u root -p / 암호 1111 //
+
+
+show databases;  // 서버에서 클라이언트에 응답한 내용 출력
+
+exit 하면 나가짐
+
+대소문자 구분안함
+ CREATE USER 'study'@'localhost' IDENTIFIED BY '1111';
+ CREATE USER 'study'@'%' IDENTIFIED BY '1111';
+
+서버랑 같은 컴퓨터 = 같은 로컬에서 접속한다.
+
+select user, host from mysql.user;
+현재 서버에 등록된 유저와 호스트 나옴.
+
+mysql -u study -p / 1111로 접속해봄 
+
+루트로 접속해야 데이터베이스 생성가능
+> CREATE DATABASE studydb
+  CHARACTER SET utf8
+  COLLATE utf8_general_ci;
+
+
+> show databases;로 만들어졌나 확인
+
+> 권한설정
+GRANT ALL ON studydb.* TO 'study'@'localhost';
+
+>데이터를 넣고 뺄때 마다 이름을 지정하기 귀찮아
+
+use studydb;
+>지금부터 내리는 명령은 스터디디비에서만 저장딘다.
+
+
+## 기본으로 사용할 데이터베이스 지정하기
+> use 데이터베이스명
+> use studydb;
+
+## 데이터베이스의 전체 테이블 목록 조회
+> show tables;
+
+
+
+엑셀파일이 디비
+어떤 테이블을 만들거냐
+게시글을 저장할 board 시트 => 시트를 테이블이라고함.
+
+인서트되는 행 row라고 부름 record
+
+세로 column
+
+create table lms_member (
+  member_id int not null auto_increment primary key comment '회원 데이터 식별 번호',
+  name varchar(30) not null comment '이름',
+  email varchar(50) not null comment '이메일',
+  pwd varchar(255) not null comment '암호',
+  cdt datetime default now() comment '등록일', 
+  tel varchar(20) comment '전화',
+  photo varchar(255) comment '사진'
+) comment '회원';
+
+variablecharacter 최대 30자까지 가변문자열을 넣을 수 있다.
+not null; 무조건 r값을 줘야한다.
+auto_increment : 이번호는 저장하는 당신이 번호 지정하지 않으면 내가 자동으로 하겠다.
+primary key : 같은 번호가 중복되어서는 안된다.
+comment '': 주석
+
+default now() : 이 값을 안주면 데이터 값을 넣는 시점의 시간과 날짜를 넣는다.
+
+
+-- : 주석
+
+접두어_접미사 테이블 이름 결정
+컬럼이름: cdt 같은거 많아, 단어사이에 _ / 자바는 이름 길게 적고
+
+언어와 데이터페이스 컬럼이름 통일할 생각 하지마.
+
+
+
+show tables;
+desc lms_board;
+
+ select * from lms_member;
+
+
+# 36 - 데이터 관리를 전문 프로그램인 DBMS에게 맡기기 zmffkdldjsxm
+

@@ -2,7 +2,6 @@
 
 package com.eomcs.lms.handler;
 
-import java.util.List;
 import com.eomcs.lms.dao.LessonDao;
 import com.eomcs.lms.domain.Lesson;
 import com.eomcs.util.Prompt;
@@ -23,7 +22,10 @@ public class LessonListCommand implements Command {
 
     try {
 
-      List<Lesson> lessons = lessonDao.findAll();
+      // List<Lesson> lessons = lessonDao.findAll();
+
+
+
       for (Lesson l : lessons) {
         System.out.printf("%d, %s, %s ~ %s, %d\n", l.getNo(), l.getTitle(), l.getStartDate(),
             l.getEndDate(), l.getTotalHours());
