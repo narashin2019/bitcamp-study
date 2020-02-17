@@ -130,3 +130,5 @@ desc lms_board;
 
 # 36 - 데이터 관리를 전문 프로그램인 DBMS에게 맡기기 zmffkdldjsxm
 
+lessonadd 번호 삭제
+updatecomman

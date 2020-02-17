@@ -1,0 +1,62 @@
+200217 월요일
+
+* 파일에 데이터를 추가하고 삭제하기는 어려운일이다.
+
+* 어떤 데이터를 파일로 저장하는 부분 = 데이터를 전문적으로 처리하는 프로그램
+=> DBMS : 데이터 입출력을 처리하는 소프트웨어
+
+*우리는 MariaDB설치함. 
+* Oracle MS-SQL My-SQL(비영리일때만 무료), MariaBD(완전한오픈소스)
+국내 Altbase, Tibero Qbrid... 등
+
+*고객이 어떤 걸 쓸지 모름
+
+
+========
+
+mysql -u study -p
+1111
+
+show databases;
+
+use studydb;
+
+show tables;
+
+desc(describe) lms_board;
+
+select board_id, conts from lms_board;
+
+----------------
+36_1 클라이언트
+
+클라이언트 app 수정
+
+MemberDaoImpl 생성 수정
+
+add, delete, list, update command 수정 
+
+
+e.printStackTrace(); => 자세한 에러 내용 출력
+
+
+컬럼명과 자바 필드 변수명 일치시키지 마라.
+자바필드 변수명은 자세하게
+컬럼명은 짧게
+
+==========================================
+
+
+웹개발 위주로. 부분적으로 모바일해도 됨
+
+이미 그런 사이트가 있는데 왜 만들었어요? 라는 질문에 대답할 수 있어야함.
+
+
+===============
+
+https://youtu.be/UwsrzCVZAb8
+
+
+
+
+
