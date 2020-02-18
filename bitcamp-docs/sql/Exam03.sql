@@ -45,7 +45,7 @@ select no, concat(name,'(',class,')') from test1;
 
 ```
 /* 컬럼에 별명 붙이기*/
-select 컬럼명 [as] 별명 ...
+select 컬럼명 [as] 별명 ... /*as를 붙여도 되고 안붙여도 된다*/
 select 
     no as num, 
     concat(name,'(',class,')') as title 
@@ -87,6 +87,15 @@ where working='Y' or class='java100';
 select no, name, class, working
 from test1
 where working='Y' and class='java100';
+
+/*주의
+ * where 절을 통해 데이터를 먼저 선택(selection)한 다음
+ * 결과 데이터에서 가져올 컬럼을 선택 (projection)한다.
+ * 따라서 실행순서는 
+ * from ==> where ==> select
+ */
+
+
 
 /* 재직자가 아닌 사람만 조회하라!*/
 select no, name, class, working
@@ -269,7 +278,7 @@ select regdt, date(regdt), time(regdt) from test1;
 date_add(날짜데이터, interval 값 단위);
 date_sub(날짜데이터, interval 값 단위);
 
-select date_add(now(), interval 11 day);
+select date_add(now(), interval 11 day); /*hour month year*/
 select date_sub(now(), interval 11 day);
 
 /* 두 날짜 사이의 간격을 알아내기 */

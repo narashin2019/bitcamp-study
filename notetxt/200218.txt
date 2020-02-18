@@ -1,0 +1,25 @@
+200218 화요일
+bitcamp-docs / sql / Exam01.sql 
+
+
+
+select tess1. 
+
+commit
+
+
+delete from test1, test2 no=4 or no=6
+
+drop table test1;
+
+컬럼을 선택하는게 프로젝션 select no, name, tel from test1;. 
+조건에 따라 데이터를 선택하는게 셀렉션 . 
+
+
+셀렉션을 먼저 그다음에 프로젝션 (실행순서)
+
+
+함수는 db마다 다르다!
+
+select no, title, date_format(regdt, '%m.%d') from test1;
+
