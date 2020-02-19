@@ -564,9 +564,6 @@ create view worker
   as select no, name, class from test1 where working = 'Y';
 ```
 
-show tables;
-
-
 - view가 참조하는 테이블에 데이터를 입력한 후 view를 조회하면?
   => 새로 추가된 컬럼이 함께 조회된다.
 - 뷰를 조회할 때 마다 매번 select 문장을 실행한다.
