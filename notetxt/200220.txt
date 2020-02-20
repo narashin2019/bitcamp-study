@@ -1,0 +1,26 @@
+200220 목요일
+
+ODBC = 메소드 호출 규격
+
+> ODBC driver
+
+
+.so : 리눅스용 유닉스용
+x.lib: 윈도우용
+
+
+mariadb 윈도우용 다운 및 설치
+
+
+xamarin : c#으로 안드로이드 ios 둘다 개발 가능
+
+안드로이드: java, kotlin 개발
+ios: swift , object c
+
+
+
+https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/Driver.html
+
+
+
+package com.eomcs.jdbc.ex1; Exam01110부터 복사
