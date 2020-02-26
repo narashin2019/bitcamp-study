@@ -1,28 +1,32 @@
 package com.eomcs.lms.servlet;
 
 import java.io.PrintStream;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import com.eomcs.lms.DataLoaderListener;
 import com.eomcs.lms.dao.LessonDao;
 import com.eomcs.lms.dao.PhotoBoardDao;
 import com.eomcs.lms.dao.PhotoFileDao;
 import com.eomcs.lms.domain.Lesson;
 import com.eomcs.lms.domain.PhotoBoard;
 import com.eomcs.lms.domain.PhotoFile;
+import com.eomcs.util.ConnectionFactory;
 import com.eomcs.util.Prompt;
 
 public class PhotoBoardAddServlet implements Servlet {
 
+  ConnectionFactory conFactory;
   PhotoBoardDao photoBoardDao;
   LessonDao lessonDao;
   PhotoFileDao photoFileDao;
 
   public PhotoBoardAddServlet( //
+      ConnectionFactory conFactory, //
       PhotoBoardDao photoBoardDao, //
       LessonDao lessonDao, //
       PhotoFileDao photoFileDao) {
+    this.conFactory = conFactory;
     this.photoBoardDao = photoBoardDao;
     this.lessonDao = lessonDao;
     this.photoFileDao = photoFileDao;
@@ -44,11 +48,14 @@ public class PhotoBoardAddServlet implements Servlet {
 
     photoBoard.setLesson(lesson);
 
-    // 트랜잭션을 시작하기 위해 auto-commit을 수동으로 바꾼다.
-    DataLoaderListener.con.setAutoCommit(false);
-    // 이 이후부터 하는 데이터 변경 작업은
-    // 모두 임시 테이블에 보관된다.
-    // 오직 commit 명령을 DBMS에 보낼 때만 진짜 테이블에 적용된다.
+    // 트랜잭션 시작
+    Connection con = conFactory.getConnection();
+    // => ConnectionFactory는 스레드에 보관된 Connection 객체를 찾을 것이다.
+    // => 있으면 스레드에 보관된 Connection 객체를 리턴해 줄 것이고,
+    // => 없으면 새로 만들어 리턴해 줄 것이다.
+    // => 물론 새로 만든 Connection 객체는 스레드에도 보관될 것이다.
+
+    con.setAutoCommit(false);
 
     try {
       if (photoBoardDao.insert(photoBoard) == 0) {
@@ -59,15 +66,15 @@ public class PhotoBoardAddServlet implements Servlet {
         photoFile.setBoardNo(photoBoard.getNo());
         photoFileDao.insert(photoFile);
       }
-      DataLoaderListener.con.commit();
+      con.commit();
       out.println("새 사진 게시글을 등록했습니다.");
 
     } catch (Exception e) {
-      DataLoaderListener.con.rollback();
+      con.rollback();
       out.println(e.getMessage());
 
     } finally {
-      DataLoaderListener.con.setAutoCommit(true);
+      con.setAutoCommit(true);
     }
   }
 
