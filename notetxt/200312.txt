@@ -1,0 +1,7 @@
+200312 목요일
+
+
+프록시 생성을 자동화 45
+
+
+package com.eomcs.reflect.ex06.a b c 복사해오기
