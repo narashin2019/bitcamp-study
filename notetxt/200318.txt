@@ -1,0 +1,31 @@
+200318 수요일
+
+search.maven.org(최신) / mvnrepository 에서 spring context 검색 그레이들 그루비 복사
+implementation 'org.springframework:spring-context:5.2.4.RELEASE'
+
+빌드 그레이들에 라리브러리 정보 추가 
+ gradle cleaneclipse
+gradle eclipse
+
+이클립스에서 리프레쉬
+
+레퍼런스라이브러리에 잘 있는지 확인
+
+
+readme
+AppConfig
+ContextLoaderListener
+serverapp
+
+
+----------------------
+
+
+implementation 'org.mybatis:mybatis-spring:2.0.4'
+
+
+
+=====================
+
+공지: 공지사항게시판 / 신규회원소개게시판 통합
+사진: 인스타그램 스타일/ 썸네일 제목 날짜 / 클릭시 댓글, 공유
