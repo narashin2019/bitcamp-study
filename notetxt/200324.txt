@@ -1,0 +1,98 @@
+200324
+
+오늘 배울것 필터링 기술
+기능확장
+기존의 소스코드에 안대고 기능을 삽입할 수 있을까
+프록시 패턴 사용
+업무에 관련된 논리적 작업 = 비지니스 로직
+
+코딩 > 프로그래민으로 로직을 완성
+
+완성된 코드에 특정 메소드(특정 규칙pattern에 따라) 호출 전후에 기능을 추가하는 방법. 기존 코드에 손을 안대고 할수있냐
+= Aspect-Oriented 관점지향 programming = AOP 기법 등장
+
+=> 구현기술: 프록시패턴 ex) mybatis DAO 자동생성 / AOP 구현 / 커넥션프록시만들었던 것 / sqlsessionproxy / sqlsessionfactoryproxy
+
+
+태그 규칙, 태그에 ㄷ대한 정읠를 하는 파일 : 스키마 
+
+--------------------------------------
+비트캠프독스 로그포제이 엠디 log4j
+https://search.maven.org/artifact/log4j/log4j/1.2.17/bundle
+
+
+# Set root logger level to DEBUG and its only appender to stdout.
+log4j.rootLogger=DEBUG, stdout
+
+# stdout is set to be a ConsoleAppender.
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+
+# stdout uses PatternLayout.
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
+
+
+
+로깅레벨: 로그를 출력하는 범위를 가리킴
+
+로깅 레벨은 다음 여섯 개 중 하나를 지정할 수 있다.
+
+- FATAL : 애플리케이션을 중지해야 할 심각한 오류를 의미
+- ERROR : 오류가 발생했지만, 애플리케이션을 계속 실행할 수 있는 상태를 의미
+- WARN : 잠재적인 위험을 안고 있는 상태를 의미
+- INFO : 애플리케이션의 진행 정보를 의미. 프로그램을 실행시키는 시스템 운영자를 위해 출력할 때 주로 사용한다. 시스템운영자
+- DEBUG : 애플리케이션의 내부 실행 상태를 의미. 프로그래밍 할 때 필요한 정보를 출력할 때 주로 사용한다. 개발자
+- TRACE : DEBUG 보다 더 자세한 상태를 의미
+
+루트 로거에 로깅 레벨을 지정하면 그 하위 로거들에 모두 적용된다.
+하위 로거에 루트 로거의 레벨 대신 다른 레벨을 지정할 수 있다.
+
+
+```
+log4j.rootLogger=로깅레벨, 출력담당자1, 출력담당자2, 출력담당자3 ...
+예)
+log4j.rootLogger=ERROR, aaa, bbb, ccc, ...
+```
+
+log4j.rootLogger=DEBUG, stdout
+
+
+평상시 info 개발문제있을때 debug
+
+
+===================================
+
+
+200324화요일 발표
+
+1. 발표내용 - ppt 참고
+
+2. 피드백
+- 페이지 다 만들었냐?
+
+
+
+=========================
+
+
+UI요구사항명세서
+
+프로젝트vision 1서론 -목적 / 2시장전략설정 -비즈니스기회, 문제기술, 제품전략기술 / 3 발주자요약 사용자요약 ~ ~다 
+
+소프트웨어 개발계획 개정내역(문서)
+
+용어집
+
+모임 - 
+피드 - 
+
+
+/.... 이런거 안하겟다고 
+
+네비게이션 맵 -> 메뉴 구성도
+
+문서화 작업을 최소화 - 나의 포트폴리오를 작성한다는 느낌으로 
+
+포트폴리오를 위해서 아름답게 꾸미는 문서작업 ppt - 3조처럼 빨간색으로 동그라미 표시하고 이부분을 수정함 이런식의 문서가 좋다
+
+
