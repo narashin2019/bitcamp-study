@@ -1,0 +1,45 @@
+200325 수요일
+
+비트캠프 프로젝트 서버 53_1
+
+53_2 / 
+
+implementation 'org.apache.logging.log4j:log4j-core:2.13.1'
+
+로그4제이2로 하면된다. 
+
+=============================================
+
+ Socket socket = serverSocket.accept();
+        logger.info("클라이언트와 연결되었음!");
+
+        executorService.submit(() -> {
+          processRequest(socket);
+
+          logger.info("--------------------------------------");
+        });
+
+러너블
+
+
+====
+
+http specification 검색 / https://tools.ietf.org/html/rfc2616#section-5
+
+---------------
+
+html5
+
+----------
+
+http 프로토콜은: 커넥션리스방식. 핑퐁이 안됨.
+
+
+----
+
+favicon.ico 아이콘파일가리킴. 내 서버에 이미지 파일있으면 웹브라우저가 아이콘 출력함
+
+
+----------------------
+
+윤인성 모던웹을위한htmlcss javascriptjquery
