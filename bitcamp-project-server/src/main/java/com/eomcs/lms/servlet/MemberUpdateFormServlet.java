@@ -46,18 +46,18 @@ public class MemberUpdateFormServlet {
       
       out.println("이메일:<br>");
       out.printf("<textarea name='email' rows='5' cols='60'>%s</textarea><br>\n", //
-          member.getName());
+          member.getEmail());
       out.println("비밀번호:<br>");
       out.printf("<textarea name='password' rows='5' cols='60'>%s</textarea><br>\n", //
-          member.getName());
+          member.getPassword());
       out.println("사진:<br>");
       out.printf("<textarea name='photo' rows='5' cols='60'>%s</textarea><br>\n", //
-          member.getName());
+          member.getPhoto());
       out.println("전화번호:<br>");
       out.printf("<textarea name='tel' rows='5' cols='60'>%s</textarea><br>\n", //
-          member.getName());
-      out.printf("등록일: %s<br>\n", //
-          member.getRegisteredDate());
+          member.getTel());
+    //  out.printf("등록일: %s<br>\n", //
+      //    member.getRegisteredDate());
       
       
       
