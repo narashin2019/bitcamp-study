@@ -9,17 +9,19 @@ import com.eomcs.lms.service.LessonService;
 import com.eomcs.util.RequestMapping;
 
 @Component
-public class LessonAddServlet {
+public class LessonUpdateServlet {
 
   LessonService lessonService;
 
-  public LessonAddServlet(LessonService lessonService) {
+  public LessonUpdateServlet(LessonService lessonService) {
     this.lessonService = lessonService;
   }
 
-  @RequestMapping("/lesson/add")
+  @RequestMapping("/lesson/update")
   public void service(Map<String, String> params, PrintStream out) throws Exception {
+
     Lesson lesson = new Lesson();
+    lesson.setNo(Integer.parseInt(params.get("no")));
     lesson.setTitle(params.get("title"));
     lesson.setDescription(params.get("description"));
     lesson.setStartDate(Date.valueOf(params.get("startDate")));
@@ -27,18 +29,23 @@ public class LessonAddServlet {
     lesson.setTotalHours(Integer.parseInt(params.get("totalHours")));
     lesson.setDayHours(Integer.parseInt(params.get("dayHours")));
 
-    lessonService.add(lesson);
-
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head>");
     out.println("<meta charset='UTF-8'>");
     out.println("<meta http-equiv='refresh' content='2;url=/lesson/list'>");
-    out.println("<title>강의 입력</title>");
+    out.println("<title>강의 변경</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>강의 입력 결과</h1>");
-    out.println("<p>새 강의를 등록했습니다.</p>");
+    out.println("<h1>강의 변경 결과</h1>");
+
+    if (lessonService.update(lesson) > 0) {
+      out.println("<p>강의를 변경했습니다.</p>");
+
+    } else {
+      out.println("<p>변경에 실패했습니다.</p>");
+    }
+
     out.println("</body>");
     out.println("</html>");
   }
