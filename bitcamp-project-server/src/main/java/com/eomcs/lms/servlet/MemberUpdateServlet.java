@@ -1,6 +1,7 @@
 package com.eomcs.lms.servlet;
 
 import java.io.PrintStream;
+import java.sql.Date;
 import java.util.Map;
 import org.springframework.stereotype.Component;
 import com.eomcs.lms.domain.Member;
@@ -22,7 +23,13 @@ public class MemberUpdateServlet {
 
     Member member = new Member();
     member.setNo(Integer.parseInt(params.get("no")));
-    member.setTitle(params.get("title"));    
+    member.setName(params.get("name"));
+    member.setEmail(params.get("email"));
+    member.setPassword(params.get("password"));
+    member.setTel(params.get("tel"));
+    member.setPhoto(params.get("photo"));
+    member.setRegisteredDate(Date.valueOf(params.get("registeredDate")));
+    
     
     out.println("<!DOCTYPE html>");
     out.println("<html>");
@@ -36,9 +43,9 @@ public class MemberUpdateServlet {
     
     
     if (memberService.update(member) > 0) {
-      out.println("<p>헤딩 허;으ㅏㄴ장벌,ㄹ 을 변경했습니다. </p>");
-      else {
-        out.println<"<p>해당번호의 회원이 없습니다.</p>">
+      out.println("<p>회원 정보를 변경했습니다. </p>");
+    } else {
+        out.println("<p>해당번호의 회원이 없습니다.</p>");
       }    
       out.println("</body>");
       out.println("</html>");
