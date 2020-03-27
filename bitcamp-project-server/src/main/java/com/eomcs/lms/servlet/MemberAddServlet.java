@@ -1,13 +1,10 @@
 package com.eomcs.lms.servlet;
 
-import java.io.PrintStream;
-import java.sql.Date;
+import java.io.PrintWriter;
 import java.util.Map;
-import java.util.Scanner;
 import org.springframework.stereotype.Component;
 import com.eomcs.lms.domain.Member;
 import com.eomcs.lms.service.MemberService;
-import com.eomcs.util.Prompt;
 import com.eomcs.util.RequestMapping;
 
 @Component
@@ -20,30 +17,27 @@ public class MemberAddServlet {
   }
 
   @RequestMapping("/member/add")
-  public void service(Map<String, String> params, PrintStream out) throws Exception {
+  public void service(Map<String, String> params, PrintWriter out) throws Exception {
     Member member = new Member();
-    member.setName(params.get("title"));
+    member.setName(params.get("name"));
     member.setEmail(params.get("email"));
     member.setPassword(params.get("password"));
-    member.setTel(params.get("tel"));
     member.setPhoto(params.get("photo"));
-    member.setRegisteredDate(Date.valueOf(params.get("registeredDate")));
+    member.setTel(params.get("tel"));
+
     memberService.add(member);
-    
-    
+
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head>");
     out.println("<meta charset='UTF-8'>");
     out.println("<meta http-equiv='refresh' content='2;url=/member/list'>");
-    out.println("<title>회원 정보 입력</title>");
+    out.println("<title>회원 입력</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>회원 정보 입력 결과</h1>");
+    out.println("<h1>회원 입력 결과</h1>");
     out.println("<p>새 회원을 등록했습니다.</p>");
     out.println("</body>");
     out.println("</html>");
-    
-    
   }
 }

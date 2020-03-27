@@ -8,11 +8,11 @@ import com.eomcs.lms.service.BoardService;
 import com.eomcs.util.RequestMapping;
 
 @Component
-public class PhotoBoardUpdateFormServlet {
+public class BoardUpdateFormServlet {
 
   BoardService boardService;
 
-  public PhotoBoardUpdateFormServlet(BoardService boardService) {
+  public BoardUpdateFormServlet(BoardService boardService) {
     this.boardService = boardService;
   }
 

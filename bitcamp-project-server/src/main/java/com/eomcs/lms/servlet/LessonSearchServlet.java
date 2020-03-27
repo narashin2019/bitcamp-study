@@ -1,6 +1,6 @@
 package com.eomcs.lms.servlet;
 
-import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +19,7 @@ public class LessonSearchServlet {
   }
 
   @RequestMapping("/lesson/search")
-  public void service(Map<String, String> params, PrintStream out) throws Exception {
+  public void service(Map<String, String> params, PrintWriter out) throws Exception {
     HashMap<String, Object> map = new HashMap<>();
     String value = params.get("title");
     if (value.length() > 0) {

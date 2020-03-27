@@ -1,6 +1,6 @@
 package com.eomcs.lms.servlet;
 
-import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Component;
@@ -18,8 +18,7 @@ public class MemberListServlet {
   }
 
   @RequestMapping("/member/list")
-  public void service(Map<String, String> params, PrintStream out) throws Exception {
- 
+  public void service(Map<String, String> params, PrintWriter out) throws Exception {
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head>");
@@ -34,36 +33,35 @@ public class MemberListServlet {
     out.println("    <th>번호</th>");
     out.println("    <th>이름</th>");
     out.println("    <th>이메일</th>");
-    out.println("    <th>비밀번호</th>");
-    out.println("    <th>전화번호</th>");
-    out.println("    <th>사진</th>");
-    out.println("    <th>가입일</th>");
+    out.println("    <th>전화</th>");
+    out.println("    <th>등록일</th>");
     out.println("  </tr>");
-    
-    
-    
-    
+
     List<Member> members = memberService.list();
     for (Member m : members) {
       out.printf("  <tr>"//
-          + "<td>%d</td>" //
+          + "<td>%d</td> "//
           + "<td><a href='/member/detail?no=%d'>%s</a></td> "//
-          + " <td>%s</td>" //
-          + " <td>%s</td>" //
-          + " <td>%s</td>" //
-          + " <td>%s</td>" //
-          + " <td>%s</td>" //
-    
+          + "<td>%s</td> "//
+          + "<td>%s</td>"//
+          + "<td>%s</td>"//
           + "</tr>\n", //
           m.getNo(), //
           m.getNo(), //
           m.getName(), //
           m.getEmail(), //
-          m.getPassword(), //
           m.getTel(), //
-          m.getPhoto(), //
-          m.getRegisteredDate()
-          );
+          m.getRegisteredDate() //
+      );
     }
+    out.println("</table>");
+
+    out.println("<hr>");
+
+    out.println("<form action='/member/search'>");
+    out.println("검색어: <input name='keyword' type='text'>");
+    out.println("<button>검색</button>");
+    out.println("</body>");
+    out.println("</html>");
   }
 }

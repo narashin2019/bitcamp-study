@@ -1,0 +1,49 @@
+200327 
+
+54_2
+
+포토보드는 주소 http://localhost:9999/photoboard/list?lessonNo=101 로 입장
+
+-------------------
+
+54_3 Apache HttpComponents 라이브러리 추가
+
+https://search.maven.org/에서
+httpclient5 로 검색
+
+  // Apache HttpComponents 라이브러리
+  implementation 'org.apache.httpcomponents.client5:httpclient5:5.0'
+
+빌드그레이들에 넣고 클린이클립스 그레이들 이클립스 
+
+
+*http://apache.org/ 유명한 라이브러리 다 있음 http://hc.apache.org/
+-------------------------------------------------------------------
+package com.eomcs.httpcomponents.client/server;
+
+*package com.eomcs.httpcomponents.client; Exam0130 콘텐츠 크롤링 
+
+*httpclient5-fluent 빌드그레이들에 추가
+
+*favicon generator 검색 / https://www.favicon-generator.org/에서 생성 후 webroot에 favicon.ico파일 추가.
+
+http://localhost:9999/favicon.ico으로 해서 떠야함 
+
+*http://hc.apache.org/httpcomponents-core-5.0.x/examples.html
+
+-----------------------------------------------------------------------------
+
+# 54_3 - Apache HttpComponents 라이브러리
+
+
+logger에 파라미터 넣는 것은 {} 순서대로 드렁ㄹ감
+
+
+
+***https://aquerytool.com/
+
+========================================================
+
+비트캠프독스 - 깃유저가이드 - 베이직md
+
+
