@@ -1,6 +1,10 @@
 package com.eomcs.lms.servlet;
 
+<<<<<<< HEAD
 import java.io.PrintWriter;
+=======
+import java.io.PrintStream;
+>>>>>>> 56890ee3adf3c3a42e3218d27b34c3f06d3d4555
 import java.util.Map;
 import org.springframework.stereotype.Component;
 import com.eomcs.lms.domain.Member;
@@ -17,7 +21,11 @@ public class MemberUpdateServlet {
   }
 
   @RequestMapping("/member/update")
+<<<<<<< HEAD
   public void service(Map<String, String> params, PrintWriter out) throws Exception {
+=======
+  public void service(Map<String, String> params, PrintStream out) throws Exception {
+>>>>>>> 56890ee3adf3c3a42e3218d27b34c3f06d3d4555
     Member member = new Member();
     member.setNo(Integer.parseInt(params.get("no")));
     member.setName(params.get("name"));
