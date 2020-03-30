@@ -1,0 +1,29 @@
+200330 월요일
+bitcamp-docs
+git user guide basic
+
+git cheat sheet 검색해서 나오는거 보고 따라하면 됨.
+
+암기하지 말고 뭐가 있는지 알면 검색해서 하면 됨. 
+
+Fetch : 로드할 서버
+push : 업로드할 서버 
+
+보통은 두개가 같음 .
+
+master : 브랜치 
+
+
+리포 만들고 초대하고 그레이들 이닛하고 깃이그노어 복사해오고 빌드그레이들에 이클립스 추가하고 어플리~ 지우고
+그레이들 이클립스, 이클립스 임포트 
+
+**즐겨찾기 추가 / 팀원끼리 깃 멘트 정하기 
+conventionalcommits.org
+https://tech.10000lab.xyz/git/git-commit-discipline.html
+
+
+
+깃 커밋 푸시 할때 리젝트 나오면 깃 풀하고 애드 커밋 푸시.
+
+
+df2e6d571d1c0c138d183e26baf85cc08749a6c7

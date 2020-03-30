@@ -5,9 +5,9 @@
 Git에서 commit을 수행하면 다음의 절차에 따라 커밋 정보를 저장한다.
 
 - `git add` 실행
-  - **Blob** 생성 (binary large object)
+  - **Blob** 생성
     - Git 저장소에 저장되는 파일이다.
-    - 각 파일은 SHA-1 해시 알고리즘으로 계산된 40바이트 크기의 고유의 체크섬(checksum) 값을 가진다.
+    - 각 파일은 SHA-1 해시 알고르즘으로 계산된 40바이트 크기의 고유의 체크섬(checksum) 값을 가진다.
   - Staging Area에 Blob의 체크섬을 기록한다.
 - `git commit` 실행
   - 트리 객체 생성
@@ -100,9 +100,14 @@ Deleted branch b1 (was 519ee27).
 
 ### git checkout [브랜치 이름]
 
-- HEAD 포인터가 다른 브랜치를 가리키게 한다.
-- HEAD 포인터가 가리키는 브랜치가 바뀌면, 작업 디렉토리도 그 브랜치의 커밋 정보에 따라 바뀐다.
-
+- HEAD?
+  - 작업 디렉토리에 로딩한 브랜치를 가리킨다.
+- 작업 디렉토리에 커밋 파일을 교체하기
+  - HEAD 포인터가 다른 브랜치를 가리키게 한다.
+  - HEAD 포인터가 가리키는 브랜치가 바뀌면, 
+    작업 디렉토리도 그 브랜치의 커밋 정보에 따라 바뀐다.
+- 명령?
+  - git checkout 브랜치명
 ```
 예1) HEAD 포인터를 b1 브랜치로 옮긴다.
 $ git checkout b1
@@ -426,12 +431,12 @@ ohora
         git ls-remote [원격 저장소 이름]
 $ git ls-remote    <=== 원격 저장소 이름을 생략하면 전체 출력
 From https://github.com/eomjinyoung/git-test.git
-9babde9de3ff3f9c979a8da0c9d65e008a13af31	HEAD
-9babde9de3ff3f9c979a8da0c9d65e008a13af31	refs/heads/master
+9babde9de3ff3f9c979a8da0c9d65e008a13af31  HEAD
+9babde9de3ff3f9c979a8da0c9d65e008a13af31  refs/heads/master
 
 $ git ls-remote origin    <=== origin에 대한 것만 출력
-9babde9de3ff3f9c979a8da0c9d65e008a13af31	HEAD
-9babde9de3ff3f9c979a8da0c9d65e008a13af31	refs/heads/master
+9babde9de3ff3f9c979a8da0c9d65e008a13af31  HEAD
+9babde9de3ff3f9c979a8da0c9d65e008a13af31  refs/heads/master
 ```
 
 ### git remote show [원격 저장소 이름]
