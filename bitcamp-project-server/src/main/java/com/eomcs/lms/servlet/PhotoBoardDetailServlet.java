@@ -1,5 +1,6 @@
 package com.eomcs.lms.servlet;
 
+import java.io.PrintWriter;
 import java.util.Map;
 import org.springframework.stereotype.Component;
 import com.eomcs.lms.domain.PhotoBoard;
@@ -18,7 +19,7 @@ public class PhotoBoardDetailServlet {
   }
 
   @RequestMapping("/photoboard/detail")
-  public void service(Map<String, String> params, PrintWriterPrintWriter out) throws Exception {
+  public void service(Map<String, String> params, PrintWriter out) throws Exception {
     int no = Integer.parseInt(params.get("no"));
 
     PhotoBoard photoBoard = photoBoardService.get(no);

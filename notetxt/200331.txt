@@ -1,0 +1,222 @@
+200331 화요일
+
+깃 충돌났을떄 커밋은 충동안난다 서버에 올릴때 충돌이 일어나지.
+
+싱크로나이즈드 워크스페이스*****
+서버에 있는게 이전거랑 똑같으면 올리고
+이전 거와 다른거면 yes
+싱크로나이즈 화면에서 충돌일어난거 확인하면
+깃풀로 내려받아 
+그리고 바뀐부분 작업한 사람과 이야기해서 편집을 해야함.
+merge는 자동화 안됨.
+편집한 후 저장. 
+개발화면으로 가서 다시 스테이징 커밋 푸쉬
+
+팀 싱크로나이즈드워크스페이스 가서 확인.
+멀지 툴 로 보고 수정 후 저장 
+
+
+윈도우>쇼뷰>아더>깃 reflog에서 원하는 버전으로 돌릴수있음
+원하는 버전에 우클릭 > 체크아웃
+
+
+깃리파짓토리 > 브랜치 > 우클릭 > 스위치 투 마스터 
+깃리파짓토리 > 태그 > 우클릭 > 크리에이트 태그 > 크리에이트 캐그 앤 스탙트 푸쉬 > 넥스트 > 피니쉬
+깃리파짓토리 > 우클릭 마스터에 체크아웃 후 > 나머지 브랜치는 우클릭 딜리트
+
+
+***https://git-scm.com/book/ko/v2 ckarh
+
+------------------------------------------
+
+비트캠프프로젝트 톰캣 설치 
+
+콤포넌트: 한개 이상의 클래스로 이루어진 어떤 기능을 수행하는 것.
+
+분산 컴포넌트: 
+
+=====
+
+
+1. https://www.apache.org/ 로 간다
+
+2. http://tomcat.apache.org/ 로 간다
+
+3. https://www.oracle.com/java/technologies/java-ee-glance.html로 간다 (javaee document검색)
+
+Java EE 6, 7 Technologies 선택
+>
+Java Servlet  / 
+Enterprise JavaBeans /
+JavaServer Pages 
+3개의 버전 보기
+
+
+web application server 도 버전이 있다.
+
+어떤 버전에 호환되는 것인가?
+
+톰캣 버전에 따라 setvlet jsp 지원하는 버전이 다르다. 
+http://tomcat.apache.org/로 다시 간다.
+http://tomcat.apache.org/tomcat-7.0-doc/index.html 가면 서블릿 3.0rhk jsp 2.2지원
+
+고객 컴퓨터에 톰캣 버전에 따라 서블렛 jsp 버전이 정해지기 떄문에 그 버전 이후의 기술은 쓸 수 없다.
+
+
+우리는 톰캣 9버전으로 한다 서블릿4.0/jsp 2.3 / ejb 3.2 /
+--------
+다운로드 9 버전 누른다
+https://tomcat.apache.org/download-90.cgi
+
+core에 zip 다운로드 / Source Code Distributions zip 파일 다운로드 
+
+C:\Users\user에 서버라는 폴더 만들고 그 안에 압축 푼다. 둘다.
+
+
+비트캠프독스 . 데브툴)
+# 톰캣 설치 및 설정 
+
+## 톰캣 서버 설치
+
+- tomcat.apache.org사이트에서 zip파일을 내려받는다.
+- 특정 폴더에 압축을 푼다.
+- 설치형이 아니다. 
+
+비주얼 스튜디오에서 서버 > 톰캣 > conf > server.xml로 간다
+
+### 서버 포트 번호 변경
+
+- $TOMCAT_HOME/conf/server.xml 변경
+  - Connector태그에  port값을 "8080"에서 원하는 값으로 변경한다.
+  - 예) Connector port = "9999" ...
+
+
+
+## tomcat 관리자 아이디 등록하기
+- $TOMCAT_HOME/conf/tomcat-users.xml 파일에 role 및 user 추가
+```
+
+주석 풀고 수정 
+
+  <role rolename="tomcat"/>
+  <role rolename="manager-gui"/>
+
+  <user username="tomcat" password="1111" roles="tomcat,manager-gui"/>
+
+
+## conf 밑에 카탈리나 > localhost폴더 만들고 manager.xml 생성 (복사해와서 이름바꾸기)
+
+첫째줄만 두고 나머지 지우고 첫째줄 똑같으면 지움 
+<?xml version="1.0" encoding="UTF-8"?>
+<Context privileged="true" antiResourceLocking="false"
+         docBase="${catalina.home}/webapps/manager">
+  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="^.*$" />
+</Context>
+
+붙여넣기 
+
+
+
+
+
+
+## 톰캣 서버 실행
+- $TOMCAT_HOME/bin/startup.bat 실행 (Windows)
+- $TOMCAT_HOME/bin/startup.sh 실행 (Unix/Linux)
+
+
+맥: bin폴더 들어가서 chmod 755 *.sh 엔터치고
+./startup.sh 로 실행
+종료시에는 ./shutdown.sh
+
+
+---
+
+http://localhost:9999/ 로 접속
+서버 status
+tomcat/1111
+
+
+톰캣유저스 xml에 
+admin-gui 추가
+
+  <role rolename="tomcat"/>
+  <role rolename="manager-gui"/>
+  <role rolename="admin-gui"/>
+
+  <user username="tomcat" password="1111" roles="tomcat,manager-gui,admin-gui"/>
+
+</tomcat-users>
+
+
+==========================================================
+디비모델링하면 테이블에 20~30개 정보입력해야함.
+목록조회부터 프로그램 구현
+
+-------------------------------------------------
+
+서블릿 클래스는 서블릿/jsp 규칙에 따라 재작성
+
+search.maver.org에서 servlet-api를 검색하고 빌드그레이들  라이브러리 블록에 추가 크레이들 이클립스 실행.
+이클립스 설정파일을 갱신.
+compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+
+ContextLoaderListener 변경
+
+컨텍스트 패키지 삭제
+
+~~ 서블릿 변경 : 애노테이션 바꾸고 제너릭서블릿 상속받고 
+컨트롤스페이스 서비스 추상메서드 구현하고 합치고 
+
+out객체 및 파일 형식 설정코드 추가  에러뜨는거에서 시리얼추가
+
+생성자 지우고 
+
+생성하는 코드 쓰고
+보드서비스객체가 필요함. 그건 스프링아이오씨컨테이너가 관리 (제너릭서블릿는 톰캣이 관리)
+서블릭 컨텍스트라는데에 보관함. 
+스프링 아이오씨 컨테이너를 통해서 보드 서비스를 꺼냄.
+
+try catch씌우기 
+
+
+---------
+
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'war'
+} 빌드그레이들에 추가 
+
+그레이들빌드 
+
+
+C:\Users\user\git\bitcamp-study\bitcamp-project-server\build\libs에 war파일 생성됨
+
+톰캣홈 웹앱스에 복붙하고 재실행하면 자동으로 압축 풀림
+
+
+브라우저에서 http://localhost:9999/bitcamp-project-server/board/list 하면 됨.
+
+
+--------------
+
+무조건 웹은 상대경로!!!!!!!!!!!
+
+-----------
+
+서블릿 수정하면 
+
+gradle build 다시하고 war 파일 다시 복붙
+
+--------------
+
+이클립스에서 톰캣 실행하기
+
+프리퍼런스 > 서버 > 런타입인바이러먼트에 아파치톰캠 애드
+
+
+윈도우> 쇼뷰 > 서버스 >우클릭 뉴> 이클립스에 등록한 버전 선택/ 서버네임 test1 실행.
+http://localhost:9999/ 하면 404로 찾을수없음 나와야 정상.
+
