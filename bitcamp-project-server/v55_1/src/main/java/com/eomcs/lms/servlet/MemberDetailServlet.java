@@ -12,8 +12,8 @@ import org.springframework.context.ApplicationContext;
 import com.eomcs.lms.domain.Member;
 import com.eomcs.lms.service.MemberService;
 
-@WebServlet("/member/updateForm")
-public class MemberUpdateFormServlet extends GenericServlet {
+@WebServlet("/member/detail")
+public class MemberDetailServlet extends GenericServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
@@ -36,49 +36,35 @@ public class MemberUpdateFormServlet extends GenericServlet {
       out.println("<html>");
       out.println("<head>");
       out.println("<meta charset='UTF-8'>");
-      out.println("<title>회원 정보 변경</title>");
+      out.println("<title>회원 상세정보</title>");
       out.println("</head>");
       out.println("<body>");
-      out.println("<h1>회원 변경</h1>");
+      out.println("<h1>회원 상세정보</h1>");
 
-      if (member == null) {
-        out.println("<p>해당 번호의 회원이 없습니다.</p>");
-      } else {
-        out.println("<form action='/member/update'>");
-        out.printf("번호: <input name='no' readonly type='text' value='%d'><br>\n", //
+      if (member != null) {
+        out.println("<form action='update'>");
+        out.printf("번호: <input name='no' type='text' readonly value='%d'><br>\n", //
             member.getNo());
-
-        out.println("이름:<br>");
-        out.printf("<textarea name='name' rows='5' cols='60'>%s</textarea><br>\n", //
+        out.printf("이름: <input name='name' type='text' value='%s'><br>\n", //
             member.getName());
-
-        out.println("이메일:<br>");
-        out.printf("<textarea name='email' rows='5' cols='60'>%s</textarea><br>\n", //
+        out.printf("이메일: <input name='email' type='email' value='%s'><br>\n", //
             member.getEmail());
-        out.println("비밀번호:<br>");
-        out.printf("<textarea name='password' rows='5' cols='60'>%s</textarea><br>\n", //
-            member.getPassword());
-        out.println("사진:<br>");
-        out.printf("<textarea name='photo' rows='5' cols='60'>%s</textarea><br>\n", //
+        out.println("암호: <input name='password' type='password'><br>");
+        out.printf("사진: <input name='photo' type='text' value='%s'><br>\n", //
             member.getPhoto());
-        out.println("전화번호:<br>");
-        out.printf("<textarea name='tel' rows='5' cols='60'>%s</textarea><br>\n", //
+        out.printf("전화: <input name='tel' type='tel' value='%s'><br>\n", //
             member.getTel());
-        // out.printf("등록일: %s<br>\n", //
-        // member.getRegisteredDate());
-
-
-
-        out.println("<button>변경</button>");
+        out.println("<p><button>변경</button>");
+        out.printf("<a href='delete?no=%d'>삭제</a></p>\n", //
+            member.getNo());
         out.println("</form>");
+      } else {
+        out.println("<p>해당 번호의 회원이 없습니다.</p>");
       }
       out.println("</body>");
       out.println("</html>");
-
-
     } catch (Exception e) {
       throw new ServletException(e);
     }
-
   }
 }

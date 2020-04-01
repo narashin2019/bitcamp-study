@@ -1,0 +1,50 @@
+200401 수요일
+
+C:\Users\user\server\apache-tomcat-9.0.33
+
+webapps : 각각이 웹 어플리케이션
+
+WEB-INF > web.xml 중요
+
+
+C:\Users\user\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core
+바로가기 추가 .
+
+
+compileOnly 배치 파일에 포함 안됨,. 
+
+쩜세팅스
+... 지우고 그레이들 이클립스 해도뎀..
+
+
+http://localhost:9999/bitcamp-project-server/board/list 로 웹에서 접근 가능. 
+
+파일 수정하고 저장버튼 누르는 순간 
+클래스파일이 갱신되고
+그 파일만 다시 그 폴더로 복사됨
+서버가 배치를 다시하고 재로딩함 ㄷㄷ
+
+
+
+wepapp 폴더 새로만들고 설정파일 바꿀때 서버 중지하고 빌드그레이들함.
+
+
+http://localhost:9999/bitcamp-project-server/index.html
+인덱스.html 안쳐도 자동으로 찾음 
+
+---------------
+
+css
+
+https://getbootstrap.com/
+https://jqueryui.com/
+
+--------------------------
+
+디비 피드백 ****
+
+
+회원: 우편번호 기본주소 상세주소 => 다음주소api, 우체국주소 api사용하면 됨. 
+
+
+
