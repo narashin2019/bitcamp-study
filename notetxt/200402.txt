@@ -1,0 +1,9 @@
+200402 목요일
+
+물리모델링
+이름바꾸고 컬럼의 타입을 지정
+
+
+https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/
+
+
