@@ -1,0 +1,209 @@
+200403 금요일
+
+
+
+
+
+1. C:\Users\user\git\bitcamp-study에 bitcamp-java-web 폴더 생성
+
+2. 파워셀 해당 폴더에서 gradle init 실행 
+
+com.eomcs.web = 패키지명
+프로젝트네임 엔터 치는거 잘못하면 셋팅스.그레이들에서 바꿀수있음
+
+
+3. 빌드 그레이들 - 비트캠프 서버에 빌드그레이들 것 복사 
+
+
+plugins {
+    id 'java'
+    id 'eclipse-wtp'
+    in 'war'
+}
+
+tasks.withType(JavaCompile) {
+    // 프로젝트의 소스 파일 인코딩을 gradle에게 알려준다.
+    options.encoding = 'UTF-8' 
+    // 소스 파일을 작성할 때 사용할 자바 버전
+    sourceCompatibility = '1.8'
+    // 자바 클래스를 실행시킬 JVM의 최소 버전
+    targetCompatibility = '1.8'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    // 의존라이브러리 옵션
+    // => implementation : 컴파일 한 후에 생성되는 빌드 파일에 포함된다
+    // =? compileOmlr : 컴파일 한 후 생성되는 빌드 파일에 포함되지 않는다. 
+    //
+
+    // Servlet-API
+    // => 컴파일 할때만 사용한다.
+    // => 배치할 때는 포함하지 않는다,.
+    // => 왜? 서버에 이미 라이브러리가 있기 때문이다.
+    //
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    implementation 'com.google.guava:guava:28.0-jre'
+    testImplementation 'junit:junit:4.12'
+}
+
+`````
+4. src/main 에 webapp 폴더 생성, index.html 생성, 내용 작성.
+
+5. gradle eclipse 실행
+
+6. 이클립스에 임포트 
+
+7. 서버에 추가 server 뷰에서 우클릭 뉴 서버 study로만들고 비트캠프자바웹 애드 시키고 피니쉬 
+스터디 우클릭 스타트 / 웹브라우저에서 localhost:9999/bitcamp-java-web 실행
+
+8. 깃클론 해오기 https://github.com/eomcs/eomcs-java-web.git
+
+9. C:\Users\user\git\bitcamp-java-20190527\bitcamp-java-web\src\main\java\bitcamp안에 있는 ex파일 복사해서 내걸로 가져오기 
+
+ 10. PS C:\Users\user\git\eomcs-java-web> git pull / gradle cleaneclipse/ gradle eclipsegradle
+엄시에스 자바 웹 임포트 해오기. 
+
+11. com.eomcs.web.ex01; 시작 
+패키지명 변경
+
+그림 3)
+서블릿 콘테이너 제품중 하나가 톰캣.
+서블릿 클래스: 
+
+예) 서버 어플리케이션 수업관리시스템
+
+로그인
+로그아웃
+회원등록
+수업등록
+수강신청
+...
+이런 작은 프로그램 조각들이 모여 하나의 큰 수업관리시스템이라는 서버어플리케이션을 구성
+
+작은 프로그램 조각 -> 서버어플리케이션+let =Servlet이라고 부름
+
+옛날엔 applet이라고 부름 
+
+톰캣이 서블릿을 호출 
+규칙을 정함
+javax.servlet 에서 Servlet 이라는 규칙 =- 인터페이스 정함. 서블릿은 이 규칙에 따라 만들어야함
+
+메소드5개 있는데 암기해야함. 
+init() 생성할떄 호출
+destroy() 소멸전에 호출
+service() 클라요청이 들어올때마다 실행
+=> 3개는 Servlet의 lifecycle 메서드 라 부름
+
+getServletInfo()
+gerServetConfig()
+
+
+서블릿클래스는 저 인터페이스를 구현한다는 것 
+톰캣은 인터페이스 규칙에 따라 호출함 
+
+인터페이스를 미리 구현한 추상클래스 GenericServlet이 있음
+init(){}
+destroy(){}
+getServletInfo(){}
+gerServetConfig() {}
+
+=> 그래서 추상클래스를 상속받아 서블릿 클래스 구현하면 service(){}만 구현하면 됨.
+
+또한 제네릭서블릿을 상속받아 HTTP처리기능을 추가한 클래스가 있음
+-> 추상클래스인 HttpServlet : service(){} 구현 되어 있음. 
+서비스 오버라이딩 된 것을 호출하고 그건 내부적으로 do~ 어쩌구 메서드들을 호출함 
+따라서 이걸 상속받으면 goGet(){} doPost(){} goHead(){}...를 오버라이딩 해야함
+
+그러나 자바서블렛에 있는 서블렛 인터페이스 의 규칙대로 톰캣은 호출함.
+
+서블릿 만드는 건 3가지이지만 톰캣서버가 호출할 때 기본은 서블릿 인터페이스를 상속받는것.
+우리는 뭘 로 할 것인가?! 두둥
+
+
+
+--------------
+12. com.eomcs.web.ex01; Setvlet01.java 수정
+
+13. src main sebapp 에 WEB_INF폴더 생성
+
+C:\Users\user\server\apache-tomcat-9.0.33\webapps\examples\WEB-INF에서 web.xml복사
+C:\Users\user\git\bitcamp-study\bitcamp-java-web\src\main\webapp\WEB-INF 붙여넣기 
+
+해당 파일 수정
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+  version="4.0"
+  metadata-complete="true">
+
+<!-- 서블릿 등록 -->
+  <servlet>
+    <servlet-name>s01</servlet-name>
+    <servlet-class>com.eomcs.web.ex01.Servlet01</servlet-class>
+  </servlet>
+
+<!-- 서블릿을 실행할 때 사용할 URL path를 설정  -->
+  <servlet-mapping>
+    <servlet-name>s01</servlet-name>
+    <url-pattern>/ohora/haha</url-pattern>
+  </servlet-mapping>
+
+</web-app>
+
+14. 서버 리스타트 후 웹에서 http://localhost:9999/bitcamp-java-web/ohora/haha 실행 후 콘솔창에서 객체생성, init호출, servise호출된 것 확인.
+(객체생성후에 init이 호출되는 것. )
+웹에서 리프레시 하면 객체가 더 생성되지 않고 두번쨰 요청시에는 Servlet01.service(ServletRequest,ServletResponse)만 뜸.
+서버에서 스탑을 눌러서 정식으로 서버를 닫게 요청 > 콘솔창에 Servlet01.destroy() 뜸. 
+서버가 닫히거나 앱어플리케이션이 종료되면 마무리 작업하라고 destroy가 호출됨, 
+
+=========================
+
+15. com.eomcs.web.ex01; Setvlet02.java 수정 / web.wml에 코드 추가/ 서버재실행 
+콘솔창확인 / http://localhost:9999/bitcamp-java-web/ex01/s02 실행 / 콘솔창확인 - 생성자호출됨 = 객체가 생성된 것. + 서비스 메서드 호출 
+웹에서 리프레쉬할때마다 서비스만 호출(콘솔창에) 오호라 중간에 실행해보고 다시 서버 끄고 콘솔창확인
+
+
+16. package com.eomcs.web.ex01;  Setvlet03.java 
+수정후 서버 리스타트 웹에서 테스트
+http://localhost:9999/bitcamp-java-web/ex01/s04 안됨.
+
+톰캠서버가 인식하려면 xml false로 바꿔야함
+ex06 필터1,23,에 필터 주석 > 안되어서 src2폴더 만들고 sx01뺴고 다른 폴더 다 옮김.
+app app2 는 지움
+
+arc test java com eomcs web apptest.java 주석처리 전체
+하고 실행해보기 
+
+=================================================================
+
+17 . com.eomcs.web.ex02; Server1,2 넣고 서버 리스타트 브라우저에서 
+http://localhost:9999/bitcamp-java-web/ex02/s01
+http://localhost:9999/bitcamp-java-web/ex02/a/s02 테스트하고
+콘솔에서 확인. 
+
+18. com.eomcs.web.ex02; filter01
+Servlet02() 객체생성(최초) 같은 url다시 요청 시 또 생성 안함
+Servlet02.service(ServletRequest,ServletResponse) 서비스 호출
+Listener02.requestDestroyed() 해제
+
+리스너는 일종의 모니터링 도구 
+어떤 상태에 놓였을때 부가적인 작업을 하고 싶은 경우 리스너로 등록 . 
+
+
+
+*** 테이블 생성 완료할 것 주말에 서블릿 만들 것. 
+
+
+필터짤때 실행순서에 상관없이 필터의 목적을 달성하도록 프로그램을 짠다.
+
+19. com.eomcs.web.ex02; filter02
+
+web.xml에 기록하거나, 애노테이션을 달아야 톰캣서버가 인식함. 
+
+
