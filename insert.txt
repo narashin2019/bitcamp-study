@@ -1,0 +1,256 @@
+-- 모임 예제
+INSERT INTO nm_group
+(group_name, group_info, category, group_photo, city, max_people_no, bank, bank_no, account_holder)
+values('등산 모임', '등산하는 모임입니다.', 1, '이미지.gif', '태평양', 50, '하나은행','2020-01-1', '이건희');
+INSERT INTO nm_group
+(group_name, group_info, category, group_photo, city, max_people_no, bank, bank_no, account_holder)
+values('게임 모임', '게임하는 모임입니다.', 2, '곰비둘기.gif', '협곡', 10, '하나은행','2020-01111-1', '이상혁');
+INSERT INTO nm_group
+(group_name, group_info, category, group_photo, city, max_people_no, bank, bank_no, account_holder)
+values('코딩 모임', '코딩하는 모임입니다.', 3, '연봉1억.gif', '비트캠프', 10, '기업은행','1002-01111-1', '엄진영');
+INSERT INTO nm_group
+(group_name, group_info, category, group_photo, city, max_people_no, bank, bank_no, account_holder)
+values('맛집탐방 모임', '맛집탐방 모임입니다.', 4, '피자.gif', '가로수길', 20, '카카오뱅크','462-011-1', '김고기');
+INSERT INTO nm_group
+(group_name, group_info, category, group_photo, city, max_people_no, bank, bank_no, account_holder)
+values('여행 모임', '여행하는 모임입니다.', 1, '제주도.gif', '제주', 10, '제주은행','182-5511-1', '최빛나');
+
+
+-- 등급 예제
+insert into nm_grade(grade_no, grade_name)
+  values(4, '모임장');  
+insert into nm_grade(grade_no, grade_name)
+  values(3, '관리자');  
+insert into nm_grade(grade_no, grade_name)
+  values(2, '정회원');  
+insert into nm_grade(grade_no, grade_name)
+  values(1, '준회원');  
+
+-- 회원 예제 데이터
+
+INSERT INTO nm_members
+(member_name, id_photo, birthday, gender, email, tel, password, intro, interests, nickname, account_status, grade_no, withdraw,sns) 
+values('오승우', 'abc.jpg','1998-10-20', true,'fivewincow@gmail.com','010-3002-0169','1111','열심히',6,'오승우',1,1,1, '페이스북');
+INSERT INTO nm_members
+(member_name, id_photo, birthday, gender, email, tel, password, intro, interests, nickname, account_status, grade_no, withdraw,sns) 
+values('손진영', 'a.jpg','1993-11-11', true,'mrHand@gmail.com','010-2222-0119','1111','으랏차차',6,'손타쿠',1,1,1, '인스타그램');
+INSERT INTO nm_members
+(member_name, id_photo, birthday, gender, email, tel, password, intro, interests, nickname, account_status, grade_no, withdraw,sns) 
+values('신나라', 'dd.jpg','1988-4-9', true,'test@gmail.com','010-6823-5479','1111','곰비둘기입니다.',1,'곰비둘기',1,1,1, 'instagram.com/gramrabbitbear');
+INSERT INTO nm_members
+(member_name, id_photo, birthday, gender, email, tel, password, intro, interests, nickname, account_status, grade_no, withdraw,sns) 
+values('이선경', 'abc.jpg','2008-5-19', true,'test8@gmail.com','010-4566-9855','4444','선경이다.',1,'삼선경',1,1,1, 'instagram.com/test2');
+INSERT INTO nm_members
+(member_name, id_photo, birthday, gender, email, tel, password, intro, interests, nickname, account_status, grade_no, withdraw,sns) 
+values('김나영', 'photo1.jpg','1995-3-5', true,'test5@gmail.com','010-2422-3634','2222','나영이다.',1,'나사김',1,1,1, 'instagram.com/test');
+
+
+-- 모임 회원 예제
+
+INSERT INTO nm_meeting_member(group_no,member_no,grade_no)
+ values(1,1000,1);
+ 
+INSERT INTO nm_meeting_member(group_no,member_no,grade_no)
+ values(1,1001,2);
+
+INSERT INTO nm_meeting_member(group_no,member_no,grade_no)
+ values(1,1004,3);
+ 
+INSERT INTO nm_meeting_member(group_no,member_no,grade_no)
+ values(1,1002,2);
+ 
+INSERT INTO nm_meeting_member(group_no,member_no,grade_no)
+values(1,1003,2);
+ 
+ 
+ 
+ 
+ -- 게시판 유형 예제
+
+INSERT INTO nm_board_type(board_type_no,type_name)
+ values(1,'일반');
+ 
+INSERT INTO nm_board_type(board_type_no,type_name)
+ values(2,'공지');
+ 
+ 
+-- 등록 권한 예제
+
+INSERT INTO nm_board_grade(board_type_no,grade_no)
+ values(1,1);
+ 
+ INSERT INTO nm_board_grade(board_type_no,grade_no)
+ values(1,2);
+ 
+INSERT INTO nm_board_grade(board_type_no,grade_no)
+values(2,3);
+ 
+INSERT INTO nm_board_grade(board_type_no,grade_no)
+values(2,4);
+
+-- 모임게시글 예제 데이터
+insert into nm_meeting_board(
+board_type_no, group_no, member_no, content)
+values(1, 1, 1001,'사이좋게 지냅시다');
+
+insert into nm_meeting_board
+(board_type_no, group_no, member_no, content)
+values(2, 1, 1000, '타인에게 불쾌감을 주는 행위는 금지입니다');
+
+
+-- 게시물 사진 예제
+
+INSERT INTO nm_board_photo(photo_file)
+ values('abab.jpg');
+ 
+ INSERT INTO nm_board_photo(photo_file)
+ values('dbdb.jpg');
+ 
+-- 메시지 예제
+
+INSERT INTO nm_message(
+sender, receiver, title, content)
+ values(1000,1001,'안녕하세요','언제 들어오시나요..');
+INSERT INTO nm_message(
+sender, receiver, title, content)
+ values(1001,1002,'어디세요','언제 오시나요..');
+INSERT INTO nm_message(
+sender, receiver, title, content)
+ values(1002,1000,'반가워요','밥 먹을래요..?');
+ INSERT INTO nm_message(
+sender, receiver, title, content)
+ values(1003,1004,'졸려요','집에 언제가요..?');
+ INSERT INTO nm_message(
+sender, receiver, title, content)
+ values(1004,1002,'배고파요','밥 먹을래요..?');
+ 
+-- 알림 예제
+
+INSERT INTO nm_notify(member_no,board_no)
+ values(1000,1);
+ 
+INSERT INTO nm_notify(member_no,board_no)
+ values(1000,2);
+ 
+INSERT INTO nm_notify(member_no,board_no)
+ values(1001,1);
+ 
+INSERT INTO nm_notify(member_no,board_no)
+ values(1002,1);
+
+-- 댓글 예제 데이터
+
+insert into nm_reply
+(board_no, content)
+values(1,'멋져요');
+
+insert into nm_reply
+(board_no, content)
+values(1,'알아요');
+
+
+
+-- 공지사항 예제
+
+INSERT INTO nm_notices_board(title)
+ values('불쾌감 및 혐오를 조장하는 게시글과 동아리는 강제로 삭제될 수 있습니다.');
+
+
+-- 일정 예제 데이터
+
+insert into nm_schedule
+(board_no,schedule_date, title, place_name, address, latitude, longitude)
+values(1,'2020-03-03', '봉사활동', '비트캠프 강남센터',
+'서울특별시 강남구 역삼동', 37.499497, 127.029350);
+insert into nm_schedule
+(board_no,schedule_date, title, place_name, address, latitude, longitude)
+values(2,'2020-03-14', '피자 무한리필 털어봐요', '의정부피자몰',
+'경기도 의정부시 행복로', 15.499497, 177.029350);
+
+
+-- 소통 게시판 예제
+
+INSERT INTO nm_normal_board(member_no,title,content,noticeable)
+ values(1000,'주말에 농구 같이 하실 분','일요일 4시에 같이 하실 분 댓글 좀',0);
+ INSERT INTO nm_normal_board(member_no,title,content,noticeable)
+ values(1000,'회식 같이해요','저희는 맛집 탐방 동아리입니다. 참석의향 있으시면 연락주세요',0);
+ INSERT INTO nm_normal_board(member_no,title,content,noticeable)
+ values(1001,'3월14일 소극장에서 공연해요.','많이 와주세요.',0);
+ INSERT INTO nm_normal_board(member_no,title,content,noticeable)
+ values(1002,'축구 같이 하실 분 선착순 1명','경기 후 회식 예정입니다.',0);
+ 
+-- 회원초대 예제
+
+INSERT INTO nm_invite(member_no,group_no,state)
+ values(1001,1,1);
+INSERT INTO nm_invite(member_no,group_no,state)
+ values(1000,2,0);
+INSERT INTO nm_invite(member_no,group_no,state)
+ values(1002,3,0);
+INSERT INTO nm_invite(member_no,group_no,state)
+ values(1003,1,1);
+ 
+ -- 회계 유형
+
+INSERT INTO nm_account_type(account_type_no,board_type_name)
+ values(1,'식대');
+INSERT INTO nm_account_type(account_type_no,board_type_name)
+ values(2,'유류비');
+INSERT INTO nm_account_type(account_type_no,board_type_name)
+ values(3,'우수회원촉진비');
+INSERT INTO nm_account_type(account_type_no,board_type_name)
+ values(4,'회비');
+INSERT INTO nm_account_type(account_type_no,board_type_name)
+ values(5,'기타비용');
+ 
+-- 회계 예제
+
+INSERT INTO nm_account(assets, group_no, member_no, amount,payment_date,account_type_no,remarks,receipt_photo)
+ values(1900000,1,1000,-150000,'2020-04-03',1,'하남돼지집','a.gif');
+ INSERT INTO nm_account(assets, group_no, member_no, amount,payment_date,account_type_no,remarks,receipt_photo)
+ values(1750000,1,1000,-240000,'2020-04-13',1,'쭈꾸미막걸리','qe.gif');
+ INSERT INTO nm_account(assets, group_no, member_no, amount,payment_date,account_type_no,remarks,receipt_photo)
+ values(1510000,1,1000,2800000,'2020-05-1',4,'5월회비','gew.gif');
+ INSERT INTO nm_account(assets, group_no, member_no, amount,payment_date,account_type_no,remarks,receipt_photo)
+ values(4310000,1,1000,100000,'2020-05-03',1,'김**후원금','blde.gif');
+ INSERT INTO nm_account(assets, group_no, member_no, amount,payment_date,account_type_no,remarks,receipt_photo)
+ values(4410000,1,1000,-570000,'2020-05-23',1,'5월정기회식','a.gif');
+ 
+-- 일정 참여자 & 일정이 먼저
+
+INSERT INTO nm_schedule_member(member_no,group_no,board_no)
+ values(1000,1,1);
+INSERT INTO nm_schedule_member(member_no,group_no,board_no)
+ values(1001,1,1);
+INSERT INTO nm_schedule_member(member_no,group_no,board_no)
+ values(1002,1,1);
+INSERT INTO nm_schedule_member(member_no,group_no,board_no)
+ values(1003,1,1);
+ 
+-- 소통 게시판 좋아요 예제
+
+INSERT INTO nm_normal_board_like(member_no,normal_board_no)
+ values(1000,1);
+ INSERT INTO nm_normal_board_like(member_no,normal_board_no)
+ values(1001,1);
+ INSERT INTO nm_normal_board_like(member_no,normal_board_no)
+ values(1002,1);
+ INSERT INTO nm_normal_board_like(member_no,normal_board_no)
+ values(1003,1);
+ INSERT INTO nm_normal_board_like(member_no,normal_board_no)
+ values(1004,1);
+ 
+-- 모임 게시글 좋아요 예제 & nm_meeting_board 먼저
+
+INSERT INTO nm_meeting_board_like(board_no,member_no,group_no)
+ values(1,1000,1);
+ INSERT INTO nm_meeting_board_like(board_no,member_no,group_no)
+ values(1,1001,1);
+ INSERT INTO nm_meeting_board_like(board_no,member_no,group_no)
+ values(1,1002,1);
+ INSERT INTO nm_meeting_board_like(board_no,member_no,group_no)
+ values(1,1003,1);
+ INSERT INTO nm_meeting_board_like(board_no,member_no,group_no)
+ values(1,1004,1);
+ 
+-- 

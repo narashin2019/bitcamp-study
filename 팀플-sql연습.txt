@@ -1,0 +1,44 @@
+
+-- 회원 예제 데이터
+insert into nm_members(member_name, id_photo, birthday, gender, email, tel, password, intro, interests, nickname, account_status, grade_no, withdraw, sns) 
+  values('신나라', 'photo.jpg', '1988-4-9', '1', 'test@gmail.com', '010-6823-5479', '1111', '곰비둘기입니다.', '1', '곰비둘기', '1', '1', '1', 'instagram.com/gramrabbitbear');
+ 
+insert into nm_members(member_name, id_photo, birthday, gender, email, tel, password, intro, interests, nickname, account_status, grade_no, withdraw, sns) 
+  values('김나영', 'photo1.jpg', '2000-4-9', 1, 'test1@gmail.com', '010-1111-1111', '2222', '김나영입니다.', 1, '나사김', 1, 4, 1, 'instagram.com/test');
+
+insert into nm_members(member_name, id_photo, birthday, gender, email, tel, password, intro, interests, nickname, account_status, grade_no, withdraw, sns) 
+  values('오승우', 'photo2.jpg', '2000-1-1', 1, 'test2@gmail.com', '010-1112-1111', '3333', '리신 장인 입니다.', 1, '승우육', 1, 4, 1, 'instagram.com/test3');
+
+insert into nm_members(member_name, id_photo, birthday, gender, email, tel, password, intro, interests, nickname, account_status, grade_no, withdraw, sns) 
+  values('이선경', 'photo3.jpg', '2000-2-2', 1, 'test3@gmail.com', '010-1113-1111', '4444', '이선경입니다.', 1, '선경삼', 1, 4, 1, 'instagram.com/test4');
+
+insert into nm_members(member_name, id_photo, birthday, gender, email, tel, password, intro, interests, nickname, account_status, grade_no, withdraw, sns) 
+  values('손진영', 'photo4.jpg', '2000-3-3', 1, 'test4@gmail.com', '010-1114-1111', '5555', '손진영입니다.', 1, '진영발', 1, 4, 1, 'instagram.com/test5');
+===================
+
+insert into nm_grade(grade_no, grade_name)
+  values(4, '모임장');  
+insert into nm_grade(grade_no, grade_name)
+  values(3, '관리자');  
+insert into nm_grade(grade_no, grade_name)
+  values(2, '정회원');  
+insert into nm_grade(grade_no, grade_name)
+  values(1, '준회원');  
+
+
+================
+show databases;
+use
+show tables;
+desc
+select * from nm_members;
+
+======================
+
+## MySQL 데이터베이스 생성
+> CREATE DATABASE nmdb
+  DEFAULT CHARACTER SET utf8
+  DEFAULT COLLATE utf8_general_ci;
+
+## 데이터베이스 삭제
+DROP DATABASE 데이터베이스 이름
