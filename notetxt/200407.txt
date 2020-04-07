@@ -4,6 +4,8 @@
 
 ex04 servlet6
 값이 여러개 넘어올때 어떻게 할 것인가 다중선택
+
+0207 - 
 http://localhost:9999/bitcamp-java-web/ex04/test06.html
 
 post와 get의 차이?
@@ -19,4 +21,4 @@ C:\Users\user\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core �
 원본그대로 쓰지 말고 썸네일이미지 생성으로 꼭 만들어서 골라서 할 것 .
 
 
-com.eomcs.web.ex05;
+com.eomcs.web.ex05;6 깃풀 후 다시 떙겨ㅗ거ㅣ
