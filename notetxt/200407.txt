@@ -1,0 +1,22 @@
+200407 화요일 
+
+톰캣 - 실무에서 잘 안쓴다.
+
+ex04 servlet6
+값이 여러개 넘어올때 어떻게 할 것인가 다중선택
+http://localhost:9999/bitcamp-java-web/ex04/test06.html
+
+post와 get의 차이?
+
+https://search.maven.org/artifact/net.coobird/thumbnailator
+
+implementation 'net.coobird:thumbnailator:0.4.11' 그레이들 이클립스
+
+C:\Users\user\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core 배치 파일 확인
+
+프로젝트에 썸네일 이미지 출력 필수
+
+원본그대로 쓰지 말고 썸네일이미지 생성으로 꼭 만들어서 골라서 할 것 .
+
+
+com.eomcs.web.ex05;

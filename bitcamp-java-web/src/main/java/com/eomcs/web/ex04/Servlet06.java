@@ -27,17 +27,36 @@ public class Servlet06 extends GenericServlet {
     // - http://localhost:8080/java-web/ex04/test06.html 실행
     //
 
-    // 같은 이름으로 여러 개의 데이터를 보낼 수 있다.
-    // => 예) name=aaa&name=bbb&name=ccc
-    String[] names = req.getParameterValues("name");
+    // 1) 서로 다른 이름으로 값을 보낼 경우
+    // => 예) genre1=on&genre2=on&genre4=on
+    // => 다음과 같이 각각의 이름에 대해 값을 꺼내 확인해야 한다.
+    String genre1 = req.getParameter("genre1");
+    String genre2 = req.getParameter("genre2");
+    String genre3 = req.getParameter("genre3");
+    String genre4 = req.getParameter("genre4");
+    String genre5 = req.getParameter("genre5");
+    String genre6 = req.getParameter("genre6");
 
     res.setContentType("text/plain;charset=UTF-8");
     PrintWriter out = res.getWriter();
-
-    out.println(req.getParameter("name"));
-    out.println("---------------------------------");
-    for (String name : names) {
-      out.printf("이름=%s\n", name);
+    out.println("선택한 장르:");
+    if (genre1 != null) {
+      out.println("로맨틱");
+    }
+    if (genre2 != null) {
+      out.println("스릴러");
+    }
+    if (genre3 != null) {
+      out.println("호러");
+    }
+    if (genre4 != null) {
+      out.println("드라마");
+    }
+    if (genre5 != null) {
+      out.println("액션");
+    }
+    if (genre6 != null) {
+      out.println("SF");
     }
   }
 }
