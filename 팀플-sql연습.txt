@@ -27,11 +27,17 @@ insert into nm_grade(grade_no, grade_name)
 
 
 ================
+
+mysql -u root -p; 
+
+
 show databases;
 use
 show tables;
 desc
 select * from nm_members;
+
+
 
 ======================
 

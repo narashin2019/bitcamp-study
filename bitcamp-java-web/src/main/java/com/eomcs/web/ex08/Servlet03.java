@@ -43,7 +43,11 @@ public class Servlet03 extends HttpServlet {
     out.println("<html><head>");
     out.println("<title>리다이렉트</title>");
     out.println("</head><body>");
-    // 버퍼가 꽉차서 클라이언트로 자동으로 출력되어 리다이렉트가 안먹히는 상황을 보고 싶다면
+
+    // 버퍼가 꽉차서 클라이언트로 자동 출력되면
+    // 리다이렉트가 안먹힌다.
+    // 왜? 리다이렉트 명령을 응답헤더로 보내기 때문이다.
+    // 이미 클라이언트로 출력을 완료했는데 어떻게 응답헤더를 보내는가?
     // 다음 반복문 주석을 풀라!
     // for (int i = 0; i < 4000; i++) {
     out.println("안녕하세요! - /ex08/s3");
@@ -63,4 +67,14 @@ public class Servlet03 extends HttpServlet {
   }
 }
 
+// redirect HTTP 응답 프로토콜
+// HTTP/1.1 302 <---- 요청한 자원이 다른 URL에 있음을 표시한다.
+// Location: s100 <---- 다른 URL의 주소를 알려준다.
+// Content-Type: text/html;charset=UTF-8
+// Content-Length: 0
+// Date: Tue, 07 Apr 2020 07:05:34 GMT
+// Keep-Alive: timeout=20
+// Connection: keep-alive
+//
+// <---내용을 보내지 않는다.
 

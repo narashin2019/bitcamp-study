@@ -34,14 +34,18 @@ public class Servlet02 extends HttpServlet {
       // => 엥! 출력된 것이 최소될 수 있나요?
       요청배달자.forward(request, response);
 
-      System.out.println("ex07Servlet02!!!");
+      System.out.println("ex07/Servlet02!!!");
+      // 포워딩 한 서블릿을 실행한 후 리턴된다.
+      // 단 리턴된 후에 출력하는 것은 모두 무시된다.
+      // 따라서 포워딩 후에 리턴되면 하위의 코드를 실행하지 않고
+      // 바로 종료하도록 다음과 같이 return 명령을 삽입하라!
       return;
     }
 
     int a = Integer.parseInt(request.getParameter("a"));
     int b = Integer.parseInt(request.getParameter("b"));
 
-    out.printf("%d - %d = %d\n", a, b, (a - b));
+    out.printf("%d - %d = %d\n", a, b, a - b);
   }
 }
 

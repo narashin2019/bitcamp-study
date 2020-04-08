@@ -1,4 +1,3 @@
-
 // 인클루딩(forwarding) - 다른 서블릿의 실행을 포함시키기
 package com.eomcs.web.ex07;
 
@@ -26,7 +25,7 @@ public class Servlet11_plus extends HttpServlet {
     int a = Integer.parseInt(request.getParameter("a"));
     int b = Integer.parseInt(request.getParameter("b"));
 
-    out.printf("%d + %d = %d\n", a, b, (a + b));
+    out.printf("%d + %d = %d\n", a, b, a + b);
 
     // 이 메서드의 호출이 완료되면 이전 서블릿으로 되돌아 간다.
   }
