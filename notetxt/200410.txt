@@ -1,0 +1,19 @@
+200410
+
+출력없이 redirect
+
+
+이메일 저장해두기 강사님것 보기 
+
+
+      Part photoPart = request.getPart("photo");
+      if (photoPart.getSize() > 0) {
+        String dirPath = getServletContext().getRealPath("/upload/member");
+        String filename = UUID.randomUUID().toString();
+        photoPart.write(dirPath + "/" + filename);
+
+
+        // 썸네일코드 여기 작성
+
+        member.setPhoto(filename);
+      }

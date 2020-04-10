@@ -1,31 +1,35 @@
-# 56_4 - 포워딩과 인클루딩 활용
+# 56_8 - 파일 업로드 기능 추가 
 
 ## 학습목표
 
-- 포워딩과 인클루딩을 구현할 수 있다.
-- 포워딩과 인클루딩의 동작을 이해한다.
-- ServletRequest 보관소를 활용할 수 있다.
+- multipart 형식으로 파일을 업로드하고 처리할 수 있다.
 
 ## 실습 소스 및 결과
 
-- src/main/java/com/eomcs/lms/servlet/HeaderServlet.java 추가
-- src/main/java/com/eomcs/lms/servlet/FooterServlet.java 추가
-- src/main/java/com/eomcs/lms/servlet/XxxServlet 변경
+- src/main/java/com/eomcs/lms/filter/AuthFilter.java 추가
 
 
 ## 실습  
 
-### 훈련1: 오류가 발생하면 ErrorServlet 으로 포워딩 한다.
+### 훈련1: 회원 추가에 파일 업로드 기능을 추가한다.
 
-- com.eomcs.lms.servlet.XxxServlet 변경
-  - 정상적으로 실행했을 경우 목록 화면으로 리다이렉트 한다.
-  - 오류가 발생했을 경우 ErrorServlet 으로 포워딩 한다.
-- com.eomcs.lms.servlet.ErrorServlet 변경
-  - ServletRequest 보관소에서 오류 객체를 꺼내 오류 내용을 출력한다. 
-  - doGet() 대신 GET/POST 모두 처리할 수 있는 service()를 오버라이딩 한다.
+- com.eomcs.lms.servlet.MemberAddServlet 변경
+  - 입력폼에 multipart/form-data 인코딩 적용한다.
+  - 서블릿 3.0에 추가된 멀티파트 데이터 처리 기능 활용하여 파일을 저장한다.
+
+### 훈련2: 회원 조회에 사진을 출력한다.
+
+- com.eomcs.lms.servlet.MemberDetailServlet 변경
+  - img 태그를 이용하여 사진을 출력한다.
+  - 사진을 변경할 수 있도록 변경폼을 multipart/form-data로 설정한다. 
+
+### 훈련3: 회원 변경에 파일 업로드 기능을 추가한다.
+
+- com.eomcs.lms.servlet.MemberUpdateServlet 변경
+  - 멀티파트 형식으로 넘어온 데이터를 처리한다.
   
-### 훈련2: 화면의 상단과 하단을 출력할 서블릿을 만들고 각 페이지에 포함한다.
+### 훈련4: 사진게시판에 파일 업로드를 적용한다.
 
-- com.eomcs.lms.servlet.HeaderServlet 추가
-- com.eomcs.lms.servlet.FooterServlet 추가
-- com.eomcs.lms.servlet.XxxServlet 변경
+- com.eomcs.lms.servlet.PhotoBoardAddServlet 변경
+- com.eomcs.lms.servlet.PhotoBoardDetailServlet 변경
+- com.eomcs.lms.servlet.PhotoBoardUpdateServlet 변경
