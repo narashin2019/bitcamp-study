@@ -1,0 +1,24 @@
+200414 
+
+비트캠프-웹 > src / main / webapp/jstl sx01~13
+
+*검색: JSTL document / JSTL document 클릭 / The Java EE 5 Tutoria ㅋ클릭/ >빌ㄷ그ㅔ이들에 ㅜㄱ,ㄴ
+
+
+*사진1:
+
+
+----------------------------
+
+57_3
+-------------------------
+
+*사진2
+
+58 디스패쳐서블릿
+
+프론트 컨트롤러 패턴
+*********https://opentutorials.org/module/3569/21219
+
+https://book.naver.com/bookdb/book_detail.nhn?bid=11795135
+
