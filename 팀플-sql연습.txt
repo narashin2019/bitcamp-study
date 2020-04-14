@@ -48,3 +48,7 @@ select * from nm_members;
 
 ## 데이터베이스 삭제
 DROP DATABASE 데이터베이스 이름
+
+##DROP TABLE 테이블이름;
+
+## 
