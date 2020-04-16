@@ -1,0 +1,73 @@
+200416
+
+사진1
+
+서블릿끼리 공통된 것을 뺀다 - 프론트컨트롤러 디스패처서블릿
+
+기존의 서블릿을 일반 클래스 POJO로 만듬
+> 보드 리스트 컨트롤러 - 페이지 컨트롤러 (web패키지)
+
+보드 서비스에게 요청하면 보드서비스는 보드 디에이오에 호출
+보드 서비스, 보드 디에이오 = Model
+보디디에이오와 DBMS가 연결
+
+기존에는 서블릿 컨테이너가 간리했다면
+이제는 관리 주체가 바뀜
+
+디스패처서블릿 : 서블릿 컨트롤러 가 관리주체
+
+디브패처서블릿이 화면출력을 담당하는 JSP로 including
+
+보드도메인은 서블릿리퀘스트에 담겨 있다
+
+디스패처 앞에 오쓰필터가 있다. + 캐릭터 인코딩필터 
+
+컨텐스트로더리스너 : Ioc 컨테이널를 준비
+
+우측은 spring IoC 컨테이너가 관리
+
+
+
+모놀리틱서비스 - 
+
+
+
+마이크로서비스(자바보다 가변운언어 - 자바스크립로 하자.=>NodeJS 시작
+서버가 달라? 
+
+단타성(영화예메) 마이크로서비스가 유리
+랜덤으로 하는 증 집에서
+
+
+------------------------------------
+https://search.maven.org/
+
+reflections
+
+implementation 'org.reflections:reflections:0.9.12'
+----------------------------------
+
+=requestHandler 변경
+=매인함수 암기
+
+==========================================
+spring-webmvc 5.2.5
+implementation 'org.springframework:spring-webmvc:5.2.5.RELEASE'
+
+///
+https://docs.spring.io/spring/docs/5.2.5.RELEASE/spring-framework-reference/web.html#spring-web
+
+<servlet>
+        <servlet-name>app</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value></param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>app</servlet-name>
+        <url-pattern>/app/*</url-pattern>
+    </servlet-mapping>
