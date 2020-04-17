@@ -1,0 +1,306 @@
+200417 금요일 
+
+스프링 엠브이씨가 모든 기술의 총합
+스프링 웹 엠브이씨 프레임웤
+
+사용방법 두 가지
+1. 그냥 스프링엠브이씨를 설치해서 그대로 쓰기 원리를 몰라도 쓰는데는 지장없다
+2. 스프링 내부 원리를 아는 프로. 
+
+------------------------
+사진1
+
+프론트 컨트롤러
+디스패처서블렛
+
+1. 설정 방법 : 
+1) web.xml에 설정
+
+2) Java Config에 설정
+실무에서 web.xml이 안보이는 경우 있음
+
+2. 클라이언트에서 요청이 들어오면 응답을 하는데 
+디스페처서블릿이 페이지 컨트롤러에게 위임
+페이지 컨트롤러 작성방법:
+1) 요청 핸들러를 만드는 방법 요청을 처리하는 메서드를 정의하는 방법 
+2) 파라미터선언하는 방법 
+3) 값을 리턴하는 방법 
+4) 의존객체 주입 방법 
+
+3, 디스패처서블릿이 JSP를 실행하는데 
+필터를 두 군데에 꽂을 수 있음 (페이지컨트롤러 전후, JSP 전후) 
+=>인터셉터 작성기술 
+
+4. 서블릿필터: 클라이언트와 디스패처서블릿 사이의 필터. 
+
+5. 페이지 컨트롤러가 서비스 객체를 요청., 
+서비스 객체가 dao 객체를 실행 
+dao는 dbms와 연결
+필터 점선 세개 : 특정 패턴에 대해 필터 삽입 기술 = AOP 메소드 호출 전 후 에 꽂는 것. 
+서비스 호출 앞뒤 dao호출 앞뒤 페이지 컨트롤러 앞뒤 3가지
+
+
+즉 따라서 필터는 3개의 기법이 있음.
+
+--------------------------------------------
+
+
+깃클론 두개 
+ git clone https://github.com/eomcs/eomcs-spring-webmvc.git
+ git clone https://github.com/eomcs/eomcs-java-web-library.git
+
+
+
+비트캠프 스터디 내에 폴더 생성 bitcamp-spring-webmvc 및 그레이들 이닛 (마지막항목은 bitcamp)
+
+C:\Users\user\git\eomcs-spring-webmvc 여기에서 src 와 build.gradle, 리드미복사 
+
+빌드그레이들 숫자12 지우고 그냥숫자없는것을 12호 
+
+비주얼 스튜디오 코드로 가서
+빌드 그레이들 1번 수정 (숫자 1뺌)
+12줄 compileOnly로 변경
+compile -> implementation 으로 변경 
+log4j라이브러리 최신 버전 2.13.1로 변경
+구글 구아바 28.2로 변경 
+
+bitcamp-spring-webmvc 로 가서 그레이들 이클립스 실행
+이클립스에서 임포트 
+
+
+-------------------------------
+
+이클립스에서 src 리네임 > src-00
+src-01을 리네임 > src 로 
+
+
+서버 뉴> 톰캣서버9선택하고 2째줄에 서버이름을 spring-webmvc로 함 피니쉬.
+
+package bitcamp;
+helloServlet.java파일
+
+
+소스-메인 . 웹앱/. 웹.xml : 디스크립션 태그는 선택사항
+디스플레이 네임 : 관리창에 출력되는 네임 없어도 됨
+
+웰컴파일: 틀정 폴더에서 파일을 순서대로 3개 찾고 없으면 에러뜸
+
+(스프링이 적용되기 전 상태)
+
+
+서버 우클릭 비트캠프스프링웹엠브이씨 선택 후 피니쉬
+
+서버 스타트  
+
+콘솔창 확인 
+
+새로만든 서버 더블 클릭후 우측에서  포트번호 9999맞는지 확인
+
+브라우저에서 테스트
+
+localhost:9999/bitcamp-spring-webmvc/ 엔터
+
+------------
+
+src를 원래대로ㅓ src-01로 바꾸고 src-02를 src로 
+빌드그레이들 > 빌드그레이들.01
+빌드그레이들02-07 > 빌드그레이들로 
+
+12줄 compileOnly로 변경
+compile -> implementation 으로 변경 
+log4j라이브러리 최신 버전 2.13.1로 변경
+spring-webmvc 5.2.5로 버전 변경 
+구아바 : 28.2
+
+클린이클립스 이클립스 그레이들 
+
+리프레쉬 
+
+서버 재스타트 
+
+
+localhost:9999/bitcamp-spring-webmvc/hello
+
+=---------------------
+
+xrc3
+설정 파일을 웹-inf 밖에 두는 경우가 있음. 소스 다 공개 됨 일반폴더에 두지 말아라
+
+
+----------------------
+
+src4
+
+contextConfigLocation 초기화 변수가 없으면 
+          다음 규칙에 따라 작성된 IoC 설정 파일을 자동으로 찾는다.
+          /WEB-INF/서블릿이름-servlet.xml 
+       => 해당 파일을 찾지 못하면 예외가 발생한다.
+java.io.FileNotFoundException: Could not open ServletContext resource [/WEB-INF/app-servlet.xml]
+
+http://localhost:9999/bitcamp-spring-webmvc/app/hello
+
+-----------------------------------------
+
+사진2
+--------------------
+
+src5 객체는 생성되었으나 주석 처리하니 실행은 불가 
+주석 다시 풀고 확인 http://localhost:9999/bitcamp-spring-webmvc/app/hello 됨!
+
+--------------------------------
+
+사진3
+
+디스패처서블릿 여러개 두는 경우 있음.
+나눠서 관리하자는 것
+
+페이지 컨트롤러, 인터셉터 일반 어플리케이션들어있는
+
+안드로이드 앱에서 요청이 들어왔을 때 그 요청을 처리하는 페이지 ㅓㅋㄴ트롤러
+
+관리자로 들어온는 요청을 처리하는 페이지 컨트롤러
+
+서로간에 남의 컨테이너 사용 불가. 
+
+위에 모두 공통적으로 서비스, dao 객체를 사용  => 컨텍스트로더리스너에 둠 얘는 공유함.
+프론트컨트롤러가 공유하는 객체는 컨텍스트로더리스터가 관리함.
+웹관련 애노테이션 인지 못함. 
+그래서 mvc 처리를 해줘야 인식이 가능.(디스패처안둔다면)
+
+
+페이지 컨트롤러관련 객체는 디스패처 서블릿이 각각 관리한다. 
+
+실무에서는 이원화 많음.
+
+당분간은 디스패처서블릿-프론트 컨트롤러, 페이지컨트롤러를 관리함 1개로 사용할 것 
+
+-------------------------------------------------------------
+src6
+
+디스패처서블릿을 2개 둠. 
+
+페이지 컨트롤러에서 공통으로 사용하는 것은 컨텍스트로더리스너가 관리. 
+
+---------------------------
+
+src7
+
+빌드그레이들08을 사용
+12줄 compileOnly로 변경
+compile -> implementation 으로 변경 
+log4j라이브러리 최신 버전 2.13.1로 변경
+spring-webmvc 5.2.5로 버전 변경 
+구아바 28.2
+
+C:\Users\user\git\bitcamp-study\bitcamp-spring-webmvc\lib 이전기수에서 복사해옴 .
+
+
+클린이클립스 이클립스 
+
+---------
+
+bitcamp-java-web-library 생성 후 들어가서 그레이들 이닛 - 첫번째 3번찍기!!!
+강사님거 라이브러리
+src1234복사 붙여넣기 
+
+
+
+
+빌드그레이들 변경(밑에)
+
+plugins {
+    id 'java-library'
+    id 'eclipse'
+}
+
+repositories {
+ 
+    jcenter()
+}
+
+dependencies {
+
+    // 자바 웹 프로젝트에서 사용할 클래스를 만들 때 
+    // servlet-api를 사용한다면 이 라이브러리를 추가해야 한다.
+    implementation group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+
+
+    api 'org.apache.commons:commons-math3:3.6.1'
+
+    implementation 'com.google.guava:guava:28.0-jre'
+
+    testImplementation 'junit:junit:4.12'
+}
+
+
+
+그레이들 클린이클립스 /그레이들 이클립스 / 임포트 
+
+이전기수 lib파일 복사
+
+---------------------------
+
+src 9 : web.xml 에 하나도 없네? > 자바 클래스로 디스패처서블릿 수동등록함.
+
+
+
+-------------------
+
+https://docs.spring.io/spring/docs/5.2.5.RELEASE/spring-framework-reference/ 즐겨찾기
+
+https://docs.spring.io/spring/docs/5.2.5.RELEASE/spring-framework-reference/web.html#spring-web 접속
+https://docs.spring.io/spring/docs/5.2.5.RELEASE/spring-framework-reference/web.html#mvc-container-config
+
+--------
+src12
+implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.10.4' 로 변경 후 클린이클립스 그레이들이클립스 리프레쉬
+
+페이지 컨트롤러를 만드는 다양한 방법
+
+http://localhost:9999/bitcamp-spring-webmvc/app1/c01_1 실행
+
+파라미터이름으로 구분 > 검색할떄
+엑셉트 -> 프로듀시스로 구분 
+콘텐트타입으로 구분 > 컨슘으로 구분
+
+
+
+시작은 프론트엔드 백엔드 같이해라. si에서 2~3년 구르고 그때 프론트인지 백엔드인지 정해서 1년간 이직준비해서 서비스업체가라
+
+복잡한것은 제이슨형식으로.
+겟요청은 컨텐츠마임타입이 없다.
+
+
+<약어 정리>
+컨텐트마임타입 content Multipurpose Internet Mail Extensions type
+html  HyperText Markup Language
+http Hypertext Transfer Protocol
+www world wide web
+
+---------------
+
+controller04_1
+
+https://docs.spring.io/spring/docs/5.2.5.RELEASE/spring-framework-reference/web.html#mvc-ann-methods참고
+> 메서드 아규먼트로 가능한 목록 나옴
+> 리턴벨류 리턴가능한 것 나옴
+
+http://localhost:9999/bitcamp-spring-webmvc/app1/c04_1/h1
+
+--------------------
+04_2
+
+필수항목 / 선택항목 / 선택항목 / null이 아니라 그 값이 들어감
+
+-----------------------
+04_3
+
+값을 넘기지 않으면 에러뜨는 int!!!  @RequestParam(defaultValue = "100") int capacity,  // 이렇게하면 디폴트값 됨. 
+
+http://localhost:9999/bitcamp-spring-webmvc/app1/c04_3/h1?model=aaa&maker=bbb&capacity=50&auto=true&engine.model=okok&engine.cc=1980&engine.valve=16
+
+
+
+C:\Users\user\git\eomcs-spring-webmvc> git pull
+
+
