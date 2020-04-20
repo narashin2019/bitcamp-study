@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class Controller02_1 {
 
   // 테스트 방법:
-  // => http://localhost:9999/bitcamp-spring-webmvc/html/app1/c02_1.html
+  // => http://localhost:9999/eomcs-spring-webmvc/html/app1/c02_1.html
 
-  @RequestMapping(method = RequestMethod.GET) // GET 요청일 때만 호출된다. //ctrl 스페이스 로 사용가능한거 다 볼 수 있음
+  @RequestMapping(method = RequestMethod.GET) // GET 요청일 때만 호출된다.
   @ResponseBody
   public String handler1() {
     return "get";

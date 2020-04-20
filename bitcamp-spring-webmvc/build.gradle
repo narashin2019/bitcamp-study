@@ -29,7 +29,7 @@ dependencies {
     implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.2.5.RELEASE'
 
     // 파일 시스템에 있는 .jar 파일 포함하기
-    //compile fileTree(dir: 'lib',  include: '*.jar')
+    //implementation fileTree(dir: 'lib',  include: '*.jar')
 
     // 파일 업로드 처리
     implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
@@ -61,7 +61,7 @@ dependencies {
     //    다음과 같이 의존하는 라이브러리를 추가해야 한다.
     // 
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.10.4'
-
+    
     // => 그런데 JSON 데이터를 처리할 때
     //    MappingJackson2HttpMessageConverter 대신 GsonHttpMessageConverter 를 사용할 수 있다.
     //    단 GsonHttpMessageConverter를 사용하려면 

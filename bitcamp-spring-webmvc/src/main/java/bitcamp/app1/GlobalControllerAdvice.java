@@ -1,7 +1,6 @@
 package bitcamp.app1;
 
 import java.beans.PropertyEditorSupport;
-import java.text.SimpleDateFormat;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -27,17 +26,17 @@ public class GlobalControllerAdvice {
   }
 
   class DatePropertyEditor extends PropertyEditorSupport {
-    SimpleDateFormat format;
-
     @Override
     public void setAsText(String text) throws IllegalArgumentException {
       try {
-        // String => java.util.date
+        // String ==> java.util.Date
         // SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         // Date date = format.parse(text);
         // setValue(date);
 
+        // String ==> java.sql.Date
         setValue(java.sql.Date.valueOf(text));
+
       } catch (Exception e) {
         throw new IllegalArgumentException(e);
       }

@@ -3,7 +3,6 @@ package bitcamp.app1;
 
 import java.beans.PropertyEditorSupport;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -26,8 +25,10 @@ public class Controller04_4 {
   // http://.../c04_4/h1?model=sonata&capacity=5&auto=true&createdDate=2019-4-19
   @GetMapping("h1")
   @ResponseBody
-  public void handler1(PrintWriter out, String model, int capacity, // String ===> int :
-                                                                    // Integer.parseInt(String)
+  public void handler1(//
+      PrintWriter out, //
+      String model, //
+      @RequestParam(defaultValue = "0") int capacity, // String ===> int : Integer.parseInt(String)
       boolean auto, // String ===> boolean : Boolean.parseBoolean(String)
       Date createdDate // 프로퍼티 에디터를 설정하지 않으면 변환 오류 발생
   ) {
@@ -112,20 +113,6 @@ public class Controller04_4 {
   // 따라서 이 클래스를 상속 받은 것 더 낫다.
   class DatePropertyEditor extends PropertyEditorSupport {
 
-    // yyyy-MM-dd 형태의 문자열을 java.util.Date 객체로 만들어주는 클래스를 준비한다.
-    SimpleDateFormat format;
-
-    public DatePropertyEditor() {
-      // 프로퍼티 에디터를 사용하는 측에서 어떤 형식의 문자열을 Date 객체로 만들 것인지
-      // 설정하지 않았다면 기본으로 yyyy-MM-dd 형식의 문자열을 Date 객체로 만들도록 준비한다.
-      format = new SimpleDateFormat("yyyy-MM-dd");
-    }
-
-    public DatePropertyEditor(SimpleDateFormat format) {
-      // 물론 프로퍼티 에디터를 사용하는 측에서 날짜에 대한 문자열 형식을 지정할 수도 있다.
-      this.format = format;
-    }
-
     @Override
     public void setAsText(String text) throws IllegalArgumentException {
       System.out.println("DatePropertyEditor.setAsText()");
@@ -133,7 +120,9 @@ public class Controller04_4 {
       // 문자열을 Date 객체로 바꾸기 위해 이 메서드를 호출할 것이다.
       // 그러면 이 메서드에서 문자열을 프로퍼티가 원하는 타입으로 변환한 후 저장하면 된다.
       try {
+
         // 1) String ==> java.util.Date
+        // SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         // Date date = format.parse(text); // String ===> java.util.Date
         // setValue(date); // 내부에 저장
 

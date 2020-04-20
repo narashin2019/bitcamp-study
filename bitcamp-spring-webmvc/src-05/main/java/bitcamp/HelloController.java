@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloController {
 
   public HelloController() {
-    System.out.println("HelloController() 호출됨!"); // 객체 생성여부 알아보는 용도
+    System.out.println("HelloController() 호출됨!");
   }
 
   @RequestMapping("/hello")
